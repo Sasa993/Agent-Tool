@@ -1,4 +1,5 @@
 import sys
+import sqlite3
 from PyQt4 import QtCore, QtGui, uic
 
 qtCreatorFile = "gui_fajl.ui"
@@ -10,14 +11,21 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		QtGui.QMainWindow.__init__(self)
 		Ui_MainWindow.__init__(self)
 		self.setupUi(self)
-		self.button.clicked.connect(self.testirana_funkcija)
+		self.button.clicked.connect(self.click_on_button)
 
-	def testirana_funkcija(self):
-		kita = str(self.prvi_input.text())
-		kita2 = str(self.drugi_input.text())
+	def click_on_button(self):
+		connection = sqlite3.connect("nova_baza.db")
 
-		# print("Prvo je {} a drugo je {}".format(kita, kita2))
-		self.output_label.setText(kita + " " + kita2)
+		ime = str(self.prvi_input.text())
+		ime = ime[0].upper() + ime[1:]
+		prezime = str(self.drugi_input.text())
+
+		connection.execute("INSERT INTO users VALUES(?,?)", (ime, prezime))
+		connection.commit()
+		connection.close()
+
+	def ispis_iz_baze():
+		connection = sqlite3.connect("baza.db")
 
 if __name__ == "__main__":
 	app = QtGui.QApplication(sys.argv)
