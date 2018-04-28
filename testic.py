@@ -14,18 +14,30 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.button.clicked.connect(self.click_on_button)
 
 	def click_on_button(self):
-		connection = sqlite3.connect("nova_baza.db")
+		connection = sqlite3.connect("baza.db")
 
 		ime = str(self.prvi_input.text())
-		ime = ime[0].upper() + ime[1:]
 		prezime = str(self.drugi_input.text())
 
-		connection.execute("INSERT INTO users VALUES(?,?)", (ime, prezime))
+		connection.execute("INSERT INTO users3 VALUES(NULL, ?, ?)", (ime, prezime))
 		connection.commit()
 		connection.close()
 
-	def ispis_iz_baze():
-		connection = sqlite3.connect("baza.db")
+		self.prvi_input.clear()
+		self.drugi_input.clear()
+
+	def click_on_button_exit(self):
+		sys.exit()
+
+	def closeEvent(self, event):
+	    pitanje = "Are you sure you want to exit the program?"
+	    reply = QtGui.QMessageBox.question(self, 'Message', 
+	                     pitanje, QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
+
+	    if reply == QtGui.QMessageBox.Yes:
+	        event.accept()
+	    else:
+	        event.ignore()
 
 if __name__ == "__main__":
 	app = QtGui.QApplication(sys.argv)

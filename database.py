@@ -1,13 +1,20 @@
 import sqlite3
 
-def ispis_iz_baze():
-	connection = sqlite3.connect("baza.db")
+def testic():
+	conn = sqlite3.connect("baza.db")
+	c = conn.cursor()
 
-	rezultat = connection.execute("SELECT * FROM SVE")
+	# c.execute("CREATE TABLE users3 (id INTEGER PRIMARY KEY AUTOINCREMENT, ime TEXT NOT NULL, prezime TEXT NOT NULL)")
+	# c.execute("ALTER TABLE SVE ADD COLUMN 'GODISTE' INTEGER NULL DEFAULT 1800")
+	# c.execute("DROP TABLE users")
+	# c.execute("UPDATE users2 set ime = 'Saskonja' where  = 3")
 
-	for data in rezultat:
-		print("Ime: {0}\nPrezime: {1}".format(data[0], data[1]))
+	# rezultat = c.execute("SELECT * FROM users2")
 
-	connection.close()
+	# for x in rezultat:
+	# 	print(x)
 
-ispis_iz_baze()
+	conn.commit()
+	conn.close()
+
+testic()
