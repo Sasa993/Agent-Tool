@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>318</width>
-    <height>374</height>
+    <width>580</width>
+    <height>464</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,6 +40,16 @@
    </property>
    <property name="text">
     <string>Kurac palac</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="label_ispis">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>180</y>
+     <width>256</width>
+     <height>192</height>
+    </rect>
    </property>
   </widget>
  </widget>

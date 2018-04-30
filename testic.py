@@ -21,6 +21,20 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 		# super(Ui_testWidget, self).__init__(parent)
 		QtGui.QWidget.__init__(self, parent)
 		self.setupUi(self)
+		self.ispis_iz_baze()
+
+	def ispis_iz_baze(self):
+		conn = sqlite3.connect("baza.db")
+		c = conn.cursor()
+
+		rezultat = c.execute("SELECT * FROM test1")
+
+		for x in rezultat:
+			self.label_ispis.addItem("{0}. {1} {2}".format(str(x[0]), x[1], x[2]))
+			# print(x)
+
+		conn.commit()
+		conn.close()
 		
 class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def __init__(self):

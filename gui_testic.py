@@ -26,7 +26,7 @@ class Ui_testWidget(object):
     def setupUi(self, testWidget):
         testWidget.setObjectName(_fromUtf8("testWidget"))
         testWidget.setWindowModality(QtCore.Qt.NonModal)
-        testWidget.resize(342, 295)
+        testWidget.resize(580, 464)
         self.label = QtGui.QLabel(testWidget)
         self.label.setGeometry(QtCore.QRect(50, 70, 131, 91))
         font = QtGui.QFont()
@@ -37,6 +37,9 @@ class Ui_testWidget(object):
         self.label.setStyleSheet(_fromUtf8("background-color: rgb(17, 140, 255);"))
         self.label.setFrameShape(QtGui.QFrame.NoFrame)
         self.label.setObjectName(_fromUtf8("label"))
+        self.label_ispis = QtGui.QListWidget(testWidget)
+        self.label_ispis.setGeometry(QtCore.QRect(210, 180, 256, 192))
+        self.label_ispis.setObjectName(_fromUtf8("label_ispis"))
 
         self.retranslateUi(testWidget)
         QtCore.QMetaObject.connectSlotsByName(testWidget)
