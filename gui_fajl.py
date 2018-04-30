@@ -75,6 +75,8 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuHelp = QtGui.QMenu(self.menubar)
         self.menuHelp.setObjectName(_fromUtf8("menuHelp"))
+        self.menuTestic = QtGui.QMenu(self.menubar)
+        self.menuTestic.setObjectName(_fromUtf8("menuTestic"))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
@@ -92,8 +94,12 @@ class Ui_MainWindow(object):
         self.actionAbout.setWhatsThis(_fromUtf8(""))
         self.actionAbout.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.actionAbout.setObjectName(_fromUtf8("actionAbout"))
+        self.actionTestic = QtGui.QAction(MainWindow)
+        self.actionTestic.setObjectName(_fromUtf8("actionTestic"))
         self.menuHelp.addAction(self.actionAbout)
+        self.menuTestic.addAction(self.actionTestic)
         self.menubar.addAction(self.menuHelp.menuAction())
+        self.menubar.addAction(self.menuTestic.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -104,12 +110,14 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Prezime", None))
         self.glavni_btn.setText(_translate("MainWindow", "Save", None))
         self.menuHelp.setTitle(_translate("MainWindow", "Help", None))
+        self.menuTestic.setTitle(_translate("MainWindow", "Drugi", None))
         self.actionSdsa.setText(_translate("MainWindow", "sdsa", None))
         self.actionSadas.setText(_translate("MainWindow", "sadas", None))
         self.actionSda.setText(_translate("MainWindow", "sda", None))
         self.actionAsd.setText(_translate("MainWindow", "asd", None))
         self.actionAbout.setText(_translate("MainWindow", "About Lesa", None))
         self.actionAbout.setStatusTip(_translate("MainWindow", "About dude Lesa", None))
+        self.actionTestic.setText(_translate("MainWindow", "Testic", None))
 
 
 if __name__ == "__main__":

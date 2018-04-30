@@ -166,7 +166,14 @@
     </property>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menuTestic">
+    <property name="title">
+     <string>Drugi</string>
+    </property>
+    <addaction name="actionTestic"/>
+   </widget>
    <addaction name="menuHelp"/>
+   <addaction name="menuTestic"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSdsa">
@@ -204,6 +211,11 @@
    </property>
    <property name="shortcutContext">
     <enum>Qt::WindowShortcut</enum>
+   </property>
+  </action>
+  <action name="actionTestic">
+   <property name="text">
+    <string>Testic</string>
    </property>
   </action>
  </widget>

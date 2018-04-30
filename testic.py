@@ -3,10 +3,7 @@ import sqlite3
 from PyQt4 import QtCore, QtGui, uic
 from gui_fajl import Ui_MainWindow
 from gui_about import Ui_aboutDialog
-
-# qtCreatorFile = "gui_fajl.ui"
-
-# Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
+from gui_testic import Ui_testWidget
 
 class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 	def __init__(self, parent = None):
@@ -19,15 +16,30 @@ class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 	def click_on_about_btn(self):
 		self.close()
 
-
+class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
+	def __init__(self, parent = None):
+		# super(Ui_testWidget, self).__init__(parent)
+		QtGui.QWidget.__init__(self, parent)
+		self.setupUi(self)
+		
 class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def __init__(self):
 		QtGui.QMainWindow.__init__(self)
 		Ui_MainWindow.__init__(self)
 		self.setupUi(self)
 		self.glavni_btn.clicked.connect(self.click_on_button)
+
 		self.actionAbout.triggered.connect(self.actionAbout_triggered)
 		self.popAboutDialog = aboutDialog()
+
+		self.actionTestic.triggered.connect(self.startUi_testWidget)
+		
+
+	def startUi_testWidget(self):
+		self.poptestWidget = Ui_testWidget()
+		self.setWindowTitle("UIToolTab")
+		self.setCentralWidget(self.poptestWidget)
+		self.poptestWidget.show()
 
 	def click_on_button(self):
 		connection = sqlite3.connect("baza.db")
