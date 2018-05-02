@@ -38,9 +38,14 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 		
 class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def __init__(self):
+
 		QtGui.QMainWindow.__init__(self)
 		Ui_MainWindow.__init__(self)
 		self.setupUi(self)
+		self.glavni_btn.setDisabled(True)
+		self.prvi_input.textChanged.connect(self.disable_glavni_btn)
+		self.prvi_input.textChanged.connect(lambda: self.prvi_input(prvi_input))
+		self.drugi_input.textChanged.connect(self.disable_glavni_btn)
 		self.glavni_btn.clicked.connect(self.click_on_button)
 
 		self.actionAbout.triggered.connect(self.actionAbout_triggered)
@@ -48,7 +53,6 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 		self.actionTestic.triggered.connect(self.startUi_testWidget)
 		
-
 	def startUi_testWidget(self):
 		self.poptestWidget = Ui_testWidget()
 		self.setWindowTitle("UIToolTab")
@@ -61,12 +65,33 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		ime = str(self.prvi_input.text())
 		prezime = str(self.drugi_input.text())
 
+		#if (ime == "" or prezime == ""):
+			#self.test_label.setText("NE MOZE!")
+		#else:
+			#connection.execute("INSERT INTO test1 VALUES(NULL, ?, ?)", (ime, prezime))
+			#connection.commit()
+
 		connection.execute("INSERT INTO test1 VALUES(NULL, ?, ?)", (ime, prezime))
 		connection.commit()
 		connection.close()
 
 		self.prvi_input.clear()
 		self.drugi_input.clear()
+		self.glavni_btn.setDisabled(True)
+
+	def disable_glavni_btn(self):
+		if (len(self.prvi_input.text()) > 0 and len(self.drugi_input.text()) > 0):
+			self.glavni_btn.setDisabled(False)
+			
+		else:
+			self.glavni_btn.setDisabled(True)
+
+	def red_prvi_input(self, koji_input):
+		if (len(self.koji_input.text() < 1)):
+			self.koji_input.setStyleSheet('QWidget{background-color: rgb(255, 36, 8)}')
+		else:
+			self.koji_input.setStyleSheet('QWidget{background-color: rgb()}')
+
 
 	def closeEvent(self, event):
 	    pitanje = "Are you sure you want to exit the program?"

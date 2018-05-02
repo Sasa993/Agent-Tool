@@ -37,6 +37,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
         spacerItem = QtGui.QSpacerItem(60, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem)
+        self.test_label = QtGui.QLabel(self.centralwidget)
+        self.test_label.setObjectName(_fromUtf8("test_label"))
+        self.horizontalLayout_2.addWidget(self.test_label)
         self.verticalLayout_6 = QtGui.QVBoxLayout()
         self.verticalLayout_6.setObjectName(_fromUtf8("verticalLayout_6"))
         self.verticalLayout_8 = QtGui.QVBoxLayout()
@@ -106,6 +109,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "Lesa", None))
+        self.test_label.setText(_translate("MainWindow", "TextLabel", None))
         self.label_2.setText(_translate("MainWindow", "Ime", None))
         self.label.setText(_translate("MainWindow", "Prezime", None))
         self.glavni_btn.setText(_translate("MainWindow", "Save", None))

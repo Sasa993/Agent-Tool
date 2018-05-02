@@ -8,7 +8,7 @@ def testic():
 	# c.execute("ALTER TABLE SVE ADD COLUMN 'GODISTE' INTEGER NULL DEFAULT 1800")
 	# c.execute("DROP TABLE users")
 	# c.execute("UPDATE users2 set ime = 'Saskonja' where  = 3")
-	c.execute("INSERT INTO test3 VALUES(NULL, ?, NULL)", ("Lesa"))
+	# c.execute("INSERT INTO test3 VALUES(NULL, ?, NULL)", ("Lesa"))
 
 	# rezultat = c.execute("SELECT * FROM users2")
 
