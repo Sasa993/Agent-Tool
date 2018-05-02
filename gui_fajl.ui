@@ -42,13 +42,6 @@
      </spacer>
     </item>
     <item>
-     <widget class="QLabel" name="test_label">
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-    </item>
-    <item>
      <layout class="QVBoxLayout" name="verticalLayout_6">
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -79,7 +72,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="prvi_input"/>
+         <widget class="QLineEdit" name="prvi_input">
+          <property name="styleSheet">
+           <string notr="true">background-color: #fff</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QLabel" name="label">
