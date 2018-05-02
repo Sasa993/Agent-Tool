@@ -37,9 +37,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
         spacerItem = QtGui.QSpacerItem(60, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem)
-        self.test_label = QtGui.QLabel(self.centralwidget)
-        self.test_label.setObjectName(_fromUtf8("test_label"))
-        self.horizontalLayout_2.addWidget(self.test_label)
         self.verticalLayout_6 = QtGui.QVBoxLayout()
         self.verticalLayout_6.setObjectName(_fromUtf8("verticalLayout_6"))
         self.verticalLayout_8 = QtGui.QVBoxLayout()
@@ -51,6 +48,7 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.verticalLayout_8.addWidget(self.label_2)
         self.prvi_input = QtGui.QLineEdit(self.centralwidget)
+        self.prvi_input.setStyleSheet(_fromUtf8(""))
         self.prvi_input.setObjectName(_fromUtf8("prvi_input"))
         self.verticalLayout_8.addWidget(self.prvi_input)
         self.label = QtGui.QLabel(self.centralwidget)
@@ -59,6 +57,7 @@ class Ui_MainWindow(object):
         self.label.setObjectName(_fromUtf8("label"))
         self.verticalLayout_8.addWidget(self.label)
         self.drugi_input = QtGui.QLineEdit(self.centralwidget)
+        self.drugi_input.setStyleSheet(_fromUtf8(""))
         self.drugi_input.setObjectName(_fromUtf8("drugi_input"))
         self.verticalLayout_8.addWidget(self.drugi_input)
         spacerItem2 = QtGui.QSpacerItem(20, 60, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Preferred)
@@ -109,7 +108,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "Lesa", None))
-        self.test_label.setText(_translate("MainWindow", "TextLabel", None))
         self.label_2.setText(_translate("MainWindow", "Ime", None))
         self.label.setText(_translate("MainWindow", "Prezime", None))
         self.glavni_btn.setText(_translate("MainWindow", "Save", None))

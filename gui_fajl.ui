@@ -74,7 +74,7 @@
         <item>
          <widget class="QLineEdit" name="prvi_input">
           <property name="styleSheet">
-           <string notr="true">background-color: #fff</string>
+           <string notr="true"/>
           </property>
          </widget>
         </item>
@@ -92,7 +92,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="drugi_input"/>
+         <widget class="QLineEdit" name="drugi_input">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+         </widget>
         </item>
         <item>
          <spacer name="verticalSpacer_2">

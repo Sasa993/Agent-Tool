@@ -88,8 +88,11 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		connection.close()
 
 		self.prvi_input.clear()
+		self.prvi_input.setStyleSheet("QWidget { background-color: rgb(255, 255, 255)}")
 		self.drugi_input.clear()
-		self.glavni_btn.setDisabled(True)
+		self.drugi_input.setStyleSheet("QWidget { background-color: rgb(255, 255, 255)}")
+
+		self.glavni_btn.setDisabled(True)	
 
 	# vracanje glavnog_btn na "clickable" kad su inputi popunjeni
 	def enable_glavni_btn(self):
