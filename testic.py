@@ -4,6 +4,11 @@ from PyQt4 import QtCore, QtGui, uic
 from gui_fajl import Ui_MainWindow
 from gui_about import Ui_aboutDialog
 from gui_testic import Ui_testWidget
+import datetime
+
+s = 0
+m = 0
+h = 0
 
 class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 	def __init__(self, parent = None):
@@ -36,7 +41,7 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 
 		conn.commit()
 		conn.close()
-		
+
 class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def __init__(self):
 
@@ -55,7 +60,74 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.popAboutDialog = aboutDialog()
 
 		self.actionTestic.triggered.connect(self.startUi_testWidget)
-		
+		#-------------------------------------------------------------- 
+		self.timer = QtCore.QTimer(self)
+		self.timer.timeout.connect(self.Time)
+		self.start.clicked.connect(self.Start)
+		self.stop.clicked.connect(lambda: self.timer.stop())
+		self.reset.clicked.connect(self.Reset)
+
+	def Reset(self):
+		global s,m,h
+
+		self.timer.stop()
+		vrijeme = "{0}:{1}:{2}".format(h,m,s)
+		print("Vrijeme koliko ti je trebalo da napises jebeni TIKET iznosi:\n{0}".format(vrijeme))
+
+		s = 0
+		m = 0
+		h = 0
+ 
+		time = "{0}:{1}:{2}".format(h,m,s)
+ 
+		# self.lcd.setDigitCount(len(time))
+		# self.lcd.display(time)
+
+		self.vrijeme_lbl.setText(time)
+
+	def Start(self):
+		global s,m,h
+
+		self.timer.start(1000)
+
+	def Time(self):
+		global s,m,h
+
+		if (s < 59):
+			s += 1
+		else:
+			if (m < 59):
+				s = 0
+				m += 1
+			elif (m == 59 and h < 24):
+				h += 1
+				m = 0
+				s = 0
+			else:
+				self.timer.stop()
+
+		time = "{0}:{1}:{2}".format(h, m, s)
+
+		# self.lcd.setDigitCount(len(time))
+		# self.lcd.display(time)
+
+		self.vrijeme_lbl.setText(time)
+
+		#mjerenje vremena (mozda bi mogla biti smjena)
+		# self.count = 15
+		# self.interval = 1200
+		# self.timer = QtCore.QTimer()
+		# self.timer.timeout.connect(self.countdown)
+		# self.timer.start(1000)
+
+	# def countdown(self):
+	# 	global count
+	# 	if (self.count < 1):
+	# 		self.count = 15
+	# 	self.now = datetime.datetime.now()
+	# 	self.test_label.setText('Time now: %s. End time: %s. Seconds left: %s'%(self.now.strftime("%H:%M:%S"), (self.now + datetime.timedelta(seconds=self.count)).strftime("%H:%M:%S"), self.count))
+	# 	self.count = self.count - 1
+
 	def startUi_testWidget(self):
 		self.poptestWidget = Ui_testWidget()
 		self.setWindowTitle("UIToolTab")
