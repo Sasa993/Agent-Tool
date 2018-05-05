@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>952</width>
+    <width>936</width>
     <height>838</height>
    </rect>
   </property>
@@ -45,13 +45,55 @@
       <item row="1" column="0">
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_9">
-          <property name="topMargin">
-           <number>15</number>
-          </property>
-          <property name="bottomMargin">
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="rightMargin">
            <number>0</number>
           </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_incident">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>257</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="frame">
+             <bool>true</bool>
+            </property>
+            <property name="echoMode">
+             <enum>QLineEdit::Normal</enum>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string notr="true">#Incident number</string>
+            </property>
+            <property name="clearButtonEnabled" stdset="0">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
           <item>
            <spacer name="horizontalSpacer">
             <property name="orientation">
@@ -62,216 +104,100 @@
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>0</width>
+              <width>30</width>
               <height>20</height>
              </size>
             </property>
            </spacer>
           </item>
           <item>
-           <widget class="QLabel" name="label_6">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
+           <widget class="QComboBox" name="comboBox_severity">
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
-              <height>10</height>
+              <width>100</width>
+              <height>16777215</height>
              </size>
             </property>
-            <property name="baseSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
             </property>
-            <property name="autoFillBackground">
+            <property name="acceptDrops">
              <bool>false</bool>
             </property>
-            <property name="frameShape">
-             <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="text">
-             <string>Incident number</string>
-            </property>
-            <property name="scaledContents">
-             <bool>false</bool>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_5">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>10</height>
-             </size>
-            </property>
-            <property name="baseSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Status</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_4">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>10</height>
-             </size>
-            </property>
-            <property name="baseSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="text">
+            <property name="toolTip">
              <string>Severity</string>
             </property>
-            <property name="alignment">
-             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_3">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>10</height>
-             </size>
-            </property>
-            <property name="baseSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Date</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
-          <item>
-           <widget class="QLineEdit" name="lineEdit">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-            <property name="placeholderText">
+            <property name="statusTip">
              <string/>
             </property>
-            <property name="clearButtonEnabled" stdset="0">
+            <property name="whatsThis">
+             <string/>
+            </property>
+            <property name="accessibleName">
+             <string/>
+            </property>
+            <property name="editable">
              <bool>false</bool>
             </property>
+            <property name="frame">
+             <bool>true</bool>
+            </property>
+            <item>
+             <property name="text">
+              <string>Sev 1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sev 2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sev 3</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox"/>
-          </item>
-          <item>
-           <widget class="QComboBox" name="comboBox_2"/>
+           <widget class="QComboBox" name="comboBox_status">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string>Status</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Open</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Closed</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>WFC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Escalated</string>
+             </property>
+            </item>
+           </widget>
           </item>
           <item>
            <spacer name="horizontalSpacer_3">
@@ -290,7 +216,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_2">
+           <widget class="QLineEdit" name="lineEdit_datum">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -308,6 +234,14 @@
               <width>123</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
             </property>
            </widget>
           </item>
@@ -328,7 +262,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_9">
+           <widget class="QPushButton" name="pushButton_save">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -338,11 +272,41 @@
             <property name="minimumSize">
              <size>
               <width>0</width>
-              <height>30</height>
+              <height>50</height>
              </size>
             </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
             <property name="text">
-             <string>PushButton</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="images/xy.qrc">
+              <normaloff>:/prva/001-save.png</normaloff>:/prva/001-save.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
+            <property name="default">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -352,6 +316,11 @@
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
            <widget class="QLabel" name="label_11">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Name and last name</string>
             </property>
@@ -362,6 +331,11 @@
           </item>
           <item>
            <widget class="QLabel" name="label_10">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Callback number</string>
             </property>
@@ -372,6 +346,11 @@
           </item>
           <item>
            <widget class="QLabel" name="label_9">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>ZIP code</string>
             </property>
@@ -382,6 +361,11 @@
           </item>
           <item>
            <widget class="QLabel" name="label_8">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Site key</string>
             </property>
@@ -392,6 +376,11 @@
           </item>
           <item>
            <widget class="QLabel" name="label_7">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Email</string>
             </property>
@@ -405,23 +394,52 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QLineEdit" name="lineEdit_7">
+           <widget class="QLineEdit" name="lineEdit_ime_prezime">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="alignment">
              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_6"/>
+           <widget class="QLineEdit" name="lineEdit_broj_telefona">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+           </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_5"/>
+           <widget class="QLineEdit" name="lineEdit_zip_code">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+           </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_4"/>
+           <widget class="QLineEdit" name="lineEdit_site_key">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+           </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_3"/>
+           <widget class="QLineEdit" name="lineEdit_email">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -524,8 +542,14 @@
     </item>
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout_2">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
       <item row="0" column="0">
-       <widget class="QLabel" name="label_12">
+       <widget class="QLabel" name="label_timer">
         <property name="font">
          <font>
           <pointsize>20</pointsize>
@@ -548,7 +572,7 @@
       <item row="1" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QPushButton" name="pushButton_13">
+         <widget class="QPushButton" name="pushButton_start">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -568,7 +592,8 @@
           </property>
           <property name="icon">
            <iconset resource="images/xy.qrc">
-            <normaloff>:/prva/002-play-button.png</normaloff>:/prva/002-play-button.png</iconset>
+            <normaloff>:/prva/002-play-button.png</normaloff>
+            <normalon>:/prva/001-pause.png</normalon>:/prva/002-play-button.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -576,8 +601,20 @@
             <height>32</height>
            </size>
           </property>
-          <property name="autoDefault">
+          <property name="checkable">
            <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <property name="autoRepeat">
+           <bool>false</bool>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
           </property>
           <property name="default">
            <bool>false</bool>
@@ -588,7 +625,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_12">
+         <widget class="QPushButton" name="pushButton_reset">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -658,7 +695,7 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>280</width>
+          <width>330</width>
           <height>16777215</height>
          </size>
         </property>
@@ -675,9 +712,9 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>0</y>
+           <y>-223</y>
            <width>2123</width>
-           <height>725</height>
+           <height>778</height>
           </rect>
          </property>
          <property name="sizePolicy">
@@ -697,8 +734,8 @@
            <rect>
             <x>4</x>
             <y>2</y>
-            <width>251</width>
-            <height>713</height>
+            <width>294</width>
+            <height>770</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -722,179 +759,495 @@
            </property>
            <item>
             <widget class="QLabel" name="label_19">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>Has site ever called support for the same issue?</string>
              </property>
              <property name="textFormat">
               <enum>Qt::AutoText</enum>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_13"/>
+            <widget class="QLineEdit" name="lineEdit_has_site_ever_called">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>YES / NO, if YES, give incident #</string>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_20">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>Did it ever work?</string>
              </property>
              <property name="textFormat">
               <enum>Qt::AutoText</enum>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_14"/>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QPushButton" name="pushButton_na_did_it_ever_work">
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>N / A</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_did_it_ever_work">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <widget class="QLabel" name="label_22">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>When did it stop working?</string>
              </property>
              <property name="textFormat">
               <enum>Qt::AutoText</enum>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBox_8"/>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="QPushButton" name="pushButton_na_when_did_it_stop">
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>N / A</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_when_did_it_stop">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <widget class="QLabel" name="label_29">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>Changes made around that time?</string>
              </property>
              <property name="textFormat">
               <enum>Qt::AutoText</enum>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBox_9"/>
+            <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <item>
+              <widget class="QPushButton" name="pushButton_na_changes_made">
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>N / A</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_changes_made">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <widget class="QLabel" name="label_28">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>How many terminals on location?</string>
              </property>
              <property name="textFormat">
               <enum>Qt::AutoText</enum>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBox_10"/>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <item>
+              <widget class="QPushButton" name="pushButton_na_how_many_term_location">
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>N / A</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_how_many_term_location">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <widget class="QLabel" name="label_27">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>How many terminals are down?</string>
              </property>
              <property name="textFormat">
               <enum>Qt::AutoText</enum>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_15"/>
+            <layout class="QHBoxLayout" name="horizontalLayout_9">
+             <item>
+              <widget class="QPushButton" name="pushButton_na_how_many_term_down">
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>N / A</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_how_many_term_down">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <widget class="QLabel" name="label_26">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>Are any affected terminals specialty terminals?</string>
              </property>
              <property name="textFormat">
               <enum>Qt::AutoText</enum>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBox_11"/>
+            <layout class="QHBoxLayout" name="horizontalLayout_11">
+             <item>
+              <widget class="QPushButton" name="pushButton_na_any_affected">
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>N / A</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_any_affected">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <widget class="QLabel" name="label_23">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>Screenshots attached (if applicable)</string>
              </property>
              <property name="textFormat">
               <enum>Qt::AutoText</enum>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_16"/>
+            <layout class="QHBoxLayout" name="horizontalLayout_12">
+             <item>
+              <widget class="QPushButton" name="pushButton_na_screenshots_attached">
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>N / A</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_screenshots_attached">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <widget class="QLabel" name="label_21">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>Model &amp; S/N (if hardware related)</string>
              </property>
              <property name="textFormat">
               <enum>Qt::AutoText</enum>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBox_12"/>
+            <layout class="QHBoxLayout" name="horizontalLayout_13">
+             <item>
+              <widget class="QPushButton" name="pushButton_na_model_serial">
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>N / A</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_model_serial">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <widget class="QLabel" name="label_24">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>Alternative method that will be used by the site</string>
              </property>
              <property name="textFormat">
               <enum>Qt::AutoText</enum>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_17"/>
+            <layout class="QHBoxLayout" name="horizontalLayout_14">
+             <item>
+              <widget class="QPushButton" name="pushButton_na_alternative_method">
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>N / A</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_alternative_method">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <widget class="QLabel" name="label_25">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>***Next steps for next contact:</string>
              </property>
              <property name="textFormat">
               <enum>Qt::AutoText</enum>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPlainTextEdit" name="plainTextEdit_2">
+            <widget class="QPlainTextEdit" name="plainTextEdit_next_steps">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -906,6 +1259,11 @@
                <width>16777215</width>
                <height>150</height>
               </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
              </property>
             </widget>
            </item>
@@ -1132,11 +1490,16 @@
       </property>
       <item>
        <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="layoutDirection">
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>Description</string>
+         <string>Description of the problem</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
@@ -1144,7 +1507,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QTextEdit" name="textEdit_2">
+       <widget class="QTextEdit" name="textEdit_description_problem">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -1183,11 +1546,16 @@
       </item>
       <item>
        <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="layoutDirection">
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>Description</string>
+         <string>Reporoduction and Troubleshooting stepks taken to resolve</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
@@ -1195,7 +1563,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QTextEdit" name="textEdit">
+       <widget class="QTextEdit" name="textEdit_reporoduction_troubleshooting">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -1219,7 +1587,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>952</width>
+     <width>936</width>
      <height>21</height>
     </rect>
    </property>
@@ -1282,6 +1650,53 @@
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_ime_prezime</tabstop>
+  <tabstop>lineEdit_broj_telefona</tabstop>
+  <tabstop>lineEdit_zip_code</tabstop>
+  <tabstop>lineEdit_site_key</tabstop>
+  <tabstop>lineEdit_email</tabstop>
+  <tabstop>textEdit_description_problem</tabstop>
+  <tabstop>textEdit_reporoduction_troubleshooting</tabstop>
+  <tabstop>lineEdit_has_site_ever_called</tabstop>
+  <tabstop>pushButton_na_did_it_ever_work</tabstop>
+  <tabstop>lineEdit_did_it_ever_work</tabstop>
+  <tabstop>pushButton_na_when_did_it_stop</tabstop>
+  <tabstop>lineEdit_when_did_it_stop</tabstop>
+  <tabstop>pushButton_na_changes_made</tabstop>
+  <tabstop>lineEdit_changes_made</tabstop>
+  <tabstop>pushButton_na_how_many_term_location</tabstop>
+  <tabstop>lineEdit_how_many_term_location</tabstop>
+  <tabstop>pushButton_na_how_many_term_down</tabstop>
+  <tabstop>lineEdit_how_many_term_down</tabstop>
+  <tabstop>pushButton_na_any_affected</tabstop>
+  <tabstop>lineEdit_any_affected</tabstop>
+  <tabstop>pushButton_na_screenshots_attached</tabstop>
+  <tabstop>lineEdit_screenshots_attached</tabstop>
+  <tabstop>pushButton_na_model_serial</tabstop>
+  <tabstop>lineEdit_model_serial</tabstop>
+  <tabstop>pushButton_na_alternative_method</tabstop>
+  <tabstop>lineEdit_alternative_method</tabstop>
+  <tabstop>plainTextEdit_next_steps</tabstop>
+  <tabstop>lineEdit_incident</tabstop>
+  <tabstop>comboBox_severity</tabstop>
+  <tabstop>comboBox_status</tabstop>
+  <tabstop>lineEdit_datum</tabstop>
+  <tabstop>pushButton_save</tabstop>
+  <tabstop>pushButton_start</tabstop>
+  <tabstop>pushButton_reset</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton_8</tabstop>
+  <tabstop>pushButton_7</tabstop>
+  <tabstop>pushButton_3</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>pushButton_5</tabstop>
+  <tabstop>pushButton_6</tabstop>
+  <tabstop>pushButton_11</tabstop>
+  <tabstop>pushButton_10</tabstop>
+  <tabstop>scrollArea</tabstop>
+ </tabstops>
  <resources>
   <include location="images/xy.qrc"/>
  </resources>
