@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>956</width>
+    <width>952</width>
     <height>838</height>
    </rect>
   </property>
@@ -330,10 +330,16 @@
           <item>
            <widget class="QPushButton" name="pushButton_9">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
             </property>
             <property name="text">
              <string>PushButton</string>
@@ -520,10 +526,108 @@
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
        <widget class="QLabel" name="label_12">
+        <property name="font">
+         <font>
+          <pointsize>20</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <underline>false</underline>
+          <strikeout>false</strikeout>
+          <kerning>true</kerning>
+         </font>
+        </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string>0:0:0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
+      </item>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QPushButton" name="pushButton_13">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>START</string>
+          </property>
+          <property name="icon">
+           <iconset resource="images/xy.qrc">
+            <normaloff>:/prva/002-play-button.png</normaloff>:/prva/002-play-button.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="autoDefault">
+           <bool>true</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_12">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>RESET</string>
+          </property>
+          <property name="icon">
+           <iconset resource="images/xy.qrc">
+            <normaloff>:/prva/001-replay.png</normaloff>:/prva/001-replay.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
+          </property>
+          <property name="autoDefault">
+           <bool>true</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
@@ -820,6 +924,25 @@
       <property name="rightMargin">
        <number>10</number>
       </property>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </item>
       <item row="2" column="0">
        <widget class="QPushButton" name="pushButton_8">
         <property name="minimumSize">
@@ -858,25 +981,6 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>180</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
       <item row="3" column="0">
        <widget class="QPushButton" name="pushButton_3">
         <property name="minimumSize">
@@ -896,8 +1000,8 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QPushButton" name="pushButton_5">
+      <item row="2" column="2">
+       <widget class="QPushButton" name="pushButton_7">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -915,8 +1019,8 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="2">
-       <widget class="QPushButton" name="pushButton_7">
+      <item row="4" column="0">
+       <widget class="QPushButton" name="pushButton_5">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -1115,7 +1219,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>956</width>
+     <width>952</width>
      <height>21</height>
     </rect>
    </property>
@@ -1178,6 +1282,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="images/xy.qrc"/>
+ </resources>
  <connections/>
 </ui>
