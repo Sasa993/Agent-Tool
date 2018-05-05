@@ -1,8 +1,0 @@
-<RCC>
-  <qresource prefix="prva">
-    <file>001-save.png</file>
-    <file>002-play-button.png</file>
-    <file>001-pause.png</file>
-    <file>001-replay.png</file>
-  </qresource>
-</RCC>

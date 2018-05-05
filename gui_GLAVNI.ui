@@ -290,7 +290,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="images/xy.qrc">
+             <iconset>
               <normaloff>:/prva/001-save.png</normaloff>:/prva/001-save.png</iconset>
             </property>
             <property name="iconSize">
@@ -591,9 +591,9 @@
            <string>START</string>
           </property>
           <property name="icon">
-           <iconset resource="images/xy.qrc">
-            <normaloff>:/prva/002-play-button.png</normaloff>
-            <normalon>:/prva/001-pause.png</normalon>:/prva/002-play-button.png</iconset>
+           <iconset resource="xx.qrc">
+            <normaloff>:/prva/images/002-play-button.png</normaloff>
+            <normalon>:/prva/images/001-pause.png</normalon>:/prva/images/002-play-button.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -641,8 +641,8 @@
            <string>RESET</string>
           </property>
           <property name="icon">
-           <iconset resource="images/xy.qrc">
-            <normaloff>:/prva/001-replay.png</normaloff>:/prva/001-replay.png</iconset>
+           <iconset resource="xx.qrc">
+            <normaloff>:/prva/images/001-replay.png</normaloff>:/prva/images/001-replay.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -712,7 +712,7 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-223</y>
+           <y>0</y>
            <width>2123</width>
            <height>778</height>
           </rect>
@@ -1698,7 +1698,7 @@
   <tabstop>scrollArea</tabstop>
  </tabstops>
  <resources>
-  <include location="images/xy.qrc"/>
+  <include location="xx.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -1,7 +1,7 @@
 import sys
 import sqlite3
 from PyQt4 import QtCore, QtGui, uic
-from gui_fajl import Ui_MainWindow
+from gui_glavni import Ui_MainWindow
 from gui_about import Ui_aboutDialog
 from gui_testic import Ui_testWidget
 import datetime
@@ -9,6 +9,7 @@ import datetime
 s = 0
 m = 0
 h = 0
+provjera_button_start = True
 
 class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 	def __init__(self, parent = None):
@@ -49,12 +50,12 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		Ui_MainWindow.__init__(self)
 		self.setupUi(self)
 		
-		self.glavni_btn.setDisabled(True)
-		self.prvi_input.textChanged.connect(self.enable_glavni_btn)
-		self.drugi_input.textChanged.connect(self.enable_glavni_btn)
-		self.promjena_boje_inputa()
+		# self.glavni_btn.setDisabled(True)
+		# self.prvi_input.textChanged.connect(self.enable_glavni_btn)
+		# self.drugi_input.textChanged.connect(self.enable_glavni_btn)
+		# self.promjena_boje_inputa()
 		
-		self.glavni_btn.clicked.connect(self.click_on_button)
+		# self.glavni_btn.clicked.connect(self.click_on_button)
 
 		self.actionAbout.triggered.connect(self.actionAbout_triggered)
 		self.popAboutDialog = aboutDialog()
@@ -63,16 +64,18 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		#-------------------------------------------------------------- 
 		self.timer = QtCore.QTimer(self)
 		self.timer.timeout.connect(self.Time)
-		self.start.clicked.connect(self.Start)
-		self.stop.clicked.connect(lambda: self.timer.stop())
-		self.reset.clicked.connect(self.Reset)
+		self.pushButton_start.clicked.connect(self.Start)
+		# self.stop.clicked.connect(lambda: self.timer.stop())
+		self.pushButton_reset.clicked.connect(self.Reset)
 
 	def Reset(self):
-		global s,m,h
+		global s, m, h, provjera_button_start
 
 		self.timer.stop()
 		vrijeme = "{0}:{1}:{2}".format(h,m,s)
 		print("Vrijeme koliko ti je trebalo da napises jebeni TIKET iznosi:\n{0}".format(vrijeme))
+		provjera_button_start = True
+		self.pushButton_start.setChecked(False)
 
 		s = 0
 		m = 0
@@ -83,12 +86,19 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		# self.lcd.setDigitCount(len(time))
 		# self.lcd.display(time)
 
-		self.vrijeme_lbl.setText(time)
+		self.label_timer.setText(time)
 
 	def Start(self):
-		global s,m,h
+		global s, m, h, provjera_button_start
 
-		self.timer.start(1000)
+		if (provjera_button_start == True):
+			self.timer.start(1000)
+			provjera_button_start = not provjera_button_start
+			self.pushButton_start.setText('PAUSE')
+		elif (provjera_button_start == False):
+			self.timer.stop()
+			provjera_button_start = not provjera_button_start
+			self.pushButton_start.setText('START')
 
 	def Time(self):
 		global s,m,h
@@ -111,7 +121,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		# self.lcd.setDigitCount(len(time))
 		# self.lcd.display(time)
 
-		self.vrijeme_lbl.setText(time)
+		self.label_timer.setText(time)
 
 		#mjerenje vremena (mozda bi mogla biti smjena)
 		# self.count = 15
@@ -135,15 +145,15 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.poptestWidget.show()
 
 	# built-in event kada se ide na X da se close-a window
-	def closeEvent(self, event):
-	    pitanje = "Are you sure you want to exit the program?"
-	    reply = QtGui.QMessageBox.question(self, 'Message', 
-	                     pitanje, QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
+	# def closeEvent(self, event):
+	#     pitanje = "Are you sure you want to exit the program?"
+	#     reply = QtGui.QMessageBox.question(self, 'Message', 
+	#                      pitanje, QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
 
-	    if reply == QtGui.QMessageBox.Yes:
-	        event.accept()
-	    else:
-	        event.ignore()
+	#     if reply == QtGui.QMessageBox.Yes:
+	#         event.accept()
+	#     else:
+	#         event.ignore()
 
 	def actionAbout_triggered(self):
 		self.popAboutDialog.show()
