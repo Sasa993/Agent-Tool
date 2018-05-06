@@ -49,10 +49,27 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		QtGui.QMainWindow.__init__(self)
 		Ui_MainWindow.__init__(self)
 		self.setupUi(self)
-		
-		# self.glavni_btn.setDisabled(True)
-		# self.prvi_input.textChanged.connect(self.enable_glavni_btn)
-		# self.drugi_input.textChanged.connect(self.enable_glavni_btn)
+
+		# pushButtonCopyToClipboard disabling
+		self.pushButtonCopyToClipboard.setDisabled(True)
+		self.lineEditHasSiteEverCalled.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditDidItEverWork.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditWhenDidItStop.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditChangesMade.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditHowManyTermLocation.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditHowManyTermDown.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditAnyAffected.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditScreenshotsAttached.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditModelSerial.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditAlternativeMethod.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.plainTextEditNextSteps.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.plainTextEditDescriptionProblem.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.plainTextEditReporoductionTroubleshooting.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+
+		self.pushButtonClearAllFields.clicked.connect(self.clear_all_fields)
+		self.now = str(datetime.date.today().strftime("%m/%d/%Y"))
+		self.lineEditDatum.setText(self.now)
+
 		# self.promjena_boje_inputa()
 		
 		# self.glavni_btn.clicked.connect(self.click_on_button)
@@ -62,12 +79,13 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 		self.actionTestic.triggered.connect(self.startUi_testWidget)
 
+		# timer
 		self.timer = QtCore.QTimer(self)
 		self.timer.timeout.connect(self.timer_time)
 		self.pushButtonStart.clicked.connect(self.timer_start)
 		self.pushButtonReset.clicked.connect(self.timer_reset)
 
-		#N/A
+		# N/A
 		self.pushButtonNaDidItEverWork.clicked.connect(lambda: self.dodavanje_na(self.lineEditDidItEverWork))
 		self.pushButtonNaWhenDidItStop.clicked.connect(lambda: self.dodavanje_na(self.lineEditWhenDidItStop))
 		self.pushButtonNaChangesMade.clicked.connect(lambda: self.dodavanje_na(self.lineEditChangesMade))
@@ -78,6 +96,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.pushButtonNaModelSerial.clicked.connect(lambda: self.dodavanje_na(self.lineEditModelSerial))
 		self.pushButtonNaAlternativeMethod.clicked.connect(lambda: self.dodavanje_na(self.lineEditAlternativeMethod))
 		self.pushButtonNaNextSteps.clicked.connect(lambda: self.plainTextEditNextSteps.setPlainText("N/A"))
+
 
 	def timer_reset(self):
 		global s, m, h, provjeraButtonStart
@@ -93,9 +112,6 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		h = 0
  
 		time = "{0}:{1}:{2}".format(h,m,s)
- 
-		# self.lcd.setDigitCount(len(time))
-		# self.lcd.display(time)
 
 		self.labelTimer.setText(time)
 
@@ -129,23 +145,17 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 		time = "{0}:{1}:{2}".format(h, m, s)
 
-		# self.lcd.setDigitCount(len(time))
-		# self.lcd.display(time)
-
 		self.labelTimer.setText(time)
 
-	def dodavanje_na(self, imeLabela):
-		imeLabela.setText("N/A")
+	def dodavanje_na(self, imeInputa):
+		imeInputa.setText("N/A")
 
-	# def dodavanje_na_plaintext(self):
-	# 	plainTextEditNextSteps
-
-		#mjerenje vremena (mozda bi mogla biti smjena)
-		# self.count = 15
-		# self.interval = 1200
-		# self.timer = QtCore.QTimer()
-		# self.timer.timeout.connect(self.countdown)
-		# self.timer.start(1000)
+	# mjerenje vremena (mozda bi mogla biti smjena)
+	# self.count = 15
+	# self.interval = 1200
+	# self.timer = QtCore.QTimer()
+	# self.timer.timeout.connect(self.countdown)
+	# self.timer.start(1000)
 
 	# def countdown(self):
 	# 	global count
@@ -194,19 +204,45 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.glavniBtn.setDisabled(True)	
 
 	# vracanje glavnog_btn na "clickable" kad su inputi popunjeni
-	def enable_glavni_btn(self):
-		if (len(self.prvi_input.text()) > 0 and len(self.drugi_input.text()) > 0):
-			self.glavniBtn.setDisabled(False)
+	def enable_pushButtonCopyToClipboard_btn(self):
+		if (len(self.lineEditHasSiteEverCalled.text()) and len(self.lineEditDidItEverWork.text()) and len(self.lineEditWhenDidItStop.text()) and len(self.lineEditChangesMade.text()) and len(self.lineEditHowManyTermLocation.text()) and len(self.lineEditHowManyTermDown.text()) and len(self.lineEditAnyAffected.text()) and len(self.lineEditScreenshotsAttached.text()) and len(self.lineEditModelSerial.text()) and len(self.lineEditAlternativeMethod.text()) and len(self.plainTextEditNextSteps.toPlainText()) and len(self.plainTextEditDescriptionProblem.toPlainText()) and len(self.plainTextEditReporoductionTroubleshooting.toPlainText()) > 0):
+			self.pushButtonCopyToClipboard.setDisabled(False)
 			
 		else:
-			self.glavniBtn.setDisabled(True)
+			self.pushButtonCopyToClipboard.setDisabled(True)
+
+	# brisanje svih inputa na klik butona clear all fields
+	def clear_all_fields(self):
+		self.lineEditHasSiteEverCalled.clear()
+		self.lineEditDidItEverWork.clear()
+		self.lineEditWhenDidItStop.clear()
+		self.lineEditChangesMade.clear()
+		self.lineEditHowManyTermLocation.clear()
+		self.lineEditHowManyTermDown.clear()
+		self.lineEditAnyAffected.clear()
+		self.lineEditScreenshotsAttached.clear()
+		self.lineEditModelSerial.clear()
+		self.lineEditAlternativeMethod.clear()
+		self.plainTextEditNextSteps.clear()
+		self.plainTextEditDescriptionProblem.clear()
+		self.plainTextEditReporoductionTroubleshooting.clear()
+		self.lineEditIncident.clear()
+		self.comboBoxSeverity.clear()
+		self.comboBoxSeverity.addItems(['Sev 1', 'Sev 2', 'Sev 3'])
+		self.comboBoxStatus.clear()
+		self.comboBoxStatus.addItems(['Open', 'Closed', 'WFC', 'Escalated'])
+		self.lineEditImePrezime.clear()
+		self.lineEditBrojTelefona.clear()
+		self.lineEditZipCode.clear()
+		self.lineEditSiteKey.clear()
+		self.lineEditEmail.clear()
 
 	# input-i koji su required, postaju odredjene boje da USER zna da je taj input required
-	def promjena_boje_inputa(self):
-		self.prvi_input.textChanged.connect(lambda boja: self.prvi_input.setStyleSheet(
-		"QWidget { background-color: %s}" % ('rgb(255, 255, 255)' if boja else 'rgb(212, 60, 60)')))
-		self.drugi_input.textChanged.connect(lambda boja: self.drugi_input.setStyleSheet(
-		"QWidget { background-color: %s}" % ('rgb(255, 255, 255)' if boja else 'rgb(212, 60, 60)')))
+	# def promjena_boje_inputa(self):
+	# 	self.prvi_input.textChanged.connect(lambda boja: self.prvi_input.setStyleSheet(
+	# 	"QWidget { background-color: %s}" % ('rgb(255, 255, 255)' if boja else 'rgb(212, 60, 60)')))
+	# 	self.drugi_input.textChanged.connect(lambda boja: self.drugi_input.setStyleSheet(
+	# 	"QWidget { background-color: %s}" % ('rgb(255, 255, 255)' if boja else 'rgb(212, 60, 60)')))
 		#ostali inputi idu ovdje
 
 if __name__ == "__main__":
