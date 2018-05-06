@@ -53,7 +53,7 @@
            <number>10</number>
           </property>
           <item>
-           <widget class="QLineEdit" name="lineEdit_incident">
+           <widget class="QLineEdit" name="lineEditIncident">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -111,7 +111,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox_severity">
+           <widget class="QComboBox" name="comboBoxSeverity">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -162,7 +162,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox_status">
+           <widget class="QComboBox" name="comboBoxStatus">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -216,7 +216,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_datum">
+           <widget class="QLineEdit" name="lineEditDatum">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -290,8 +290,8 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset>
-              <normaloff>:/prva/001-save.png</normaloff>:/prva/001-save.png</iconset>
+             <iconset resource="xx.qrc">
+              <normaloff>:/prva/images/001-save.png</normaloff>:/prva/images/001-save.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -394,7 +394,7 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QLineEdit" name="lineEdit_ime_prezime">
+           <widget class="QLineEdit" name="lineEditImePrezime">
             <property name="font">
              <font>
               <pointsize>10</pointsize>
@@ -406,7 +406,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_broj_telefona">
+           <widget class="QLineEdit" name="lineEditBrojTelefona">
             <property name="font">
              <font>
               <pointsize>10</pointsize>
@@ -415,7 +415,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_zip_code">
+           <widget class="QLineEdit" name="lineEditZipCode">
             <property name="font">
              <font>
               <pointsize>10</pointsize>
@@ -424,7 +424,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_site_key">
+           <widget class="QLineEdit" name="lineEditSiteKey">
             <property name="font">
              <font>
               <pointsize>10</pointsize>
@@ -433,7 +433,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_email">
+           <widget class="QLineEdit" name="lineEditEmail">
             <property name="font">
              <font>
               <pointsize>10</pointsize>
@@ -549,7 +549,7 @@
        <number>10</number>
       </property>
       <item row="0" column="0">
-       <widget class="QLabel" name="label_timer">
+       <widget class="QLabel" name="labelTimer">
         <property name="font">
          <font>
           <pointsize>20</pointsize>
@@ -572,7 +572,7 @@
       <item row="1" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QPushButton" name="pushButton_start">
+         <widget class="QPushButton" name="pushButtonStart">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -625,7 +625,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_reset">
+         <widget class="QPushButton" name="pushButtonReset">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -679,6 +679,9 @@
       <property name="rightMargin">
        <number>0</number>
       </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
       <item>
        <widget class="QScrollArea" name="scrollArea">
         <property name="sizePolicy">
@@ -712,9 +715,9 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>0</y>
+           <y>-203</y>
            <width>2123</width>
-           <height>778</height>
+           <height>758</height>
           </rect>
          </property>
          <property name="sizePolicy">
@@ -735,7 +738,7 @@
             <x>4</x>
             <y>2</y>
             <width>294</width>
-            <height>770</height>
+            <height>850</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -776,7 +779,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_has_site_ever_called">
+            <widget class="QLineEdit" name="lineEditHasSiteEverCalled">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -808,7 +811,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_5">
              <item>
-              <widget class="QPushButton" name="pushButton_na_did_it_ever_work">
+              <widget class="QPushButton" name="pushButtonNaDidItEverWork">
                <property name="maximumSize">
                 <size>
                  <width>50</width>
@@ -821,12 +824,12 @@
                 </font>
                </property>
                <property name="text">
-                <string>N / A</string>
+                <string>N/A</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_did_it_ever_work">
+              <widget class="QLineEdit" name="lineEditDidItEverWork">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -857,7 +860,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_6">
              <item>
-              <widget class="QPushButton" name="pushButton_na_when_did_it_stop">
+              <widget class="QPushButton" name="pushButtonNaWhenDidItStop">
                <property name="maximumSize">
                 <size>
                  <width>50</width>
@@ -870,12 +873,12 @@
                 </font>
                </property>
                <property name="text">
-                <string>N / A</string>
+                <string>N/A</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_when_did_it_stop">
+              <widget class="QLineEdit" name="lineEditWhenDidItStop">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -906,7 +909,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_7">
              <item>
-              <widget class="QPushButton" name="pushButton_na_changes_made">
+              <widget class="QPushButton" name="pushButtonNaChangesMade">
                <property name="maximumSize">
                 <size>
                  <width>50</width>
@@ -919,12 +922,12 @@
                 </font>
                </property>
                <property name="text">
-                <string>N / A</string>
+                <string>N/A</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_changes_made">
+              <widget class="QLineEdit" name="lineEditChangesMade">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -955,7 +958,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_8">
              <item>
-              <widget class="QPushButton" name="pushButton_na_how_many_term_location">
+              <widget class="QPushButton" name="pushButtonNaHowManyTermLocation">
                <property name="maximumSize">
                 <size>
                  <width>50</width>
@@ -968,12 +971,12 @@
                 </font>
                </property>
                <property name="text">
-                <string>N / A</string>
+                <string>N/A</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_how_many_term_location">
+              <widget class="QLineEdit" name="lineEditHowManyTermLocation">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -1004,7 +1007,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_9">
              <item>
-              <widget class="QPushButton" name="pushButton_na_how_many_term_down">
+              <widget class="QPushButton" name="pushButtonNaHowManyTermDown">
                <property name="maximumSize">
                 <size>
                  <width>50</width>
@@ -1017,12 +1020,12 @@
                 </font>
                </property>
                <property name="text">
-                <string>N / A</string>
+                <string>N/A</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_how_many_term_down">
+              <widget class="QLineEdit" name="lineEditHowManyTermDown">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -1053,7 +1056,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_11">
              <item>
-              <widget class="QPushButton" name="pushButton_na_any_affected">
+              <widget class="QPushButton" name="pushButtonNaAnyAffected">
                <property name="maximumSize">
                 <size>
                  <width>50</width>
@@ -1066,12 +1069,12 @@
                 </font>
                </property>
                <property name="text">
-                <string>N / A</string>
+                <string>N/A</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_any_affected">
+              <widget class="QLineEdit" name="lineEditAnyAffected">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -1102,7 +1105,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_12">
              <item>
-              <widget class="QPushButton" name="pushButton_na_screenshots_attached">
+              <widget class="QPushButton" name="pushButtonNaScreenshotsAttached">
                <property name="maximumSize">
                 <size>
                  <width>50</width>
@@ -1115,12 +1118,12 @@
                 </font>
                </property>
                <property name="text">
-                <string>N / A</string>
+                <string>N/A</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_screenshots_attached">
+              <widget class="QLineEdit" name="lineEditScreenshotsAttached">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -1151,7 +1154,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_13">
              <item>
-              <widget class="QPushButton" name="pushButton_na_model_serial">
+              <widget class="QPushButton" name="pushButtonNaModelSerial">
                <property name="maximumSize">
                 <size>
                  <width>50</width>
@@ -1164,12 +1167,12 @@
                 </font>
                </property>
                <property name="text">
-                <string>N / A</string>
+                <string>N/A</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_model_serial">
+              <widget class="QLineEdit" name="lineEditModelSerial">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -1200,7 +1203,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_14">
              <item>
-              <widget class="QPushButton" name="pushButton_na_alternative_method">
+              <widget class="QPushButton" name="pushButtonNaAlternativeMethod">
                <property name="maximumSize">
                 <size>
                  <width>50</width>
@@ -1213,12 +1216,12 @@
                 </font>
                </property>
                <property name="text">
-                <string>N / A</string>
+                <string>N/A</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_alternative_method">
+              <widget class="QLineEdit" name="lineEditAlternativeMethod">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -1247,25 +1250,77 @@
             </widget>
            </item>
            <item>
-            <widget class="QPlainTextEdit" name="plainTextEdit_next_steps">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-            </widget>
+            <layout class="QGridLayout" name="gridLayout_5">
+             <item row="0" column="1">
+              <widget class="QPlainTextEdit" name="plainTextEditNextSteps">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>150</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <layout class="QVBoxLayout" name="verticalLayout_5">
+               <item>
+                <widget class="QPushButton" name="pushButtonNaNextSteps">
+                 <property name="maximumSize">
+                  <size>
+                   <width>50</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item row="1" column="1">
+              <spacer name="verticalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -1507,7 +1562,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QTextEdit" name="textEdit_description_problem">
+       <widget class="QTextEdit" name="textEditDescriptionProblem">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -1563,7 +1618,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QTextEdit" name="textEdit_reporoduction_troubleshooting">
+       <widget class="QTextEdit" name="textEditReporoductionTroubleshooting">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -1651,40 +1706,39 @@
   </action>
  </widget>
  <tabstops>
-  <tabstop>lineEdit_ime_prezime</tabstop>
-  <tabstop>lineEdit_broj_telefona</tabstop>
-  <tabstop>lineEdit_zip_code</tabstop>
-  <tabstop>lineEdit_site_key</tabstop>
-  <tabstop>lineEdit_email</tabstop>
-  <tabstop>textEdit_description_problem</tabstop>
-  <tabstop>textEdit_reporoduction_troubleshooting</tabstop>
-  <tabstop>lineEdit_has_site_ever_called</tabstop>
-  <tabstop>pushButton_na_did_it_ever_work</tabstop>
-  <tabstop>lineEdit_did_it_ever_work</tabstop>
-  <tabstop>pushButton_na_when_did_it_stop</tabstop>
-  <tabstop>lineEdit_when_did_it_stop</tabstop>
-  <tabstop>pushButton_na_changes_made</tabstop>
-  <tabstop>lineEdit_changes_made</tabstop>
-  <tabstop>pushButton_na_how_many_term_location</tabstop>
-  <tabstop>lineEdit_how_many_term_location</tabstop>
-  <tabstop>pushButton_na_how_many_term_down</tabstop>
-  <tabstop>lineEdit_how_many_term_down</tabstop>
-  <tabstop>pushButton_na_any_affected</tabstop>
-  <tabstop>lineEdit_any_affected</tabstop>
-  <tabstop>pushButton_na_screenshots_attached</tabstop>
-  <tabstop>lineEdit_screenshots_attached</tabstop>
-  <tabstop>pushButton_na_model_serial</tabstop>
-  <tabstop>lineEdit_model_serial</tabstop>
-  <tabstop>pushButton_na_alternative_method</tabstop>
-  <tabstop>lineEdit_alternative_method</tabstop>
-  <tabstop>plainTextEdit_next_steps</tabstop>
-  <tabstop>lineEdit_incident</tabstop>
-  <tabstop>comboBox_severity</tabstop>
-  <tabstop>comboBox_status</tabstop>
-  <tabstop>lineEdit_datum</tabstop>
+  <tabstop>lineEditImePrezime</tabstop>
+  <tabstop>lineEditBrojTelefona</tabstop>
+  <tabstop>lineEditZipCode</tabstop>
+  <tabstop>lineEditSiteKey</tabstop>
+  <tabstop>lineEditEmail</tabstop>
+  <tabstop>textEditDescriptionProblem</tabstop>
+  <tabstop>textEditReporoductionTroubleshooting</tabstop>
+  <tabstop>lineEditHasSiteEverCalled</tabstop>
+  <tabstop>pushButtonNaDidItEverWork</tabstop>
+  <tabstop>lineEditDidItEverWork</tabstop>
+  <tabstop>pushButtonNaWhenDidItStop</tabstop>
+  <tabstop>lineEditWhenDidItStop</tabstop>
+  <tabstop>pushButtonNaChangesMade</tabstop>
+  <tabstop>lineEditChangesMade</tabstop>
+  <tabstop>pushButtonNaHowManyTermLocation</tabstop>
+  <tabstop>lineEditHowManyTermLocation</tabstop>
+  <tabstop>pushButtonNaHowManyTermDown</tabstop>
+  <tabstop>lineEditHowManyTermDown</tabstop>
+  <tabstop>pushButtonNaAnyAffected</tabstop>
+  <tabstop>lineEditAnyAffected</tabstop>
+  <tabstop>pushButtonNaScreenshotsAttached</tabstop>
+  <tabstop>lineEditScreenshotsAttached</tabstop>
+  <tabstop>pushButtonNaModelSerial</tabstop>
+  <tabstop>lineEditModelSerial</tabstop>
+  <tabstop>pushButtonNaAlternativeMethod</tabstop>
+  <tabstop>lineEditAlternativeMethod</tabstop>
+  <tabstop>lineEditIncident</tabstop>
+  <tabstop>comboBoxSeverity</tabstop>
+  <tabstop>comboBoxStatus</tabstop>
+  <tabstop>lineEditDatum</tabstop>
   <tabstop>pushButton_save</tabstop>
-  <tabstop>pushButton_start</tabstop>
-  <tabstop>pushButton_reset</tabstop>
+  <tabstop>pushButtonStart</tabstop>
+  <tabstop>pushButtonReset</tabstop>
   <tabstop>pushButton</tabstop>
   <tabstop>pushButton_2</tabstop>
   <tabstop>pushButton_8</tabstop>

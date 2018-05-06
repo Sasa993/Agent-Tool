@@ -9,7 +9,7 @@ import datetime
 s = 0
 m = 0
 h = 0
-provjera_button_start = True
+provjeraButtonStart = True
 
 class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 	def __init__(self, parent = None):
@@ -61,21 +61,32 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.popAboutDialog = aboutDialog()
 
 		self.actionTestic.triggered.connect(self.startUi_testWidget)
-		#-------------------------------------------------------------- 
-		self.timer = QtCore.QTimer(self)
-		self.timer.timeout.connect(self.Time)
-		self.pushButton_start.clicked.connect(self.Start)
-		# self.stop.clicked.connect(lambda: self.timer.stop())
-		self.pushButton_reset.clicked.connect(self.Reset)
 
-	def Reset(self):
-		global s, m, h, provjera_button_start
+		self.timer = QtCore.QTimer(self)
+		self.timer.timeout.connect(self.timer_time)
+		self.pushButtonStart.clicked.connect(self.timer_start)
+		self.pushButtonReset.clicked.connect(self.timer_reset)
+
+		#N/A
+		self.pushButtonNaDidItEverWork.clicked.connect(lambda: self.dodavanje_na(self.lineEditDidItEverWork))
+		self.pushButtonNaWhenDidItStop.clicked.connect(lambda: self.dodavanje_na(self.lineEditWhenDidItStop))
+		self.pushButtonNaChangesMade.clicked.connect(lambda: self.dodavanje_na(self.lineEditChangesMade))
+		self.pushButtonNaHowManyTermLocation.clicked.connect(lambda: self.dodavanje_na(self.lineEditHowManyTermLocation))
+		self.pushButtonNaHowManyTermDown.clicked.connect(lambda: self.dodavanje_na(self.lineEditHowManyTermDown))
+		self.pushButtonNaAnyAffected.clicked.connect(lambda: self.dodavanje_na(self.lineEditAnyAffected))
+		self.pushButtonNaScreenshotsAttached.clicked.connect(lambda: self.dodavanje_na(self.lineEditScreenshotsAttached))
+		self.pushButtonNaModelSerial.clicked.connect(lambda: self.dodavanje_na(self.lineEditModelSerial))
+		self.pushButtonNaAlternativeMethod.clicked.connect(lambda: self.dodavanje_na(self.lineEditAlternativeMethod))
+		self.pushButtonNaNextSteps.clicked.connect(lambda: self.plainTextEditNextSteps.setPlainText("N/A"))
+
+	def timer_reset(self):
+		global s, m, h, provjeraButtonStart
 
 		self.timer.stop()
 		vrijeme = "{0}:{1}:{2}".format(h,m,s)
 		print("Vrijeme koliko ti je trebalo da napises jebeni TIKET iznosi:\n{0}".format(vrijeme))
-		provjera_button_start = True
-		self.pushButton_start.setChecked(False)
+		provjeraButtonStart = True
+		self.pushButtonStart.setChecked(False)
 
 		s = 0
 		m = 0
@@ -86,21 +97,21 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		# self.lcd.setDigitCount(len(time))
 		# self.lcd.display(time)
 
-		self.label_timer.setText(time)
+		self.labelTimer.setText(time)
 
-	def Start(self):
-		global s, m, h, provjera_button_start
+	def timer_start(self):
+		global s, m, h, provjeraButtonStart
 
-		if (provjera_button_start == True):
+		if (provjeraButtonStart):
 			self.timer.start(1000)
-			provjera_button_start = not provjera_button_start
-			self.pushButton_start.setText('PAUSE')
-		elif (provjera_button_start == False):
+			provjeraButtonStart = not provjeraButtonStart
+			self.pushButtonStart.setText('PAUSE')
+		elif (not provjeraButtonStart):
 			self.timer.stop()
-			provjera_button_start = not provjera_button_start
-			self.pushButton_start.setText('START')
+			provjeraButtonStart = not provjeraButtonStart
+			self.pushButtonStart.setText('START')
 
-	def Time(self):
+	def timer_time(self):
 		global s,m,h
 
 		if (s < 59):
@@ -121,7 +132,13 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		# self.lcd.setDigitCount(len(time))
 		# self.lcd.display(time)
 
-		self.label_timer.setText(time)
+		self.labelTimer.setText(time)
+
+	def dodavanje_na(self, imeLabela):
+		imeLabela.setText("N/A")
+
+	# def dodavanje_na_plaintext(self):
+	# 	plainTextEditNextSteps
 
 		#mjerenje vremena (mozda bi mogla biti smjena)
 		# self.count = 15
@@ -174,15 +191,15 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.drugi_input.clear()
 		self.drugi_input.setStyleSheet("QWidget { background-color: rgb(255, 255, 255)}")
 
-		self.glavni_btn.setDisabled(True)	
+		self.glavniBtn.setDisabled(True)	
 
 	# vracanje glavnog_btn na "clickable" kad su inputi popunjeni
 	def enable_glavni_btn(self):
 		if (len(self.prvi_input.text()) > 0 and len(self.drugi_input.text()) > 0):
-			self.glavni_btn.setDisabled(False)
+			self.glavniBtn.setDisabled(False)
 			
 		else:
-			self.glavni_btn.setDisabled(True)
+			self.glavniBtn.setDisabled(True)
 
 	# input-i koji su required, postaju odredjene boje da USER zna da je taj input required
 	def promjena_boje_inputa(self):
