@@ -31,13 +31,12 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 		self.ispis_iz_baze()
 
 	def ispis_iz_baze(self):
-		conn = sqlite3.connect("baza.db")
+		conn = sqlite3.connect("baza_main.db")
 		c = conn.cursor()
 
-		rezultat = c.execute("SELECT * FROM test1")
-
+		rezultat = c.execute("SELECT * FROM ticket_info")
 		for x in rezultat:
-			self.label_ispis.addItem("{0}. {1} {2}".format(str(x[0]), x[1], x[2]))
+			self.label_ispis.addItem("{0}. {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14} {15} {16} {17} {18} {19} {20} {21} {22} {23} {24}".format(str(x[0]), x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8], x[9], x[10], x[11], x[12], x[13], x[14], x[15], x[16], x[17], x[18], x[19], x[20], x[21], x[22], x[23], x[24]))
 			# print(x)
 
 		conn.commit()
@@ -50,8 +49,10 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		Ui_MainWindow.__init__(self)
 		self.setupUi(self)
 
-		# pushButtonCopyToClipboard disabling
+		# pushButtonCopyToClipboard i pushButtonSave disabling
 		self.pushButtonCopyToClipboard.setDisabled(True)
+		self.pushButtonSave.setDisabled(True)
+
 		self.lineEditHasSiteEverCalled.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 		self.lineEditDidItEverWork.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 		self.lineEditWhenDidItStop.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
@@ -69,10 +70,9 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.pushButtonClearAllFields.clicked.connect(self.clear_all_fields)
 		self.now = str(datetime.date.today().strftime("%m/%d/%Y"))
 		self.lineEditDatum.setText(self.now)
-
-		# self.promjena_boje_inputa()
 		
-		# self.glavni_btn.clicked.connect(self.click_on_button)
+		self.pushButtonSave.clicked.connect(self.click_on_pushButtonSave_btn)
+		self.pushButtonSave.clicked.connect(self.clear_all_fields)
 
 		self.actionAbout.triggered.connect(self.actionAbout_triggered)
 		self.popAboutDialog = aboutDialog()
@@ -96,7 +96,6 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.pushButtonNaModelSerial.clicked.connect(lambda: self.dodavanje_na(self.lineEditModelSerial))
 		self.pushButtonNaAlternativeMethod.clicked.connect(lambda: self.dodavanje_na(self.lineEditAlternativeMethod))
 		self.pushButtonNaNextSteps.clicked.connect(lambda: self.plainTextEditNextSteps.setPlainText("N/A"))
-
 
 	def timer_reset(self):
 		global s, m, h, provjeraButtonStart
@@ -172,46 +171,44 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.poptestWidget.show()
 
 	# built-in event kada se ide na X da se close-a window
-	# def closeEvent(self, event):
-	#     pitanje = "Are you sure you want to exit the program?"
-	#     reply = QtGui.QMessageBox.question(self, 'Message', 
-	#                      pitanje, QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
+	def closeEvent(self, event):
+		pitanje = "Are you sure you want to exit the program?"
+		reply = QtGui.QMessageBox.question(self, 'Exiting...', 
+						pitanje, QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
 
-	#     if reply == QtGui.QMessageBox.Yes:
-	#         event.accept()
-	#     else:
-	#         event.ignore()
+		if reply == QtGui.QMessageBox.Yes:
+			event.accept()
+		else:
+			event.ignore()
 
 	def actionAbout_triggered(self):
 		self.popAboutDialog.show()
 
 	# unos u bazu
-	def click_on_button(self):
-		connection = sqlite3.connect("baza.db")
+	def click_on_pushButtonSave_btn(self):
+		connection = sqlite3.connect("baza_main.db")
+		c = connection.cursor()
 
-		ime = str(self.prvi_input.text())
-		prezime = str(self.drugi_input.text())
-
-		connection.execute("INSERT INTO test1 VALUES(NULL, ?, ?)", (ime, prezime))
+		connection.execute("""
+					INSERT INTO 
+						ticket_info 
+					VALUES
+						(?, ?, ? , ?, ?, ?, ?, ? , ?, ?, ?, ?, ? , ?, ?, ?, ?, ? , ?, ?, ?, ?, ? , ?, ?)
+					""", (None, str(self.lineEditIncident.text()), str(self.comboBoxSeverity.currentText()), str(self.comboBoxStatus.currentText()), str(self.lineEditDatum.text()), str(self.lineEditImePrezime.text()), str(self.lineEditBrojTelefona.text()), str(self.lineEditZipCode.text()), str(self.lineEditEmail.text()), str(self.lineEditHasSiteEverCalled.text()), str(self.lineEditDidItEverWork.text()), str(self.lineEditWhenDidItStop.text()), str(self.lineEditChangesMade.text()), str(self.lineEditHowManyTermLocation.text()), str(self.lineEditHowManyTermDown.text()), str(self.lineEditAnyAffected.text()), str(self.lineEditScreenshotsAttached.text()), str(self.lineEditModelSerial.text()), str(self.lineEditAlternativeMethod.text()), str(self.plainTextEditNextSteps.toPlainText()), str(self.plainTextEditDescriptionProblem.toPlainText()), str(self.plainTextEditReporoductionTroubleshooting.toPlainText()), h, m, s))
 		connection.commit()
 		connection.close()
 
-		self.prvi_input.clear()
-		self.prvi_input.setStyleSheet("QWidget { background-color: rgb(255, 255, 255)}")
-		self.drugi_input.clear()
-		self.drugi_input.setStyleSheet("QWidget { background-color: rgb(255, 255, 255)}")
-
-		self.glavniBtn.setDisabled(True)	
-
-	# vracanje glavnog_btn na "clickable" kad su inputi popunjeni
+	# vracanje copyToClipboard i save buttona na "clickable" kad su inputi popunjeni
 	def enable_pushButtonCopyToClipboard_btn(self):
 		if (len(self.lineEditHasSiteEverCalled.text()) and len(self.lineEditDidItEverWork.text()) and len(self.lineEditWhenDidItStop.text()) and len(self.lineEditChangesMade.text()) and len(self.lineEditHowManyTermLocation.text()) and len(self.lineEditHowManyTermDown.text()) and len(self.lineEditAnyAffected.text()) and len(self.lineEditScreenshotsAttached.text()) and len(self.lineEditModelSerial.text()) and len(self.lineEditAlternativeMethod.text()) and len(self.plainTextEditNextSteps.toPlainText()) and len(self.plainTextEditDescriptionProblem.toPlainText()) and len(self.plainTextEditReporoductionTroubleshooting.toPlainText()) > 0):
 			self.pushButtonCopyToClipboard.setDisabled(False)
+			self.pushButtonSave.setDisabled(False)
 			
 		else:
 			self.pushButtonCopyToClipboard.setDisabled(True)
+			self.pushButtonSave.setDisabled(True)
 
-	# brisanje svih inputa na klik butona clear all fields
+	# brisanje svih inputa na klik butona clear all fields i save buttona
 	def clear_all_fields(self):
 		self.lineEditHasSiteEverCalled.clear()
 		self.lineEditDidItEverWork.clear()
@@ -236,6 +233,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.lineEditZipCode.clear()
 		self.lineEditSiteKey.clear()
 		self.lineEditEmail.clear()
+		self.timer_reset()
 
 	# input-i koji su required, postaju odredjene boje da USER zna da je taj input required
 	# def promjena_boje_inputa(self):

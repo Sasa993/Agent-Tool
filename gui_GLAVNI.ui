@@ -89,7 +89,7 @@
             <property name="placeholderText">
              <string notr="true">#Incident number</string>
             </property>
-            <property name="clearButtonEnabled" stdset="0">
+            <property name="clearButtonEnabled">
              <bool>false</bool>
             </property>
            </widget>
@@ -262,7 +262,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_save">
+           <widget class="QPushButton" name="pushButtonSave">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -725,7 +725,7 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-212</y>
+           <y>0</y>
            <width>2123</width>
            <height>758</height>
           </rect>
@@ -1550,7 +1550,16 @@
     </item>
     <item row="1" column="1">
      <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="margin">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
        <number>10</number>
       </property>
       <item>
@@ -1756,7 +1765,7 @@
   <tabstop>comboBoxSeverity</tabstop>
   <tabstop>comboBoxStatus</tabstop>
   <tabstop>lineEditDatum</tabstop>
-  <tabstop>pushButton_save</tabstop>
+  <tabstop>pushButtonSave</tabstop>
   <tabstop>pushButtonStart</tabstop>
   <tabstop>pushButtonReset</tabstop>
   <tabstop>pushButton</tabstop>
