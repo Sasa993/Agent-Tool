@@ -52,7 +52,11 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		# pushButtonCopyToClipboard i pushButtonSave disabling
 		self.pushButtonCopyToClipboard.setDisabled(True)
 		self.pushButtonSave.setDisabled(True)
-
+		self.lineEditImePrezime.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditBrojTelefona.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditEmail.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditSiteKey.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		self.lineEditDatum.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 		self.plainTextEditVersions.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 		self.lineEditHasSiteEverCalled.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 		self.lineEditDidItEverWork.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
@@ -214,7 +218,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 	# vracanje copyToClipboard i save buttona na "clickable" kad su inputi popunjeni
 	def enable_pushButtonCopyToClipboard_btn(self):
-		if (len(self.plainTextEditVersions.toPlainText()) and len(self.lineEditHasSiteEverCalled.text()) and len(self.lineEditDidItEverWork.text()) and len(self.lineEditWhenDidItStop.text()) and len(self.lineEditChangesMade.text()) and len(self.lineEditHowManyTermLocation.text()) and len(self.lineEditHowManyTermDown.text()) and len(self.lineEditAnyAffected.text()) and len(self.lineEditScreenshotsAttached.text()) and len(self.lineEditModelSerial.text()) and len(self.lineEditAlternativeMethod.text()) and len(self.plainTextEditNextSteps.toPlainText()) and len(self.plainTextEditDescriptionProblem.toPlainText()) and len(self.plainTextEditReporoductionTroubleshooting.toPlainText()) > 0):
+		if (len(self.lineEditImePrezime.text()) and len(self.lineEditBrojTelefona.text()) and len(self.lineEditEmail.text()) and len(self.lineEditSiteKey.text()) and len(self.lineEditDatum.text()) and len(self.plainTextEditVersions.toPlainText()) and len(self.lineEditHasSiteEverCalled.text()) and len(self.lineEditDidItEverWork.text()) and len(self.lineEditWhenDidItStop.text()) and len(self.lineEditChangesMade.text()) and len(self.lineEditHowManyTermLocation.text()) and len(self.lineEditHowManyTermDown.text()) and len(self.lineEditAnyAffected.text()) and len(self.lineEditScreenshotsAttached.text()) and len(self.lineEditModelSerial.text()) and len(self.lineEditAlternativeMethod.text()) and len(self.plainTextEditNextSteps.toPlainText()) and len(self.plainTextEditDescriptionProblem.toPlainText()) and len(self.plainTextEditReporoductionTroubleshooting.toPlainText()) > 0):
 			self.pushButtonCopyToClipboard.setDisabled(False)
 			self.pushButtonSave.setDisabled(False)
 			
