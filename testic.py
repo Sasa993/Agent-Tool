@@ -69,6 +69,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.plainTextEditReporoductionTroubleshooting.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 
 		self.pushButtonClearAllFields.clicked.connect(self.clear_all_fields)
+		self.pushButtonCopyToClipboard.clicked.connect(self.click_on_pushButtonCopyToClipboard)
 		self.now = str(datetime.date.today().strftime("%m/%d/%Y"))
 		self.lineEditDatum.setText(self.now)
 		
@@ -204,6 +205,12 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 			self.clear_all_fields()
 		else:
 			pass
+
+	def click_on_pushButtonCopyToClipboard(self):
+		sadrzajZaCb = "Versions:\n{0}\nDescription:\n{1}\nTroubleshoting steps:\n{2}\nNext steps:\n{3}".format(self.plainTextEditVersions.toPlainText(), self.plainTextEditDescriptionProblem.toPlainText(), self.plainTextEditReporoductionTroubleshooting.toPlainText(), self.plainTextEditNextSteps.toPlainText())
+		cb = QtGui.QApplication.clipboard()
+		cb.clear(mode = cb.Clipboard)
+		cb.setText(sadrzajZaCb, mode = cb.Clipboard)
 
 	# vracanje copyToClipboard i save buttona na "clickable" kad su inputi popunjeni
 	def enable_pushButtonCopyToClipboard_btn(self):
