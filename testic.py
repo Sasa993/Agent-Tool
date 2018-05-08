@@ -102,8 +102,6 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		global s, m, h, provjeraButtonStart
 
 		self.timer.stop()
-		vrijeme = "{0}:{1}:{2}".format(h,m,s)
-		print("Vrijeme koliko ti je trebalo da napises jebeni TIKET iznosi:\n{0}".format(vrijeme))
 		provjeraButtonStart = True
 		self.pushButtonStart.setChecked(False)
 
@@ -173,11 +171,11 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 	# built-in event kada se ide na X da se close-a window
 	def closeEvent(self, event):
-		pitanje = "Are you sure you want to exit the program?"
-		reply = QtGui.QMessageBox.question(self, 'Exiting...', 
-						pitanje, QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
+		pitanjeExit = "Are you sure you want to exit the program?"
+		odgovorExit = QtGui.QMessageBox.question(self, 'Exiting...', 
+						pitanjeExit, QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
 
-		if reply == QtGui.QMessageBox.Yes:
+		if odgovorExit == QtGui.QMessageBox.Yes:
 			event.accept()
 		else:
 			event.ignore()
@@ -187,8 +185,8 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 	# unos u bazu
 	def click_on_pushButtonSave_btn(self):
-		pitanjeSave = "Are you sure you want to save ticket #{0}".format(self.lineEditIncident.text())
-		odgovorSave = QtGui.QMessageBox.question(self, 'Saving...', 
+		pitanjeSave = "Are you sure you want to save the ticket #{0}?\nSeverity: {1}\nStatus: {2}\nDate: {3}\nName and last name: {4}\nCallback number: {5}\nZip code: {6}\nVersion: {7}\nNext steps: {8}\nDescription of the problem: {9}".format(self.lineEditIncident.text(), self.comboBoxSeverity.currentText(),self.comboBoxStatus.currentText(), self.lineEditDatum.text(), self.lineEditImePrezime.text(), self.lineEditBrojTelefona.text(), self.lineEditZipCode.text(), self.plainTextEditVersions.toPlainText(), self.plainTextEditNextSteps.toPlainText(), self.plainTextEditDescriptionProblem.toPlainText())
+		odgovorSave = QtGui.QMessageBox.question(self, "{0}:{1}:{2}".format(h, m, s), 
 						pitanjeSave, QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
 
 		if (odgovorSave == QtGui.QMessageBox.Yes):
@@ -206,14 +204,6 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 			self.clear_all_fields()
 		else:
 			pass
-
-		
-
-		# msgBox = QtGui.QMessageBox()
-		# # msgBox.setStyleSheet('QMessageBox {background-color: rgba(0, 0, 0, 0);}')
-		# msgBox.setWindowIcon(QtGui.QIcon('images/001-save.png'))
-		# QtGui.QMessageBox.about(msgBox, "{0}:{1}:{2}".format(h, m, s), "Ticket #{0} has been saved!".format(str(self.lineEditIncident.text())))
-
 
 	# vracanje copyToClipboard i save buttona na "clickable" kad su inputi popunjeni
 	def enable_pushButtonCopyToClipboard_btn(self):
