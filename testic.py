@@ -53,6 +53,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.pushButtonCopyToClipboard.setDisabled(True)
 		self.pushButtonSave.setDisabled(True)
 
+		self.plainTextEditVersions.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 		self.lineEditHasSiteEverCalled.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 		self.lineEditDidItEverWork.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 		self.lineEditWhenDidItStop.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
@@ -72,7 +73,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.lineEditDatum.setText(self.now)
 		
 		self.pushButtonSave.clicked.connect(self.click_on_pushButtonSave_btn)
-		self.pushButtonSave.clicked.connect(self.clear_all_fields)
+		# self.pushButtonSave.clicked.connect(self.clear_all_fields)
 
 		self.actionAbout.triggered.connect(self.actionAbout_triggered)
 		self.popAboutDialog = aboutDialog()
@@ -186,21 +187,37 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 	# unos u bazu
 	def click_on_pushButtonSave_btn(self):
-		connection = sqlite3.connect("baza_main.db")
-		c = connection.cursor()
+		pitanjeSave = "Are you sure you want to save ticket #{0}".format(self.lineEditIncident.text())
+		odgovorSave = QtGui.QMessageBox.question(self, 'Saving...', 
+						pitanjeSave, QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
 
-		connection.execute("""
-					INSERT INTO 
-						ticket_info 
-					VALUES
-						(?, ?, ? , ?, ?, ?, ?, ? , ?, ?, ?, ?, ? , ?, ?, ?, ?, ? , ?, ?, ?, ?, ? , ?, ?)
-					""", (None, str(self.lineEditIncident.text()), str(self.comboBoxSeverity.currentText()), str(self.comboBoxStatus.currentText()), str(self.lineEditDatum.text()), str(self.lineEditImePrezime.text()), str(self.lineEditBrojTelefona.text()), str(self.lineEditZipCode.text()), str(self.lineEditEmail.text()), str(self.lineEditHasSiteEverCalled.text()), str(self.lineEditDidItEverWork.text()), str(self.lineEditWhenDidItStop.text()), str(self.lineEditChangesMade.text()), str(self.lineEditHowManyTermLocation.text()), str(self.lineEditHowManyTermDown.text()), str(self.lineEditAnyAffected.text()), str(self.lineEditScreenshotsAttached.text()), str(self.lineEditModelSerial.text()), str(self.lineEditAlternativeMethod.text()), str(self.plainTextEditNextSteps.toPlainText()), str(self.plainTextEditDescriptionProblem.toPlainText()), str(self.plainTextEditReporoductionTroubleshooting.toPlainText()), h, m, s))
-		connection.commit()
-		connection.close()
+		if (odgovorSave == QtGui.QMessageBox.Yes):
+			connection = sqlite3.connect("baza_main.db")
+			c = connection.cursor()
+
+			connection.execute("""
+						INSERT INTO 
+							ticket_info 
+						VALUES
+							(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+						""", (None, str(self.lineEditIncident.text()), str(self.comboBoxSeverity.currentText()), str(self.comboBoxStatus.currentText()), str(self.lineEditDatum.text()), str(self.lineEditImePrezime.text()), str(self.lineEditBrojTelefona.text()), str(self.lineEditZipCode.text()), str(self.lineEditEmail.text()), str(self.plainTextEditVersions.toPlainText()), str(self.lineEditHasSiteEverCalled.text()), str(self.lineEditDidItEverWork.text()), str(self.lineEditWhenDidItStop.text()), str(self.lineEditChangesMade.text()), str(self.lineEditHowManyTermLocation.text()), str(self.lineEditHowManyTermDown.text()), str(self.lineEditAnyAffected.text()), str(self.lineEditScreenshotsAttached.text()), str(self.lineEditModelSerial.text()), str(self.lineEditAlternativeMethod.text()), str(self.plainTextEditNextSteps.toPlainText()), str(self.plainTextEditDescriptionProblem.toPlainText()), str(self.plainTextEditReporoductionTroubleshooting.toPlainText()), h, m, s))
+			connection.commit()
+			connection.close()
+			self.clear_all_fields()
+		else:
+			pass
+
+		
+
+		# msgBox = QtGui.QMessageBox()
+		# # msgBox.setStyleSheet('QMessageBox {background-color: rgba(0, 0, 0, 0);}')
+		# msgBox.setWindowIcon(QtGui.QIcon('images/001-save.png'))
+		# QtGui.QMessageBox.about(msgBox, "{0}:{1}:{2}".format(h, m, s), "Ticket #{0} has been saved!".format(str(self.lineEditIncident.text())))
+
 
 	# vracanje copyToClipboard i save buttona na "clickable" kad su inputi popunjeni
 	def enable_pushButtonCopyToClipboard_btn(self):
-		if (len(self.lineEditHasSiteEverCalled.text()) and len(self.lineEditDidItEverWork.text()) and len(self.lineEditWhenDidItStop.text()) and len(self.lineEditChangesMade.text()) and len(self.lineEditHowManyTermLocation.text()) and len(self.lineEditHowManyTermDown.text()) and len(self.lineEditAnyAffected.text()) and len(self.lineEditScreenshotsAttached.text()) and len(self.lineEditModelSerial.text()) and len(self.lineEditAlternativeMethod.text()) and len(self.plainTextEditNextSteps.toPlainText()) and len(self.plainTextEditDescriptionProblem.toPlainText()) and len(self.plainTextEditReporoductionTroubleshooting.toPlainText()) > 0):
+		if (len(self.plainTextEditVersions.toPlainText()) and len(self.lineEditHasSiteEverCalled.text()) and len(self.lineEditDidItEverWork.text()) and len(self.lineEditWhenDidItStop.text()) and len(self.lineEditChangesMade.text()) and len(self.lineEditHowManyTermLocation.text()) and len(self.lineEditHowManyTermDown.text()) and len(self.lineEditAnyAffected.text()) and len(self.lineEditScreenshotsAttached.text()) and len(self.lineEditModelSerial.text()) and len(self.lineEditAlternativeMethod.text()) and len(self.plainTextEditNextSteps.toPlainText()) and len(self.plainTextEditDescriptionProblem.toPlainText()) and len(self.plainTextEditReporoductionTroubleshooting.toPlainText()) > 0):
 			self.pushButtonCopyToClipboard.setDisabled(False)
 			self.pushButtonSave.setDisabled(False)
 			
@@ -210,6 +227,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 	# brisanje svih inputa na klik butona clear all fields i save buttona
 	def clear_all_fields(self):
+		self.plainTextEditVersions.clear()
 		self.lineEditHasSiteEverCalled.clear()
 		self.lineEditDidItEverWork.clear()
 		self.lineEditWhenDidItStop.clear()
