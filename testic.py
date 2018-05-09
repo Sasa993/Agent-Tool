@@ -151,6 +151,13 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 		self.labelTimer.setText(time)
 
+		# promjena boje timera kad predje 30 min, ili sat
+		if (m == 30 and h == 0):
+			self.labelTimer.setStyleSheet('color: rgb(255, 165, 0)')
+		if (h == 1):
+			self.labelTimer.setStyleSheet('color: rgb(255, 69, 0)')
+			self.labelTimer.setFont(QtGui.QFont("Times", 20, weight=QtGui.QFont.Bold))
+
 	def dodavanje_na(self, imeInputa):
 		imeInputa.setText("N/A")
 
