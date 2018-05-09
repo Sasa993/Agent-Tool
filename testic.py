@@ -1,6 +1,7 @@
 import sys
 import sqlite3
 from PyQt4 import QtCore, QtGui, uic
+from PyQt4.QtGui import QLineEdit
 from gui_glavni import Ui_MainWindow
 from gui_about import Ui_aboutDialog
 from gui_testic import Ui_testWidget
