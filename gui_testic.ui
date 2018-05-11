@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>850</width>
+    <width>825</width>
     <height>634</height>
    </rect>
   </property>
@@ -35,50 +35,108 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>828</width>
+          <width>803</width>
           <height>612</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QToolBox" name="toolBox">
+          <widget class="QPushButton" name="pushButtonRefresh">
+           <property name="text">
+            <string>REFRESH</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonSelektovano">
+           <property name="text">
+            <string>SELECT</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tableWidgetIspisIzBaze">
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+             <underline>false</underline>
+             <strikeout>false</strikeout>
+             <kerning>true</kerning>
             </font>
            </property>
-           <property name="currentIndex">
-            <number>0</number>
+           <property name="cursor" stdset="0">
+            <cursorShape>PointingHandCursor</cursorShape>
            </property>
-           <property name="tabSpacing">
-            <number>8</number>
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
            </property>
-           <widget class="QWidget" name="page">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>810</width>
-              <height>559</height>
-             </rect>
+           <property name="alternatingRowColors">
+            <bool>true</bool>
+           </property>
+           <property name="selectionMode">
+            <enum>QAbstractItemView::SingleSelection</enum>
+           </property>
+           <property name="selectionBehavior">
+            <enum>QAbstractItemView::SelectRows</enum>
+           </property>
+           <property name="textElideMode">
+            <enum>Qt::ElideLeft</enum>
+           </property>
+           <property name="showGrid">
+            <bool>false</bool>
+           </property>
+           <property name="sortingEnabled">
+            <bool>true</bool>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+           <attribute name="horizontalHeaderVisible">
+            <bool>true</bool>
+           </attribute>
+           <attribute name="horizontalHeaderDefaultSectionSize">
+            <number>100</number>
+           </attribute>
+           <attribute name="horizontalHeaderHighlightSections">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+            <bool>true</bool>
+           </attribute>
+           <attribute name="verticalHeaderVisible">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="verticalHeaderHighlightSections">
+            <bool>false</bool>
+           </attribute>
+           <column>
+            <property name="text">
+             <string>ID</string>
             </property>
-            <attribute name="label">
-             <string>Page 1</string>
-            </attribute>
-            <widget class="QPlainTextEdit" name="plainTextEdit">
-             <property name="geometry">
-              <rect>
-               <x>170</x>
-               <y>110</y>
-               <width>361</width>
-               <height>251</height>
-              </rect>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </widget>
+           </column>
+           <column>
+            <property name="text">
+             <string>Ticket number</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Severity</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Status</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Date</string>
+            </property>
+           </column>
           </widget>
          </item>
         </layout>

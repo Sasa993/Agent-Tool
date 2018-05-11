@@ -23,13 +23,31 @@ class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 	def click_on_about_btn(self):
 		self.close()
 
-# widget za ispis iz baze
+# widget za ispis iz baze (Table)
 class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 	def __init__(self, parent = None):
 		# super(Ui_testWidget, self).__init__(parent)
 		QtGui.QWidget.__init__(self, parent)
+		flags = QtCore.Qt.Drawer | QtCore.Qt.WindowStaysOnTopHint
+		self.setWindowFlags(flags)
 		self.setupUi(self)
+
+		self.pushButtonRefresh.clicked.connect(self.click_on_pushButtonRefreh)
+		self.pushButtonSelektovano.clicked.connect(self.selektovano)
+
 		self.ispis_iz_baze()
+	# refresh ispisa nakon novog unosa
+	def click_on_pushButtonRefreh(self):
+		self.tableWidgetIspisIzBaze.clearContents()
+		self.tableWidgetIspisIzBaze.setRowCount(0)
+		self.ispis_iz_baze()
+
+	def selektovano(self):
+		lista = []
+		for x in self.tableWidgetIspisIzBaze.selectedItems():
+			lista.append(x.text())
+
+		print(lista[0])
 
 	def ispis_iz_baze(self):
 		conn = sqlite3.connect("baza_main.db")
@@ -38,11 +56,20 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 		testni_kveri = c.execute('SELECT * FROM ticket_info')
 
 		for x in testni_kveri:
-			self.toolBox.addItem(QtGui.QPlainTextEdit("{0}h {1}min {2}sec\nZip code: {3}\n\n{4}\nSite/Tree/Key #: {5}\nDate / Time issue occurs: {6}\n\nPoint of Contact (First and Last name): {7}\nSite/Point of Contact Phone#: {8}\nSite/Point of Contact Email: {9}\n\nDescription of the Problem:\n{10}\n\nHas site ever called support for the same issue?: {11}\n\nDid it ever work?: {12}\n\nWhen did it stop working: {13}\nChanges made around that time: {14}\n\nHow many terminals on location: {15}\nHow many terminals are down: {16}\nAre any of the affected terminals specialty terminals?: {17}\n\nReproduction and Troubleshooting steps taken to resolve:\n\n{18}\n\nScreen shots attached (if applicable): {19}\nModel & S/N (if hardware related): {20}\nAlternative method that will be used by the site: {21}\n\n***Next Steps for next contact:\n{22}".format(x[24], x[25], x[26], x[8], x[10], x[5], x[4], x[6], x[7], x[9], x[22], x[11], x[12], x[13], x[14], x[15], x[16], x[17], x[23], x[18], x[19], x[20], x[21])), "{0}. Ticket: #{1}    Severity: {2}    Status:{3}    Date:{4}".format(x[0], x[1], x[2], x[3], x[4]))
+			# self.toolBox.addItem(QtGui.QPlainTextEdit("{0}h {1}min {2}sec\nZip code: {3}\n\n{4}\nSite/Tree/Key #: {5}\nDate / Time issue occurs: {6}\n\nPoint of Contact (First and Last name): {7}\nSite/Point of Contact Phone#: {8}\nSite/Point of Contact Email: {9}\n\nDescription of the Problem:\n{10}\n\nHas site ever called support for the same issue?: {11}\n\nDid it ever work?: {12}\n\nWhen did it stop working: {13}\nChanges made around that time: {14}\n\nHow many terminals on location: {15}\nHow many terminals are down: {16}\nAre any of the affected terminals specialty terminals?: {17}\n\nReproduction and Troubleshooting steps taken to resolve:\n\n{18}\n\nScreen shots attached (if applicable): {19}\nModel & S/N (if hardware related): {20}\nAlternative method that will be used by the site: {21}\n\n***Next Steps for next contact:\n{22}".format(x[24], x[25], x[26], x[8], x[10], x[5], x[4], x[6], x[7], x[9], x[22], x[11], x[12], x[13], x[14], x[15], x[16], x[17], x[23], x[18], x[19], x[20], x[21])), "{0}. Ticket: #{1}    Severity: {2}    Status:{3}    Date:{4}".format(x[0], x[1], x[2], x[3], x[4]))
 
+			# da bi table funkcionisao, moramo dodavati row za svaki
+			rowPosition = self.tableWidgetIspisIzBaze.rowCount()
+			self.tableWidgetIspisIzBaze.insertRow(rowPosition)
+			# da bi ID bio INTEGER da se moze sortirati normalno
+			item = QtGui.QTableWidgetItem()
+			item.setData(QtCore.Qt.EditRole, x[0])
 
-		# for x in range(45):
-		# 	self.toolBox.addItem(QtGui.QPlainTextEdit('Kitica'), "kiki")
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 0, item)
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 1, QtGui.QTableWidgetItem("{0}".format(x[1])))
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 2, QtGui.QTableWidgetItem("{0}".format(x[2])))
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 3, QtGui.QTableWidgetItem("{0}".format(x[3])))
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 4, QtGui.QTableWidgetItem("{0}".format(x[4])))
 
 		conn.commit()
 		conn.close()
@@ -88,7 +115,8 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.actionAbout.triggered.connect(self.actionAbout_triggered)
 		self.popAboutDialog = aboutDialog()
 
-		self.actionTestic.triggered.connect(self.startUi_testWidget)
+		self.actionTestic.triggered.connect(self.actionTestic_triggered)
+		self.popTestic = Ui_testWidget()
 
 		# timer
 		self.timer = QtCore.QTimer(self)
@@ -180,11 +208,11 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	# 	self.test_label.setText('Time now: %s. End time: %s. Seconds left: %s'%(self.now.strftime("%H:%M:%S"), (self.now + datetime.timedelta(seconds=self.count)).strftime("%H:%M:%S"), self.count))
 	# 	self.count = self.count - 1
 
-	def startUi_testWidget(self):
-		self.poptestWidget = Ui_testWidget()
-		self.setWindowTitle("Tickets info")
-		self.setCentralWidget(self.poptestWidget)
-		self.poptestWidget.show()
+	# def startUi_testWidget(self):
+	# 	self.poptestWidget = Ui_testWidget()
+	# 	self.setWindowTitle("Tickets info")
+	# 	self.setCentralWidget(self.poptestWidget)
+	# 	self.poptestWidget.show()
 
 	# built-in event kada se ide na X da se close-a window
 	def closeEvent(self, event):
@@ -199,6 +227,9 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 	def actionAbout_triggered(self):
 		self.popAboutDialog.show()
+
+	def actionTestic_triggered(self):
+		self.popTestic.show()
 
 	# unos u bazu
 	def click_on_pushButtonSave_btn(self):
