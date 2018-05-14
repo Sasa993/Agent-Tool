@@ -5,12 +5,15 @@ from PyQt4.QtGui import QLineEdit
 from gui_glavni import Ui_MainWindow
 from gui_about import Ui_aboutDialog
 from gui_testic import Ui_testWidget
+from gui_selektovani import Ui_selektovaniId
 import datetime
 
 s = 0
 m = 0
 h = 0
 provjeraButtonStart = True
+
+lista = []
 
 class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 	def __init__(self, parent = None):
@@ -35,6 +38,8 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 		self.pushButtonRefresh.clicked.connect(self.click_on_pushButtonRefreh)
 		self.pushButtonSelektovano.clicked.connect(self.selektovano)
 
+		# self.popSelektovaniId = Ui_selektovaniId()
+
 		self.ispis_iz_baze()
 	# refresh ispisa nakon novog unosa
 	def click_on_pushButtonRefreh(self):
@@ -43,11 +48,15 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 		self.ispis_iz_baze()
 
 	def selektovano(self):
-		lista = []
+		global lista
+
 		for x in self.tableWidgetIspisIzBaze.selectedItems():
 			lista.append(x.text())
 
-		print(lista[0])
+		#print(lista[0])
+
+		self.popSelektovaniId = Ui_selektovaniId()
+		self.popSelektovaniId.show()
 
 	def ispis_iz_baze(self):
 		conn = sqlite3.connect("baza_main.db")
@@ -73,6 +82,54 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 
 		conn.commit()
 		conn.close()
+
+class Ui_selektovaniId(QtGui.QWidget, Ui_selektovaniId):
+	def __init__(self, parent = None):
+		QtGui.QWidget.__init__(self, parent)
+		flags = QtCore.Qt.Drawer | QtCore.Qt.WindowStaysOnTopHint
+		self.setWindowFlags(flags)
+		self.setupUi(self)
+		self.uradi_nesto()
+
+	def uradi_nesto(self):
+		global lista
+
+		conn = sqlite3.connect("baza_main.db")
+		c = conn.cursor()
+
+		neki_kveri = c.execute("SELECT * FROM ticket_info WHERE id_ticket_info = '{0}'".format(lista[0]))
+
+		for x in neki_kveri:
+			self.labelIncidentNumber.setText(str(x[1]))
+			self.labelVrijeme.setText(str("{0}h {1}min {2}sec".format(x[24], x[25], x[26])))
+			self.labelDatum.setText(x[4])
+			self.labelSeverity.setText(x[2])
+			self.labelZipCode.setText(x[8])
+			self.labelVersions.setText(x[10])
+			self.labelSiteKey.setText(x[5])
+			self.labelNameLastName.setText(x[6])
+			self.labelContactPhone.setText(x[7])
+			self.labelContactEmail.setText(x[9])
+			self.labelDescription.setText(x[22])
+			self.labelTroubleshooting.setText(x[23])
+			self.labelNextSteps.setText(x[21])
+			self.labelHasSiteEverCalled.setText(x[11])
+			self.labelDidItEverWork.setText(x[12])
+			self.labelWhenDidItStop.setText(x[13])
+			self.labelChangesMade.setText(x[14])
+			self.labelHowManyTermLoc.setText(x[15])
+			self.labelHowManyTermDown.setText(x[16])
+			self.labelAreAnySpecTerm.setText(x[17])
+			self.labelScreenShotsAttached.setText(x[18])
+			self.labelModelSerialNum.setText(x[19])
+			self.labelAlternativeMethod.setText(x[20])
+			self.labelStatus.setText(x[3])
+
+		conn.commit()
+		conn.close()
+
+		# brisanje svih clanova liste ____
+		lista.clear()
 
 class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def __init__(self):
