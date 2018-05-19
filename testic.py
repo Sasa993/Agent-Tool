@@ -204,7 +204,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		m = 0
 		h = 0
  
-		time = "{0}:{1}:{2}".format(h,m,s)
+		time = "{0:02d}:{1:02d}:{2:02d}".format(h,m,s)
 
 		self.labelTimer.setText(time)
 
@@ -236,7 +236,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 			else:
 				self.timer.stop()
 
-		time = "{0}:{1}:{2}".format(h, m, s)
+		time = "{0:02d}:{1:02d}:{2:02d}".format(h, m, s)
 
 		self.labelTimer.setText(time)
 
