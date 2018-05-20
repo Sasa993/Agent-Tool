@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(967, 838)
+        MainWindow.resize(967, 724)
         MainWindow.setMinimumSize(QtCore.QSize(950, 0))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("../../../Desktop/saki.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
         self.pushButtonClearAllFields.setFont(font)
         self.pushButtonClearAllFields.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButtonClearAllFields.setStyleSheet(_fromUtf8("QPushButton:hover {background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0.988636, y2:0.983, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255));}\n"
-"QPushButton:pressed { border-bottom: 1px solid rgb(96, 255, 170); border-top: 1px solid white;}\n"
+"QPushButton:pressed { border: 1px solid black;}\n"
 "QPushButton { background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255)); border-radius: 20px; }\n"
 "\n"
 ""))
@@ -86,7 +86,7 @@ class Ui_MainWindow(object):
         self.pushButtonCopyToClipboard.setFont(font)
         self.pushButtonCopyToClipboard.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButtonCopyToClipboard.setStyleSheet(_fromUtf8("QPushButton:hover {background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0.988636, y2:0.983, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255));}\n"
-"QPushButton:pressed { border-bottom: 1px solid rgb(96, 255, 170); border-top: 1px solid white;}\n"
+"QPushButton:pressed { border: 1px solid black;}\n"
 "QPushButton { background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255)); border-radius: 20px; }\n"
 "QPushButton:disabled {background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(96, 255, 170, 100), stop:0.664773 rgba(255, 255, 255, 100))}\n"
 "\n"
@@ -131,6 +131,7 @@ class Ui_MainWindow(object):
         self.pushButtonStart.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButtonStart.setStyleSheet(_fromUtf8("QPushButton {background-color: rgba(96, 255, 170, 20); border-radius: 5px}\n"
 "QPushButton:checked {border: 1px solid black;}\n"
+"QPushButton:pressed {border: 1px solid black;}\n"
 "QPushButton:hover {background-color: rgba(96, 255, 170, 120);}"))
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/002-play-button.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -185,7 +186,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(False)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents_5 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_5.setGeometry(QtCore.QRect(0, -344, 1223, 890))
+        self.scrollAreaWidgetContents_5.setGeometry(QtCore.QRect(0, 0, 1223, 890))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -220,6 +221,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.plainTextEditVersions.setFont(font)
+        self.plainTextEditVersions.setToolTip(_fromUtf8(""))
         self.plainTextEditVersions.setObjectName(_fromUtf8("plainTextEditVersions"))
         self.verticalLayout_6.addWidget(self.plainTextEditVersions)
         self.label_19 = QtGui.QLabel(self.verticalLayoutWidget_4)
@@ -240,6 +242,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.lineEditHasSiteEverCalled.setFont(font)
+        self.lineEditHasSiteEverCalled.setToolTip(_fromUtf8(""))
         self.lineEditHasSiteEverCalled.setObjectName(_fromUtf8("lineEditHasSiteEverCalled"))
         self.verticalLayout_6.addWidget(self.lineEditHasSiteEverCalled)
         self.label_20 = QtGui.QLabel(self.verticalLayoutWidget_4)
@@ -264,6 +267,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.lineEditDidItEverWork.setFont(font)
+        self.lineEditDidItEverWork.setToolTip(_fromUtf8(""))
         self.lineEditDidItEverWork.setObjectName(_fromUtf8("lineEditDidItEverWork"))
         self.horizontalLayout_5.addWidget(self.lineEditDidItEverWork)
         self.verticalLayout_6.addLayout(self.horizontalLayout_5)
@@ -537,6 +541,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.plainTextEditDescriptionProblem.setFont(font)
+        self.plainTextEditDescriptionProblem.setToolTip(_fromUtf8(""))
         self.plainTextEditDescriptionProblem.setObjectName(_fromUtf8("plainTextEditDescriptionProblem"))
         self.verticalLayout.addWidget(self.plainTextEditDescriptionProblem)
         spacerItem5 = QtGui.QSpacerItem(20, 50, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
@@ -559,6 +564,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.plainTextEditReporoductionTroubleshooting.setFont(font)
+        self.plainTextEditReporoductionTroubleshooting.setToolTip(_fromUtf8(""))
         self.plainTextEditReporoductionTroubleshooting.setObjectName(_fromUtf8("plainTextEditReporoductionTroubleshooting"))
         self.verticalLayout.addWidget(self.plainTextEditReporoductionTroubleshooting)
         self.gridLayout_4.addLayout(self.verticalLayout, 1, 1, 1, 1)
@@ -648,6 +654,10 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.lineEditIncident.setFont(font)
+        self.lineEditIncident.setToolTip(_fromUtf8(""))
+        self.lineEditIncident.setStatusTip(_fromUtf8(""))
+        self.lineEditIncident.setWhatsThis(_fromUtf8(""))
+        self.lineEditIncident.setAccessibleDescription(_fromUtf8(""))
         self.lineEditIncident.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.lineEditIncident.setText(_fromUtf8(""))
         self.lineEditIncident.setFrame(True)
@@ -698,6 +708,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.lineEditDatum.setFont(font)
+        self.lineEditDatum.setToolTip(_fromUtf8(""))
         self.lineEditDatum.setText(_fromUtf8(""))
         self.lineEditDatum.setObjectName(_fromUtf8("lineEditDatum"))
         self.horizontalLayout_4.addWidget(self.lineEditDatum)
@@ -716,6 +727,9 @@ class Ui_MainWindow(object):
         self.pushButtonSave.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButtonSave.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.pushButtonSave.setAutoFillBackground(False)
+        self.pushButtonSave.setStyleSheet(_fromUtf8("QPushButton {background-color: rgba(96, 255, 170, 0);}\n"
+"QPushButton:hover {background-color: rgba(96, 255, 170, 120);border-radius: 5px; }\n"
+"QPushButton:pressed {border: 1px solid black;}"))
         self.pushButtonSave.setText(_fromUtf8(""))
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-save.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -723,7 +737,7 @@ class Ui_MainWindow(object):
         self.pushButtonSave.setIconSize(QtCore.QSize(44, 44))
         self.pushButtonSave.setAutoDefault(False)
         self.pushButtonSave.setDefault(False)
-        self.pushButtonSave.setFlat(True)
+        self.pushButtonSave.setFlat(False)
         self.pushButtonSave.setObjectName(_fromUtf8("pushButtonSave"))
         self.horizontalLayout_4.addWidget(self.pushButtonSave)
         self.verticalLayout_3.addLayout(self.horizontalLayout_4)
@@ -771,6 +785,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.lineEditImePrezime.setFont(font)
+        self.lineEditImePrezime.setToolTip(_fromUtf8(""))
         self.lineEditImePrezime.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.lineEditImePrezime.setObjectName(_fromUtf8("lineEditImePrezime"))
         self.horizontalLayout.addWidget(self.lineEditImePrezime)
@@ -778,24 +793,28 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.lineEditBrojTelefona.setFont(font)
+        self.lineEditBrojTelefona.setToolTip(_fromUtf8(""))
         self.lineEditBrojTelefona.setObjectName(_fromUtf8("lineEditBrojTelefona"))
         self.horizontalLayout.addWidget(self.lineEditBrojTelefona)
         self.lineEditZipCode = QtGui.QLineEdit(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(10)
         self.lineEditZipCode.setFont(font)
+        self.lineEditZipCode.setToolTip(_fromUtf8(""))
         self.lineEditZipCode.setObjectName(_fromUtf8("lineEditZipCode"))
         self.horizontalLayout.addWidget(self.lineEditZipCode)
         self.lineEditSiteKey = QtGui.QLineEdit(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(10)
         self.lineEditSiteKey.setFont(font)
+        self.lineEditSiteKey.setToolTip(_fromUtf8(""))
         self.lineEditSiteKey.setObjectName(_fromUtf8("lineEditSiteKey"))
         self.horizontalLayout.addWidget(self.lineEditSiteKey)
         self.lineEditEmail = QtGui.QLineEdit(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(10)
         self.lineEditEmail.setFont(font)
+        self.lineEditEmail.setToolTip(_fromUtf8(""))
         self.lineEditEmail.setObjectName(_fromUtf8("lineEditEmail"))
         self.horizontalLayout.addWidget(self.lineEditEmail)
         self.verticalLayout_3.addLayout(self.horizontalLayout)
@@ -893,6 +912,37 @@ class Ui_MainWindow(object):
         self.pushButtonNaDidItEverWork.setText(_translate("MainWindow", "N/A", None))
         self.label_22.setText(_translate("MainWindow", "When did it stop working?", None))
         self.pushButtonNaWhenDidItStop.setText(_translate("MainWindow", "N/A", None))
+        self.lineEditWhenDidItStop.setToolTip(_translate("MainWindow", "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"<ui version=\"4.0\">\n"
+" <widget name=\"__qt_fake_top_level\">\n"
+"  <widget class=\"QLabel\" name=\"label_22\">\n"
+"   <property name=\"geometry\">\n"
+"    <rect>\n"
+"     <x>15</x>\n"
+"     <y>234</y>\n"
+"     <width>414</width>\n"
+"     <height>16</height>\n"
+"    </rect>\n"
+"   </property>\n"
+"   <property name=\"font\">\n"
+"    <font>\n"
+"     <pointsize>10</pointsize>\n"
+"    </font>\n"
+"   </property>\n"
+"   <property name=\"text\">\n"
+"    <string>When did it stop working?</string>\n"
+"   </property>\n"
+"   <property name=\"textFormat\">\n"
+"    <enum>Qt::AutoText</enum>\n"
+"   </property>\n"
+"   <property name=\"alignment\">\n"
+"    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>\n"
+"   </property>\n"
+"  </widget>\n"
+" </widget>\n"
+" <resources/>\n"
+"</ui>\n"
+"", None))
         self.label_29.setText(_translate("MainWindow", "Changes made around that time?", None))
         self.pushButtonNaChangesMade.setText(_translate("MainWindow", "N/A", None))
         self.label_28.setText(_translate("MainWindow", "How many terminals on location?", None))
@@ -911,6 +961,7 @@ class Ui_MainWindow(object):
         self.pushButtonNaNextSteps.setText(_translate("MainWindow", "N/A", None))
         self.label.setText(_translate("MainWindow", "Description of the problem", None))
         self.label_2.setText(_translate("MainWindow", "Reporoduction and Troubleshooting stepks taken to resolve", None))
+        self.lineEditIncident.setAccessibleName(_translate("MainWindow", "cxzczx", None))
         self.comboBoxSeverity.setToolTip(_translate("MainWindow", "Severity", None))
         self.comboBoxSeverity.setItemText(0, _translate("MainWindow", "Sev 1", None))
         self.comboBoxSeverity.setItemText(1, _translate("MainWindow", "Sev 2", None))
@@ -920,6 +971,7 @@ class Ui_MainWindow(object):
         self.comboBoxStatus.setItemText(1, _translate("MainWindow", "Closed", None))
         self.comboBoxStatus.setItemText(2, _translate("MainWindow", "WFC", None))
         self.comboBoxStatus.setItemText(3, _translate("MainWindow", "Escalated", None))
+        self.pushButtonSave.setToolTip(_translate("MainWindow", "Save", None))
         self.label_11.setText(_translate("MainWindow", "Name and last name", None))
         self.label_10.setText(_translate("MainWindow", "Callback number", None))
         self.label_9.setText(_translate("MainWindow", "ZIP code", None))

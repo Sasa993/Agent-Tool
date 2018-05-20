@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>967</width>
-    <height>838</height>
+    <height>724</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -79,7 +79,7 @@
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton:hover {background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0.988636, y2:0.983, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255));}
-QPushButton:pressed { border-bottom: 1px solid rgb(96, 255, 170); border-top: 1px solid white;}
+QPushButton:pressed { border: 1px solid black;}
 QPushButton { background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255)); border-radius: 20px; }
 
 </string>
@@ -163,7 +163,7 @@ QPushButton { background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton:hover {background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0.988636, y2:0.983, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255));}
-QPushButton:pressed { border-bottom: 1px solid rgb(96, 255, 170); border-top: 1px solid white;}
+QPushButton:pressed { border: 1px solid black;}
 QPushButton { background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255)); border-radius: 20px; }
 QPushButton:disabled {background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(96, 255, 170, 100), stop:0.664773 rgba(255, 255, 255, 100))}
 
@@ -267,6 +267,7 @@ QPushButton:disabled {background-color: qlineargradient(spread:pad, x1:1, y1:1, 
           <property name="styleSheet">
            <string notr="true">QPushButton {background-color: rgba(96, 255, 170, 20); border-radius: 5px}
 QPushButton:checked {border: 1px solid black;}
+QPushButton:pressed {border: 1px solid black;}
 QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
           </property>
           <property name="text">
@@ -408,7 +409,7 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-344</y>
+           <y>0</y>
            <width>1223</width>
            <height>890</height>
           </rect>
@@ -496,6 +497,9 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
                <pointsize>10</pointsize>
               </font>
              </property>
+             <property name="toolTip">
+              <string/>
+             </property>
             </widget>
            </item>
            <item>
@@ -534,6 +538,9 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
               <font>
                <pointsize>10</pointsize>
               </font>
+             </property>
+             <property name="toolTip">
+              <string/>
              </property>
              <property name="placeholderText">
               <string>YES / NO, if YES, give incident #</string>
@@ -587,6 +594,9 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
                 <font>
                  <pointsize>10</pointsize>
                 </font>
+               </property>
+               <property name="toolTip">
+                <string/>
                </property>
               </widget>
              </item>
@@ -642,6 +652,39 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
                 <font>
                  <pointsize>10</pointsize>
                 </font>
+               </property>
+               <property name="toolTip">
+                <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;ui version=&quot;4.0&quot;&gt;
+ &lt;widget name=&quot;__qt_fake_top_level&quot;&gt;
+  &lt;widget class=&quot;QLabel&quot; name=&quot;label_22&quot;&gt;
+   &lt;property name=&quot;geometry&quot;&gt;
+    &lt;rect&gt;
+     &lt;x&gt;15&lt;/x&gt;
+     &lt;y&gt;234&lt;/y&gt;
+     &lt;width&gt;414&lt;/width&gt;
+     &lt;height&gt;16&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;font&quot;&gt;
+    &lt;font&gt;
+     &lt;pointsize&gt;10&lt;/pointsize&gt;
+    &lt;/font&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;text&quot;&gt;
+    &lt;string&gt;When did it stop working?&lt;/string&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;textFormat&quot;&gt;
+    &lt;enum&gt;Qt::AutoText&lt;/enum&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;alignment&quot;&gt;
+    &lt;set&gt;Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter&lt;/set&gt;
+   &lt;/property&gt;
+  &lt;/widget&gt;
+ &lt;/widget&gt;
+ &lt;resources/&gt;
+&lt;/ui&gt;
+</string>
                </property>
               </widget>
              </item>
@@ -1123,7 +1166,16 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
     </item>
     <item row="1" column="1">
      <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="margin">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
        <number>10</number>
       </property>
       <item>
@@ -1174,6 +1226,9 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
          <font>
           <pointsize>10</pointsize>
          </font>
+        </property>
+        <property name="toolTip">
+         <string/>
         </property>
        </widget>
       </item>
@@ -1229,6 +1284,9 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
          <font>
           <pointsize>10</pointsize>
          </font>
+        </property>
+        <property name="toolTip">
+         <string/>
         </property>
        </widget>
       </item>
@@ -1486,6 +1544,21 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
               <pointsize>10</pointsize>
              </font>
             </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="statusTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string/>
+            </property>
+            <property name="accessibleName">
+             <string>cxzczx</string>
+            </property>
+            <property name="accessibleDescription">
+             <string/>
+            </property>
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
             </property>
@@ -1652,6 +1725,9 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
               <pointsize>10</pointsize>
              </font>
             </property>
+            <property name="toolTip">
+             <string/>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -1695,11 +1771,19 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
+            <property name="toolTip">
+             <string>Save</string>
+            </property>
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
             </property>
             <property name="autoFillBackground">
              <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {background-color: rgba(96, 255, 170, 0);}
+QPushButton:hover {background-color: rgba(96, 255, 170, 120);border-radius: 5px; }
+QPushButton:pressed {border: 1px solid black;}</string>
             </property>
             <property name="text">
              <string/>
@@ -1721,7 +1805,7 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
              <bool>false</bool>
             </property>
             <property name="flat">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -1815,6 +1899,9 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
               <pointsize>10</pointsize>
              </font>
             </property>
+            <property name="toolTip">
+             <string/>
+            </property>
             <property name="alignment">
              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
@@ -1827,6 +1914,9 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
               <pointsize>10</pointsize>
              </font>
             </property>
+            <property name="toolTip">
+             <string/>
+            </property>
            </widget>
           </item>
           <item>
@@ -1835,6 +1925,9 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
              <font>
               <pointsize>10</pointsize>
              </font>
+            </property>
+            <property name="toolTip">
+             <string/>
             </property>
            </widget>
           </item>
@@ -1845,6 +1938,9 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
               <pointsize>10</pointsize>
              </font>
             </property>
+            <property name="toolTip">
+             <string/>
+            </property>
            </widget>
           </item>
           <item>
@@ -1853,6 +1949,9 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
              <font>
               <pointsize>10</pointsize>
              </font>
+            </property>
+            <property name="toolTip">
+             <string/>
             </property>
            </widget>
           </item>
