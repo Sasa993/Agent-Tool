@@ -1,6 +1,13 @@
 <RCC>
   <qresource prefix="prva">
     <file>images/001-pause.png</file>
+    <file>images/001-eraser.png</file>
+    <file>images/002-dustbin.png</file>
+    <file>images/003-rubber.png</file>
+    <file>images/004-delete.png</file>
+    <file>images/005-copy-1.png</file>
+    <file>images/006-copy-file.png</file>
+    <file>images/007-copy.png</file>
     <file>images/001-replay.png</file>
     <file>images/001-save.png</file>
     <file>images/002-play-button.png</file>

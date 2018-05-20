@@ -139,6 +139,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.setupUi(self)
 
 		# pushButtonCopyToClipboard i pushButtonSave disabling
+		# self.pushButtonClearAllFields.setStyleSheet("QPushButton:hover { color: white }")
 		self.pushButtonCopyToClipboard.setDisabled(True)
 		self.pushButtonSave.setDisabled(True)
 		self.lineEditImePrezime.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
