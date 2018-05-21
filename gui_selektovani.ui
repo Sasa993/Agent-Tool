@@ -14,287 +14,7 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_3">
-   <item row="0" column="0" colspan="3">
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QLabel" name="labelVrijeme">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelIncidentNumber">
-       <property name="font">
-        <font>
-         <pointsize>18</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignHCenter|Qt::AlignTop</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelDatum">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="2" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_5">
-     <item>
-      <widget class="QLabel" name="labelVersions">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TextLabel&lt;br/&gt;sadas&lt;br/&gt;aadas&lt;br/&gt;dasd&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="2" column="1" rowspan="2">
-    <layout class="QVBoxLayout" name="verticalLayout_4">
-     <item>
-      <widget class="QLabel" name="label_14">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Description of the Problem:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelDescription">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TextLabel&lt;/p&gt;&lt;p&gt;dasd&lt;/p&gt;&lt;p&gt;asd&lt;/p&gt;&lt;p&gt;asd&lt;/p&gt;&lt;p&gt;as&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label123">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reproduction and Troubleshooting steps&lt;br/&gt;taken to resolve:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelTroubleshooting">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TextLabel&lt;/p&gt;&lt;p&gt;asdasdasd&lt;/p&gt;&lt;p&gt;sadasdas&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelnexttt">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>***Next Steps for next contact:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelNextSteps">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TextLabel&lt;br/&gt;dasdasd&lt;br/&gt;Asdasdas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="1" column="0" colspan="3">
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
-     <item>
-      <widget class="QLabel" name="labelZipCode">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelSeverity">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="4" column="0" colspan="3">
-    <layout class="QVBoxLayout" name="verticalLayout_6">
-     <item>
-      <widget class="QLabel" name="labelStatus">
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Closed</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="3" column="0">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Site/Tree/Key #:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLabel" name="labelContactPhone">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="labelSiteKey">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_8">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Point of Contact:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="labelNameLastName">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_10">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Site/Point of Contact Phone:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_12">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Site/Point of Contact Email:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLabel" name="labelContactEmail">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="2" column="2" rowspan="2">
+   <item row="3" column="2" rowspan="2">
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="1" column="1">
       <widget class="QLabel" name="label_20">
@@ -314,7 +34,7 @@
      <item row="6" column="2">
       <widget class="Line" name="line_3">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -327,7 +47,7 @@
      <item row="0" column="2">
       <widget class="Line" name="line_18">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -340,7 +60,7 @@
      <item row="2" column="2">
       <widget class="Line" name="line">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -353,7 +73,7 @@
      <item row="10" column="2">
       <widget class="Line" name="line_16">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -366,7 +86,7 @@
      <item row="14" column="2">
       <widget class="Line" name="line_17">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -379,7 +99,7 @@
      <item row="8" column="2">
       <widget class="Line" name="line_15">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -392,7 +112,7 @@
      <item row="4" column="2">
       <widget class="Line" name="line_2">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -405,7 +125,7 @@
      <item row="10" column="1">
       <widget class="Line" name="line_5">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -418,7 +138,7 @@
      <item row="6" column="1">
       <widget class="Line" name="line_7">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -690,7 +410,7 @@ p, li { white-space: pre-wrap; }
      <item row="4" column="1">
       <widget class="Line" name="line_8">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -703,7 +423,7 @@ p, li { white-space: pre-wrap; }
      <item row="2" column="1">
       <widget class="Line" name="line_9">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -716,7 +436,7 @@ p, li { white-space: pre-wrap; }
      <item row="14" column="1">
       <widget class="Line" name="line_10">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -729,7 +449,7 @@ p, li { white-space: pre-wrap; }
      <item row="12" column="1">
       <widget class="Line" name="line_4">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -742,7 +462,7 @@ p, li { white-space: pre-wrap; }
      <item row="8" column="1">
       <widget class="Line" name="line_6">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -755,7 +475,7 @@ p, li { white-space: pre-wrap; }
      <item row="0" column="1">
       <widget class="Line" name="line_13">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -768,7 +488,7 @@ p, li { white-space: pre-wrap; }
      <item row="20" column="1">
       <widget class="Line" name="line_12">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -781,7 +501,7 @@ p, li { white-space: pre-wrap; }
      <item row="18" column="1">
       <widget class="Line" name="line_11">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -794,7 +514,7 @@ p, li { white-space: pre-wrap; }
      <item row="12" column="2">
       <widget class="Line" name="line_14">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -807,7 +527,7 @@ p, li { white-space: pre-wrap; }
      <item row="16" column="1">
       <widget class="Line" name="line_19">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -820,7 +540,7 @@ p, li { white-space: pre-wrap; }
      <item row="16" column="2">
       <widget class="Line" name="line_20">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -833,7 +553,7 @@ p, li { white-space: pre-wrap; }
      <item row="18" column="2">
       <widget class="Line" name="line_21">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -846,7 +566,7 @@ p, li { white-space: pre-wrap; }
      <item row="20" column="2">
       <widget class="Line" name="line_22">
        <property name="styleSheet">
-        <string notr="true">color: rgb(49, 94, 255);</string>
+        <string notr="true">color: rgb(129, 255, 148);</string>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Plain</enum>
@@ -858,19 +578,409 @@ p, li { white-space: pre-wrap; }
      </item>
     </layout>
    </item>
+   <item row="3" column="1" rowspan="2">
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <widget class="QLabel" name="label_14">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Description of the Problem:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>30</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelDescription">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Panel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <property name="lineWidth">
+        <number>2</number>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label123">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reproduction and Troubleshooting steps&lt;br/&gt;taken to resolve:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>30</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelTroubleshooting">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Panel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <property name="lineWidth">
+        <number>2</number>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TextLabel&lt;/p&gt;&lt;p&gt;asdasdasd&lt;/p&gt;&lt;p&gt;sadasdas&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelnexttt">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>***Next Steps for next contact:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>30</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelNextSteps">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Panel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <property name="lineWidth">
+        <number>2</number>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TextLabel&lt;br/&gt;dasdasd&lt;br/&gt;Asdasdas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0" colspan="3">
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QLabel" name="labelZipCode">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelSeverity">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="6" column="0" colspan="3">
+    <layout class="QVBoxLayout" name="verticalLayout_6">
+     <item>
+      <widget class="QLabel" name="labelStatus">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0.0170455, x2:1, y2:0, stop:0 rgba(99, 153, 117, 255), stop:1 rgba(255, 255, 255, 255));</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="text">
+        <string>Closed</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="4" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Site/Tree/Key #:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="labelContactPhone">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="labelSiteKey">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Point of Contact:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="labelNameLastName">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Site/Point of Contact Phone:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_12">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Site/Point of Contact Email:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="labelContactEmail">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="0" colspan="3">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="labelVrijeme">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelIncidentNumber">
+       <property name="font">
+        <font>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelDatum">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <item>
+      <widget class="QLabel" name="labelVersions">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TextLabel&lt;br/&gt;sadas&lt;br/&gt;aadas&lt;br/&gt;dasd&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <widget class="Line" name="line_23">
+     <property name="styleSheet">
+      <string notr="true">color: rgb(129, 255, 148);</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <spacer name="verticalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>30</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
   </layout>
-  <zorder>horizontalLayoutWidget</zorder>
-  <zorder>verticalLayoutWidget</zorder>
-  <zorder>horizontalLayoutWidget</zorder>
-  <zorder>horizontalLayoutWidget_2</zorder>
-  <zorder>labelSeverity</zorder>
-  <zorder>labelSeverity</zorder>
-  <zorder>labelSeverity</zorder>
-  <zorder>horizontalLayoutWidget_3</zorder>
-  <zorder>gridLayoutWidget</zorder>
-  <zorder>verticalLayoutWidget</zorder>
-  <zorder>gridLayoutWidget_2</zorder>
-  <zorder>verticalLayoutWidget_2</zorder>
  </widget>
  <resources/>
  <connections/>

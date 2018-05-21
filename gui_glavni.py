@@ -27,9 +27,6 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(967, 724)
         MainWindow.setMinimumSize(QtCore.QSize(950, 0))
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("../../../Desktop/saki.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        MainWindow.setWindowIcon(icon)
         MainWindow.setAnimated(True)
         MainWindow.setTabShape(QtGui.QTabWidget.Rounded)
         MainWindow.setDockOptions(QtGui.QMainWindow.AllowTabbedDocks|QtGui.QMainWindow.AnimatedDocks)
@@ -58,9 +55,9 @@ class Ui_MainWindow(object):
 "QPushButton { background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255)); border-radius: 20px; }\n"
 "\n"
 ""))
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/002-dustbin.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButtonClearAllFields.setIcon(icon1)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/002-dustbin.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButtonClearAllFields.setIcon(icon)
         self.pushButtonClearAllFields.setIconSize(QtCore.QSize(32, 32))
         self.pushButtonClearAllFields.setShortcut(_fromUtf8(""))
         self.pushButtonClearAllFields.setCheckable(False)
@@ -91,9 +88,9 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(96, 255, 170, 100), stop:0.664773 rgba(255, 255, 255, 100))}\n"
 "\n"
 ""))
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/005-copy-1.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButtonCopyToClipboard.setIcon(icon2)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/005-copy-1.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButtonCopyToClipboard.setIcon(icon1)
         self.pushButtonCopyToClipboard.setIconSize(QtCore.QSize(32, 32))
         self.pushButtonCopyToClipboard.setShortcut(_fromUtf8(""))
         self.pushButtonCopyToClipboard.setCheckable(False)
@@ -133,10 +130,10 @@ class Ui_MainWindow(object):
 "QPushButton:checked {border: 1px solid black;}\n"
 "QPushButton:pressed {border: 1px solid black;}\n"
 "QPushButton:hover {background-color: rgba(96, 255, 170, 120);}"))
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/002-play-button.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon3.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-pause.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.pushButtonStart.setIcon(icon3)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/002-play-button.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-pause.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.pushButtonStart.setIcon(icon2)
         self.pushButtonStart.setIconSize(QtCore.QSize(32, 32))
         self.pushButtonStart.setCheckable(True)
         self.pushButtonStart.setChecked(False)
@@ -156,9 +153,9 @@ class Ui_MainWindow(object):
         self.pushButtonReset.setStyleSheet(_fromUtf8("QPushButton {background-color: rgba(96, 255, 170, 20); border-radius: 5px}\n"
 "QPushButton:pressed {border: 1px solid black;}\n"
 "QPushButton:hover {background-color: rgba(96, 255, 170, 120);}"))
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-replay.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButtonReset.setIcon(icon4)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-replay.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButtonReset.setIcon(icon3)
         self.pushButtonReset.setIconSize(QtCore.QSize(32, 32))
         self.pushButtonReset.setCheckable(False)
         self.pushButtonReset.setAutoDefault(True)
@@ -731,9 +728,9 @@ class Ui_MainWindow(object):
 "QPushButton:hover {background-color: rgba(96, 255, 170, 120);border-radius: 5px; }\n"
 "QPushButton:pressed {border: 1px solid black;}"))
         self.pushButtonSave.setText(_fromUtf8(""))
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-save.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButtonSave.setIcon(icon5)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-save.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButtonSave.setIcon(icon4)
         self.pushButtonSave.setIconSize(QtCore.QSize(44, 44))
         self.pushButtonSave.setAutoDefault(False)
         self.pushButtonSave.setDefault(False)

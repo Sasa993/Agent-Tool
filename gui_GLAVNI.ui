@@ -19,10 +19,6 @@
   <property name="windowTitle">
    <string>Agent Tool</string>
   </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>../../../Desktop/saki.jpg</normaloff>../../../Desktop/saki.jpg</iconset>
-  </property>
   <property name="animated">
    <bool>true</bool>
   </property>
