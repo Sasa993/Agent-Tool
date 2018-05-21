@@ -208,6 +208,8 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		time = "{0:02d}:{1:02d}:{2:02d}".format(h,m,s)
 
 		self.labelTimer.setText(time)
+		self.labelTimer.setStyleSheet('color: rgb(0, 0, 0)')
+		self.labelTimer.setFont(QtGui.QFont("MS Shell Dlg 2", 20, weight=QtGui.QFont.Normal))
 
 	def timer_start(self):
 		global s, m, h, provjeraButtonStart
@@ -246,7 +248,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 			self.labelTimer.setStyleSheet('color: rgb(255, 165, 0)')
 		if (h == 1):
 			self.labelTimer.setStyleSheet('color: rgb(255, 69, 0)')
-			self.labelTimer.setFont(QtGui.QFont("Times", 20, weight=QtGui.QFont.Bold))
+			self.labelTimer.setFont(QtGui.QFont("MS Shell Dlg 2", 20, weight=QtGui.QFont.Bold))
 
 	def dodavanje_na(self, imeInputa):
 		imeInputa.setText("N/A")
