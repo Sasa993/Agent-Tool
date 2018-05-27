@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>562</width>
+    <width>577</width>
     <height>634</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>562</width>
+    <width>577</width>
     <height>16777215</height>
    </size>
   </property>
@@ -50,7 +50,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>524</width>
+          <width>539</width>
           <height>614</height>
          </rect>
         </property>
@@ -78,7 +78,7 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>502</width>
+             <width>517</width>
              <height>16777215</height>
             </size>
            </property>
@@ -96,6 +96,15 @@
            <property name="cursor" stdset="0">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
+           <property name="lineWidth">
+            <number>1</number>
+           </property>
+           <property name="horizontalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
+           <property name="autoScrollMargin">
+            <number>16</number>
+           </property>
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
            </property>
@@ -111,6 +120,9 @@
            <property name="textElideMode">
             <enum>Qt::ElideLeft</enum>
            </property>
+           <property name="verticalScrollMode">
+            <enum>QAbstractItemView::ScrollPerItem</enum>
+           </property>
            <property name="showGrid">
             <bool>false</bool>
            </property>
@@ -123,17 +135,26 @@
            <attribute name="horizontalHeaderVisible">
             <bool>true</bool>
            </attribute>
+           <attribute name="horizontalHeaderCascadingSectionResizes">
+            <bool>false</bool>
+           </attribute>
            <attribute name="horizontalHeaderDefaultSectionSize">
-            <number>100</number>
+            <number>103</number>
            </attribute>
            <attribute name="horizontalHeaderHighlightSections">
             <bool>false</bool>
+           </attribute>
+           <attribute name="horizontalHeaderMinimumSectionSize">
+            <number>33</number>
            </attribute>
            <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
             <bool>true</bool>
            </attribute>
            <attribute name="verticalHeaderVisible">
             <bool>false</bool>
+           </attribute>
+           <attribute name="verticalHeaderDefaultSectionSize">
+            <number>30</number>
            </attribute>
            <attribute name="verticalHeaderHighlightSections">
             <bool>false</bool>

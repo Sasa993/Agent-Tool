@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>967</width>
-    <height>724</height>
+    <height>725</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1239,7 +1239,7 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
         <property name="sizeHint" stdset="0">
          <size>
           <width>20</width>
-          <height>50</height>
+          <height>70</height>
          </size>
         </property>
        </spacer>
@@ -1660,7 +1660,7 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
             </property>
             <item>
              <property name="text">
-              <string>Open</string>
+              <string>Active</string>
              </property>
             </item>
             <item>
@@ -1671,6 +1671,11 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
             <item>
              <property name="text">
               <string>WFC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Tranferred</string>
              </property>
             </item>
             <item>
@@ -2037,30 +2042,29 @@ QPushButton:pressed {border: 1px solid black;}</string>
   <tabstop>plainTextEditReporoductionTroubleshooting</tabstop>
   <tabstop>lineEditHasSiteEverCalled</tabstop>
   <tabstop>pushButtonNaDidItEverWork</tabstop>
-  <tabstop>lineEditDidItEverWork</tabstop>
   <tabstop>pushButtonNaWhenDidItStop</tabstop>
-  <tabstop>lineEditWhenDidItStop</tabstop>
   <tabstop>pushButtonNaChangesMade</tabstop>
-  <tabstop>lineEditChangesMade</tabstop>
   <tabstop>pushButtonNaHowManyTermLocation</tabstop>
-  <tabstop>lineEditHowManyTermLocation</tabstop>
   <tabstop>pushButtonNaHowManyTermDown</tabstop>
-  <tabstop>lineEditHowManyTermDown</tabstop>
   <tabstop>pushButtonNaAnyAffected</tabstop>
-  <tabstop>lineEditAnyAffected</tabstop>
   <tabstop>pushButtonNaScreenshotsAttached</tabstop>
-  <tabstop>lineEditScreenshotsAttached</tabstop>
   <tabstop>pushButtonNaModelSerial</tabstop>
-  <tabstop>lineEditModelSerial</tabstop>
   <tabstop>pushButtonNaAlternativeMethod</tabstop>
+  <tabstop>pushButtonNaNextSteps</tabstop>
+  <tabstop>lineEditDidItEverWork</tabstop>
+  <tabstop>lineEditWhenDidItStop</tabstop>
+  <tabstop>lineEditChangesMade</tabstop>
+  <tabstop>lineEditHowManyTermLocation</tabstop>
+  <tabstop>lineEditHowManyTermDown</tabstop>
+  <tabstop>lineEditAnyAffected</tabstop>
+  <tabstop>lineEditScreenshotsAttached</tabstop>
+  <tabstop>lineEditModelSerial</tabstop>
   <tabstop>lineEditAlternativeMethod</tabstop>
+  <tabstop>plainTextEditNextSteps</tabstop>
   <tabstop>lineEditIncident</tabstop>
   <tabstop>comboBoxSeverity</tabstop>
   <tabstop>comboBoxStatus</tabstop>
   <tabstop>lineEditDatum</tabstop>
-  <tabstop>pushButtonSave</tabstop>
-  <tabstop>pushButtonStart</tabstop>
-  <tabstop>pushButtonReset</tabstop>
   <tabstop>pushButton</tabstop>
   <tabstop>pushButton_2</tabstop>
   <tabstop>pushButton_8</tabstop>
@@ -2069,9 +2073,13 @@ QPushButton:pressed {border: 1px solid black;}</string>
   <tabstop>pushButton_4</tabstop>
   <tabstop>pushButton_5</tabstop>
   <tabstop>pushButton_6</tabstop>
+  <tabstop>pushButtonStart</tabstop>
+  <tabstop>pushButtonReset</tabstop>
+  <tabstop>pushButtonSave</tabstop>
   <tabstop>pushButtonClearAllFields</tabstop>
   <tabstop>pushButtonCopyToClipboard</tabstop>
   <tabstop>scrollArea</tabstop>
+  <tabstop>plainTextEditVersions</tabstop>
  </tabstops>
  <resources>
   <include location="xx.qrc"/>

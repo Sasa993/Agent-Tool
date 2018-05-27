@@ -350,7 +350,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.comboBoxSeverity.clear()
 		self.comboBoxSeverity.addItems(['Sev 1', 'Sev 2', 'Sev 3'])
 		self.comboBoxStatus.clear()
-		self.comboBoxStatus.addItems(['Open', 'Closed', 'WFC', 'Escalated'])
+		self.comboBoxStatus.addItems(['Active', 'Closed', 'WFC', 'Transferred', 'Escalated'])
 		self.lineEditImePrezime.clear()
 		self.lineEditBrojTelefona.clear()
 		self.lineEditZipCode.clear()
