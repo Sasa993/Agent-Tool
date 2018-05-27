@@ -496,6 +496,12 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
              <property name="toolTip">
               <string/>
              </property>
+             <property name="tabChangesFocus">
+              <bool>false</bool>
+             </property>
+             <property name="tabStopWidth">
+              <number>40</number>
+             </property>
             </widget>
            </item>
            <item>
@@ -1226,6 +1232,12 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
         <property name="toolTip">
          <string/>
         </property>
+        <property name="tabChangesFocus">
+         <bool>false</bool>
+        </property>
+        <property name="tabStopWidth">
+         <number>40</number>
+        </property>
        </widget>
       </item>
       <item>
@@ -1283,6 +1295,33 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
         </property>
         <property name="toolTip">
          <string/>
+        </property>
+        <property name="tabChangesFocus">
+         <bool>false</bool>
+        </property>
+        <property name="documentTitle">
+         <string/>
+        </property>
+        <property name="lineWrapMode">
+         <enum>QPlainTextEdit::WidgetWidth</enum>
+        </property>
+        <property name="overwriteMode">
+         <bool>false</bool>
+        </property>
+        <property name="tabStopWidth">
+         <number>40</number>
+        </property>
+        <property name="cursorWidth">
+         <number>1</number>
+        </property>
+        <property name="textInteractionFlags">
+         <set>Qt::TextEditorInteraction</set>
+        </property>
+        <property name="backgroundVisible">
+         <bool>false</bool>
+        </property>
+        <property name="centerOnScroll">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
