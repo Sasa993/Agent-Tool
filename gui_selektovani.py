@@ -64,7 +64,11 @@ class Ui_selektovaniId(object):
         font = QtGui.QFont()
         font.setPointSize(20)
         self.labelIncidentNumber.setFont(font)
+        self.labelIncidentNumber.setCursor(QtGui.QCursor(QtCore.Qt.IBeamCursor))
+        self.labelIncidentNumber.setFrameShape(QtGui.QFrame.NoFrame)
         self.labelIncidentNumber.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.labelIncidentNumber.setWordWrap(False)
+        self.labelIncidentNumber.setTextInteractionFlags(QtCore.Qt.TextSelectableByKeyboard|QtCore.Qt.TextSelectableByMouse)
         self.labelIncidentNumber.setObjectName(_fromUtf8("labelIncidentNumber"))
         self.horizontalLayout_3.addWidget(self.labelIncidentNumber)
         self.labelSeverity = QtGui.QLabel(selektovaniId)
@@ -94,11 +98,13 @@ class Ui_selektovaniId(object):
         self.plainTextEditOutput.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.plainTextEditOutput.setAutoFillBackground(False)
         self.plainTextEditOutput.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
+        self.plainTextEditOutput.setInputMethodHints(QtCore.Qt.ImhNone)
         self.plainTextEditOutput.setFrameShape(QtGui.QFrame.WinPanel)
         self.plainTextEditOutput.setFrameShadow(QtGui.QFrame.Raised)
         self.plainTextEditOutput.setLineWidth(1)
         self.plainTextEditOutput.setMidLineWidth(1)
         self.plainTextEditOutput.setTabChangesFocus(True)
+        self.plainTextEditOutput.setPlainText(_fromUtf8(""))
         self.plainTextEditOutput.setTextInteractionFlags(QtCore.Qt.TextSelectableByKeyboard|QtCore.Qt.TextSelectableByMouse)
         self.plainTextEditOutput.setObjectName(_fromUtf8("plainTextEditOutput"))
         self.gridLayout.addWidget(self.plainTextEditOutput, 0, 0, 1, 1)
@@ -113,38 +119,6 @@ class Ui_selektovaniId(object):
         self.labelVrijeme.setText(_translate("selektovaniId", "TextLabel", None))
         self.labelIncidentNumber.setText(_translate("selektovaniId", "TextLabel", None))
         self.labelSeverity.setText(_translate("selektovaniId", "TextLabel", None))
-        self.plainTextEditOutput.setPlainText(_translate("selektovaniId", "asd\n"
-"Site/Tree/Key #: das\n"
-"Date / Time issue occurs: 05/22/2018\n"
-"\n"
-"Point of Contact (First and Last name): as\n"
-"Site/Point of Contact Phone#: das\n"
-"Site/Point of Contact Email: da\n"
-"\n"
-"Description of the Probblem:\n"
-"sdasd\n"
-"\n"
-"Has site ever called support for the same issue?: asd\n"
-"\n"
-"Did it ever work?: N/A\n"
-"\n"
-"When did it stop working: N/A\n"
-"Changes made around that time: N/A\n"
-"\n"
-"How many terminals on location: N/A\n"
-"How many terminals are down: N/A\n"
-"Are any of the affected terminals specialty terminals?: N/A\n"
-"\n"
-"Reproduction and Troubleshooting steps taken to resolve:\n"
-"\n"
-"asd\n"
-"\n"
-"Screen shots attached (if applicable): N/A\n"
-"Model & S/N (if hardware related): N/A\n"
-"Alternative method that will be used by the site: N/A\n"
-"\n"
-"***Next Steps for next contact:\n"
-"N/A", None))
 
 
 if __name__ == "__main__":

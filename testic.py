@@ -40,6 +40,7 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 
 		# self.popSelektovaniId = Ui_selektovaniId()
 
+		# self.kurcina()
 		self.ispis_iz_baze()
 	# refresh ispisa nakon novog unosa
 	def click_on_pushButtonRefreh(self):
@@ -63,6 +64,7 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 		c = conn.cursor()
 
 		testni_kveri = c.execute('SELECT * FROM ticket_info')
+		conn.commit()
 
 		for x in testni_kveri:
 			# self.toolBox.addItem(QtGui.QPlainTextEdit("{0}h {1}min {2}sec\nZip code: {3}\n\n{4}\nSite/Tree/Key #: {5}\nDate / Time issue occurs: {6}\n\nPoint of Contact (First and Last name): {7}\nSite/Point of Contact Phone#: {8}\nSite/Point of Contact Email: {9}\n\nDescription of the Problem:\n{10}\n\nHas site ever called support for the same issue?: {11}\n\nDid it ever work?: {12}\n\nWhen did it stop working: {13}\nChanges made around that time: {14}\n\nHow many terminals on location: {15}\nHow many terminals are down: {16}\nAre any of the affected terminals specialty terminals?: {17}\n\nReproduction and Troubleshooting steps taken to resolve:\n\n{18}\n\nScreen shots attached (if applicable): {19}\nModel & S/N (if hardware related): {20}\nAlternative method that will be used by the site: {21}\n\n***Next Steps for next contact:\n{22}".format(x[24], x[25], x[26], x[8], x[10], x[5], x[4], x[6], x[7], x[9], x[22], x[11], x[12], x[13], x[14], x[15], x[16], x[17], x[23], x[18], x[19], x[20], x[21])), "{0}. Ticket: #{1}    Severity: {2}    Status:{3}    Date:{4}".format(x[0], x[1], x[2], x[3], x[4]))
@@ -80,7 +82,24 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 			self.tableWidgetIspisIzBaze.setItem(rowPosition, 3, QtGui.QTableWidgetItem("{0}".format(x[3])))
 			self.tableWidgetIspisIzBaze.setItem(rowPosition, 4, QtGui.QTableWidgetItem("{0}".format(x[4])))
 
+		kita = str(datetime.date.today().strftime("%m/%d/%Y"))
+
+		# kveri za ispis broja tiketa za danas
+		c.execute("SELECT count(*) FROM ticket_info WHERE datum = '{0}'".format(str(datetime.date.today().strftime("%m/%d/%Y"))))
 		conn.commit()
+
+		self.labelBrojTiketaDanas.setText(str(c.fetchone()[0]))
+
+		# c.execute("SELECT count(*) FROM ticket_info WHERE strftime('%d', datetime(datum, 'unixepoch')) = '30'")
+		testic = (datetime.date.today() - datetime.timedelta(days = 5)).strftime("%m")
+		c.execute("SELECT count(*) FROM ticket_info WHERE datum >= '{0}'".format(testic))
+		conn.commit()
+
+		print(c.fetchone()[0])
+
+		# print(c.fetchone()[0])
+
+		# conn.commit()
 		conn.close()
 
 class Ui_selektovaniId(QtGui.QWidget, Ui_selektovaniId):
@@ -134,7 +153,6 @@ class Ui_selektovaniId(QtGui.QWidget, Ui_selektovaniId):
 
 class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def __init__(self):
-
 		QtGui.QMainWindow.__init__(self)
 		Ui_MainWindow.__init__(self)
 		self.setupUi(self)

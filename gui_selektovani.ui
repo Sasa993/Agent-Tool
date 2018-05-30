@@ -106,11 +106,23 @@
          <pointsize>20</pointsize>
         </font>
        </property>
+       <property name="cursor">
+        <cursorShape>IBeamCursor</cursorShape>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       </property>
+       <property name="wordWrap">
+        <bool>false</bool>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
        </property>
       </widget>
      </item>
@@ -165,6 +177,9 @@
        <property name="locale">
         <locale language="English" country="UnitedStates"/>
        </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
        <property name="frameShape">
         <enum>QFrame::WinPanel</enum>
        </property>
@@ -181,38 +196,7 @@
         <bool>true</bool>
        </property>
        <property name="plainText">
-        <string>asd
-Site/Tree/Key #: das
-Date / Time issue occurs: 05/22/2018
-
-Point of Contact (First and Last name): as
-Site/Point of Contact Phone#: das
-Site/Point of Contact Email: da
-
-Description of the Probblem:
-sdasd
-
-Has site ever called support for the same issue?: asd
-
-Did it ever work?: N/A
-
-When did it stop working: N/A
-Changes made around that time: N/A
-
-How many terminals on location: N/A
-How many terminals are down: N/A
-Are any of the affected terminals specialty terminals?: N/A
-
-Reproduction and Troubleshooting steps taken to resolve:
-
-asd
-
-Screen shots attached (if applicable): N/A
-Model &amp; S/N (if hardware related): N/A
-Alternative method that will be used by the site: N/A
-
-***Next Steps for next contact:
-N/A</string>
+        <string/>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
