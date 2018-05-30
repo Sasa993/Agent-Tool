@@ -82,24 +82,40 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 			self.tableWidgetIspisIzBaze.setItem(rowPosition, 3, QtGui.QTableWidgetItem("{0}".format(x[3])))
 			self.tableWidgetIspisIzBaze.setItem(rowPosition, 4, QtGui.QTableWidgetItem("{0}".format(x[4])))
 
-		kita = str(datetime.date.today().strftime("%m/%d/%Y"))
+		datumSada = str(datetime.date.today().strftime("%m/%d/%Y"))
 
 		# kveri za ispis broja tiketa za danas
-		c.execute("SELECT count(*) FROM ticket_info WHERE datum = '{0}'".format(str(datetime.date.today().strftime("%m/%d/%Y"))))
+		c.execute("SELECT COUNT(*) FROM ticket_info WHERE datum = '{0}'".format(str(datetime.date.today().strftime("%m/%d/%Y"))))
 		conn.commit()
-
 		self.labelBrojTiketaDanas.setText(str(c.fetchone()[0]))
 
-		# c.execute("SELECT count(*) FROM ticket_info WHERE strftime('%d', datetime(datum, 'unixepoch')) = '30'")
-		testic = (datetime.date.today() - datetime.timedelta(days = 5)).strftime("%m")
-		c.execute("SELECT count(*) FROM ticket_info WHERE datum >= '{0}'".format(testic))
+		# kveri za ispis broja tiketa za trenutni mjesec
+		c.execute("SELECT COUNT(*) FROM ticket_info WHERE month = '{0}'".format(datetime.datetime.strptime(datumSada, "%m/%d/%Y").month))
 		conn.commit()
+		self.labelBrojTiketaMjesec.setText(str(c.fetchone()[0]))
 
-		print(c.fetchone()[0])
+		# kveriji za srednju vrijednost trajanja svih poziva
+		brojTiketa = c.execute("SELECT COUNT(*) FROM ticket_info")
+		brojTiketa = brojTiketa.fetchone()[0]
+		trajanjePozivaS = c.execute("SELECT SUM(vrijeme_trajanja_poziva_s) FROM ticket_info")
+		trajanjePozivaS = trajanjePozivaS.fetchone()[0]
+		trajanjePozivaM = c.execute("SELECT SUM(vrijeme_trajanja_poziva_m) FROM ticket_info")
+		trajanjePozivaM = trajanjePozivaM.fetchone()[0] * 60
+		trajanjePozivaH = c.execute("SELECT SUM(vrijeme_trajanja_poziva_h) FROM ticket_info")
+		trajanjePozivaH = trajanjePozivaH.fetchone()[0] * 60 * 60
 
-		# print(c.fetchone()[0])
+		trajanjeUkupno = trajanjePozivaS + trajanjePozivaM + trajanjePozivaH
 
-		# conn.commit()
+		finalni = trajanjeUkupno / brojTiketa
+		finalniSatic = int(finalni / 60 / 60)
+		finalniMinutic = int(finalni / 60)
+		finalniSekundic = finalni % 60
+
+		finalnaSrednjaVrijednost = "{0:02d}:{1:02d}:{2:02d}".format(finalniSatic, finalniMinutic, int(finalniSekundic))
+
+		conn.commit()
+		self.labelSrednjaVrijednostDuzine.setText(finalnaSrednjaVrijednost)
+
 		conn.close()
 
 class Ui_selektovaniId(QtGui.QWidget, Ui_selektovaniId):
@@ -317,6 +333,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 						pitanjeSave, QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
 
 		if (odgovorSave == QtGui.QMessageBox.Yes):
+			datumPojedinacni = datetime.datetime.strptime(self.lineEditDatum.text(), "%m/%d/%Y")
 			connection = sqlite3.connect("baza_main.db")
 			c = connection.cursor()
 
@@ -324,8 +341,8 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 						INSERT INTO 
 							ticket_info 
 						VALUES
-							(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-						""", (None, str(self.lineEditIncident.text()), str(self.comboBoxSeverity.currentText()), str(self.comboBoxStatus.currentText()), str(self.lineEditDatum.text()), str(self.lineEditSiteKey.text()), str(self.lineEditImePrezime.text()), str(self.lineEditBrojTelefona.text()), str(self.lineEditZipCode.text()), str(self.lineEditEmail.text()), str(self.plainTextEditVersions.toPlainText()), str(self.lineEditHasSiteEverCalled.text()), str(self.lineEditDidItEverWork.text()), str(self.lineEditWhenDidItStop.text()), str(self.lineEditChangesMade.text()), str(self.lineEditHowManyTermLocation.text()), str(self.lineEditHowManyTermDown.text()), str(self.lineEditAnyAffected.text()), str(self.lineEditScreenshotsAttached.text()), str(self.lineEditModelSerial.text()), str(self.lineEditAlternativeMethod.text()), str(self.plainTextEditNextSteps.toPlainText()), str(self.plainTextEditDescriptionProblem.toPlainText()), str(self.plainTextEditReporoductionTroubleshooting.toPlainText()), h, m, s))
+							(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+						""", (None, str(self.lineEditIncident.text()), str(self.comboBoxSeverity.currentText()), str(self.comboBoxStatus.currentText()), str(self.lineEditDatum.text()), datumPojedinacni.day, datumPojedinacni.month, datumPojedinacni.year, str(self.lineEditSiteKey.text()), str(self.lineEditImePrezime.text()), str(self.lineEditBrojTelefona.text()), str(self.lineEditZipCode.text()), str(self.lineEditEmail.text()), str(self.plainTextEditVersions.toPlainText()), str(self.lineEditHasSiteEverCalled.text()), str(self.lineEditDidItEverWork.text()), str(self.lineEditWhenDidItStop.text()), str(self.lineEditChangesMade.text()), str(self.lineEditHowManyTermLocation.text()), str(self.lineEditHowManyTermDown.text()), str(self.lineEditAnyAffected.text()), str(self.lineEditScreenshotsAttached.text()), str(self.lineEditModelSerial.text()), str(self.lineEditAlternativeMethod.text()), str(self.plainTextEditNextSteps.toPlainText()), str(self.plainTextEditDescriptionProblem.toPlainText()), str(self.plainTextEditReporoductionTroubleshooting.toPlainText()), h, m, s))
 			connection.commit()
 			connection.close()
 			self.clear_all_fields()
