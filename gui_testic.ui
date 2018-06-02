@@ -9,29 +9,29 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>726</width>
-    <height>594</height>
+    <width>753</width>
+    <height>652</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>0</width>
-    <height>0</height>
+    <width>753</width>
+    <height>652</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>800</width>
-    <height>16777215</height>
+    <width>753</width>
+    <height>652</height>
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Tickets</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>197</x>
      <y>70</y>
      <width>551</width>
      <height>501</height>
@@ -39,10 +39,10 @@
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <property name="leftMargin">
-     <number>10</number>
+     <number>5</number>
     </property>
     <property name="rightMargin">
-     <number>10</number>
+     <number>5</number>
     </property>
     <item row="0" column="0">
      <widget class="QScrollArea" name="scrollArea">
@@ -57,7 +57,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>531</width>
+         <width>541</width>
          <height>499</height>
         </rect>
        </property>
@@ -186,20 +186,6 @@
           </column>
          </widget>
         </item>
-        <item>
-         <widget class="QPushButton" name="pushButtonSelektovano">
-          <property name="text">
-           <string>SELECT</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButtonRefresh">
-          <property name="text">
-           <string>REFRESH</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
      </widget>
@@ -209,10 +195,10 @@
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>30</y>
+     <x>400</x>
+     <y>9</y>
      <width>331</width>
-     <height>31</height>
+     <height>51</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -228,55 +214,275 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="gridLayoutWidget">
+  <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>69</y>
-     <width>143</width>
-     <height>301</height>
+     <x>26</x>
+     <y>70</y>
+     <width>171</width>
+     <height>490</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout_7">
-    <item row="1" column="1">
-     <widget class="QLabel" name="labelBrojTiketaMjesec">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>60</number>
+    </property>
+    <property name="bottomMargin">
+     <number>60</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="labelkita">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel { 
+border-left: 1px solid black;
+border-right: 1px solid black;
+border-top: 1px solid black;
+background-color: rgb(84, 255, 155);
+}</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>Today</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Mjesec:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
+    <item>
      <widget class="QLabel" name="labelBrojTiketaDanas">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+background-color: rgb(196, 255, 218);
+border-top: 1px solid black;
+}
+QLabel:hover {
+border-top: 0;
+border-right: 1px solid black;
+border-left: 1px solid black;
+border-bottom: 1px solid black
+}</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>a</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label">
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel { 
+border-left: 1px solid black;
+border-right: 1px solid black;
+border-top: 1px solid black;
+background-color: rgb(84, 255, 155);
+}</string>
+      </property>
       <property name="text">
-       <string>Danas:</string>
+       <string>This month</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
+    <item>
+     <widget class="QLabel" name="labelBrojTiketaMjesec">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+background-color: rgb(196, 255, 218);
+border-top: 1px solid black;
+}
+QLabel:hover {
+border-top: 0;
+border-right: 1px solid black;
+border-left: 1px solid black;
+border-bottom: 1px solid black
+}</string>
+      </property>
+      <property name="text">
+       <string>a</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel { 
+border-left: 1px solid black;
+border-right: 1px solid black;
+border-top: 1px solid black;
+background-color: rgb(84, 255, 155);
+}</string>
+      </property>
       <property name="text">
-       <string>Srednja vrijednost</string>
+       <string>Avarage handling time</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
+    <item>
      <widget class="QLabel" name="labelSrednjaVrijednostDuzine">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+background-color: rgb(196, 255, 218);
+border-top: 1px solid black;
+}
+QLabel:hover {
+border-top: 0;
+border-right: 1px solid black;
+border-left: 1px solid black;
+border-bottom: 1px solid black
+}</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>a</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>216</x>
+     <y>580</y>
+     <width>511</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0">
+    <property name="spacing">
+     <number>50</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="pushButtonSelektovano">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover {background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0.988636, y2:0.983, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255));}
+QPushButton:pressed { border: 1px solid black;}
+QPushButton { background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255)); border-radius: 20px; }
+
+</string>
+      </property>
+      <property name="text">
+       <string> SELECT</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>images/005-select.png</normaloff>images/005-select.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButtonRefresh">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover {background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0.988636, y2:0.983, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255));}
+QPushButton:pressed { border: 1px solid black;}
+QPushButton { background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255)); border-radius: 20px; }
+
+</string>
+      </property>
+      <property name="text">
+       <string> REFRESH</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>images/001-circular-arrow.png</normaloff>images/001-circular-arrow.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
       </property>
      </widget>
     </item>

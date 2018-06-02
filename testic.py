@@ -72,27 +72,37 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 			# da bi table funkcionisao, moramo dodavati row za svaki
 			rowPosition = self.tableWidgetIspisIzBaze.rowCount()
 			self.tableWidgetIspisIzBaze.insertRow(rowPosition)
-			# da bi ID bio INTEGER da se moze sortirati normalno
+			
 			item = QtGui.QTableWidgetItem()
+			# da bi ID bio INTEGER da se moze sortirati normalno
 			item.setData(QtCore.Qt.EditRole, x[0])
+			item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item1 = QtGui.QTableWidgetItem("{0}".format(x[1]))
+			item1.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item2 = QtGui.QTableWidgetItem("{0}".format(x[2]))
+			item2.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item3 = QtGui.QTableWidgetItem("{0}".format(x[3]))
+			item3.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item4 = QtGui.QTableWidgetItem("{0}".format(x[4]))
+			item4.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
 
 			self.tableWidgetIspisIzBaze.setItem(rowPosition, 0, item)
-			self.tableWidgetIspisIzBaze.setItem(rowPosition, 1, QtGui.QTableWidgetItem("{0}".format(x[1])))
-			self.tableWidgetIspisIzBaze.setItem(rowPosition, 2, QtGui.QTableWidgetItem("{0}".format(x[2])))
-			self.tableWidgetIspisIzBaze.setItem(rowPosition, 3, QtGui.QTableWidgetItem("{0}".format(x[3])))
-			self.tableWidgetIspisIzBaze.setItem(rowPosition, 4, QtGui.QTableWidgetItem("{0}".format(x[4])))
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 1, item1)
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 2, item2)
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 3, item3)
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 4, item4)
 
 		datumSada = str(datetime.date.today().strftime("%m/%d/%Y"))
 
 		# kveri za ispis broja tiketa za danas
 		c.execute("SELECT COUNT(*) FROM ticket_info WHERE datum = '{0}'".format(str(datetime.date.today().strftime("%m/%d/%Y"))))
 		conn.commit()
-		self.labelBrojTiketaDanas.setText(str(c.fetchone()[0]))
+		self.labelBrojTiketaDanas.setText("{0} ticket(s)".format(str(c.fetchone()[0])))
 
 		# kveri za ispis broja tiketa za trenutni mjesec
 		c.execute("SELECT COUNT(*) FROM ticket_info WHERE month = '{0}'".format(datetime.datetime.strptime(datumSada, "%m/%d/%Y").month))
 		conn.commit()
-		self.labelBrojTiketaMjesec.setText(str(c.fetchone()[0]))
+		self.labelBrojTiketaMjesec.setText("{0} ticket(s)".format(str(c.fetchone()[0])))
 
 		# kveriji za srednju vrijednost trajanja svih poziva
 		brojTiketa = c.execute("SELECT COUNT(*) FROM ticket_info")
@@ -135,31 +145,12 @@ class Ui_selektovaniId(QtGui.QWidget, Ui_selektovaniId):
 		neki_kveri = c.execute("SELECT * FROM ticket_info WHERE id_ticket_info = '{0}'".format(lista[0]))
 
 		for x in neki_kveri:
-			self.plainTextEditOutput.setPlainText("{0}\nSite/Tree/Key #: {1}\nDate / Time issue occurs: {2}\n\nPoint of Contact (First and Last name): {3}\nSite/Point of Contact Phone#: {4}\nSite/Point of Contact Email: {5}\n\nDescription of the Problem:\n{6}\n\nHas site ever called support for the same issue?: {7}\n\nDid it ever work?: {8}\n\nWhen did it stop working: {9}\nChanges made around that time: {10}\n\nHow many terminals on location: {11}\nHow many terminals are down: {12}\nAre any of the affected terminals specialty terminals?: {13}\n\nReproduction and Troubleshooting steps taken to resolve:\n\n{14}\n\nScreen shots attached (if applicable): {15}\nModel & S/N (if hardware related): {16}\nAlternative method that will be used by the site: {17}\n\n***Next Steps for next contact:\n{18}".format(x[10], x[5], x[4], x[6], x[7], x[9], x[22], x[11], x[12], x[13], x[14], x[15], x[16], x[17], x[23], x[18], x[19], x[20], x[21]))
+			self.plainTextEditOutput.setPlainText("{0}\nSite/Tree/Key #: {1}\nDate / Time issue occurs: {2}\n\nPoint of Contact (First and Last name): {3}\nSite/Point of Contact Phone#: {4}\nSite/Point of Contact Email: {5}\n\nDescription of the Problem:\n{6}\n\nHas site ever called support for the same issue?: {7}\n\nDid it ever work?: {8}\n\nWhen did it stop working: {9}\nChanges made around that time: {10}\n\nHow many terminals on location: {11}\nHow many terminals are down: {12}\nAre any of the affected terminals specialty terminals?: {13}\n\nReproduction and Troubleshooting steps taken to resolve:\n\n{14}\n\nScreen shots attached (if applicable): {15}\nModel & S/N (if hardware related): {16}\nAlternative method that will be used by the site: {17}\n\n***Next Steps for next contact:\n{18}".format(x[13], x[8], x[4], x[9], x[10], x[12], x[25], x[14], x[15], x[16], x[17], x[18], x[19], x[20], x[26], x[21], x[22], x[23], x[24]))
 			self.labelIncidentNumber.setText(str(x[1]))
-			self.labelVrijeme.setText(str("{0}h {1}min {2}sec".format(x[24], x[25], x[26])))
-		# 	self.labelDatum.setText(x[4])	----------------
+			self.labelVrijeme.setText(str("{0}h {1}min {2}sec".format(x[27], x[28], x[29])))
 			self.labelSeverity.setText(x[2])
-			# self.labelZipCode.setText(x[8])
-		# 	self.labelVersions.setText(x[10])	-----
-		# 	self.labelSiteKey.setText(x[5])	------
-		# 	self.labelNameLastName.setText(x[6])	----
-		# 	self.labelContactPhone.setText(x[7])	----
-		# 	self.labelContactEmail.setText(x[9])	----
-		# 	self.labelDescription.setText(x[22])	----
-		# 	self.labelTroubleshooting.setText(x[23]) 	-----
-		# 	self.labelNextSteps.setText(x[21])			-----
-		# 	self.labelHasSiteEverCalled.setText(x[11])	----
-		# 	self.labelDidItEverWork.setText(x[12])	------
-		# 	self.labelWhenDidItStop.setText(x[13])	-----
-		# 	self.labelChangesMade.setText(x[14])	----
-		# 	self.labelHowManyTermLoc.setText(x[15])	------
-		# 	self.labelHowManyTermDown.setText(x[16])	----
-		# 	self.labelAreAnySpecTerm.setText(x[17])	------
-		# 	self.labelScreenShotsAttached.setText(x[18]) 	----
-		# 	self.labelModelSerialNum.setText(x[19]) 	-----
-		# 	self.labelAlternativeMethod.setText(x[20]) 	-----
 			self.labelStatus.setText(x[3])
+			self.setWindowTitle(x[25])
 
 		conn.commit()
 		conn.close()
