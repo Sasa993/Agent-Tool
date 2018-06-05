@@ -14,6 +14,7 @@ h = 0
 provjeraButtonStart = True
 
 lista = []
+bazica = "baza_main.db"
 
 class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 	def __init__(self, parent = None):
@@ -60,7 +61,7 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 		self.popSelektovaniId.show()
 
 	def ispis_iz_baze(self):
-		conn = sqlite3.connect("baza_main.db")
+		conn = sqlite3.connect(bazica)
 		c = conn.cursor()
 
 		testni_kveri = c.execute('SELECT * FROM ticket_info')
@@ -95,7 +96,7 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 		datumSada = str(datetime.date.today().strftime("%m/%d/%Y"))
 
 		# kveri za ispis broja tiketa za danas
-		c.execute("SELECT COUNT(*) FROM ticket_info WHERE datum = '{0}'".format(str(datetime.date.today().strftime("%m/%d/%Y"))))
+		hihi=c.execute("SELECT COUNT(*) FROM ticket_info WHERE datum = '{0}'".format(str(datetime.date.today().strftime("%m/%d/%Y"))))
 		conn.commit()
 		self.labelBrojTiketaDanas.setText("{0} ticket(s)".format(str(c.fetchone()[0])))
 
@@ -139,7 +140,7 @@ class Ui_selektovaniId(QtGui.QWidget, Ui_selektovaniId):
 	def uradi_nesto(self):
 		global lista
 
-		conn = sqlite3.connect("baza_main.db")
+		conn = sqlite3.connect(bazica)
 		c = conn.cursor()
 
 		neki_kveri = c.execute("SELECT * FROM ticket_info WHERE id_ticket_info = '{0}'".format(lista[0]))
@@ -325,7 +326,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 		if (odgovorSave == QtGui.QMessageBox.Yes):
 			datumPojedinacni = datetime.datetime.strptime(self.lineEditDatum.text(), "%m/%d/%Y")
-			connection = sqlite3.connect("baza_main.db")
+			connection = sqlite3.connect(bazica)
 			c = connection.cursor()
 
 			connection.execute("""
