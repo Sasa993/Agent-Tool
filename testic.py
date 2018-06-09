@@ -13,7 +13,7 @@ m = 0
 h = 0
 provjeraButtonStart = True
 
-lista = [}
+lista = []
 bazica = "baza_main.db"
 
 class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
