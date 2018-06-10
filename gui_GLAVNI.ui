@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>967</width>
-    <height>685</height>
+    <height>697</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -19,11 +19,21 @@
   <property name="windowTitle">
    <string>Agent Tool</string>
   </property>
-  <property name="animated">
-   <bool>true</bool>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>images/003-spy.png</normaloff>images/003-spy.png</iconset>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>52</width>
+    <height>52</height>
+   </size>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
   </property>
   <property name="tabShape">
-   <enum>QTabWidget::Rounded</enum>
+   <enum>QTabWidget::Triangular</enum>
   </property>
   <property name="dockOptions">
    <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
@@ -1984,8 +1994,20 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
        <widget class="QLabel" name="labelShiftEnds">
         <property name="font">
          <font>
+          <family>Segoe Script</family>
           <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+background-color: rgba(96, 255, 170, 20); 
+border-radius: 10px;
+padding-top: 5px;
+padding-bottom: 5px;
+}
+QLabel:hover {
+background-color: rgba(96, 255, 170, 120);
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -1999,8 +2021,16 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
        <widget class="QLabel" name="label_4">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <family>Segoe Script</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+          <underline>false</underline>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {color: rgba(64, 170, 112);}</string>
         </property>
         <property name="text">
          <string>Shift ends in</string>
@@ -2020,22 +2050,83 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
      <x>0</x>
      <y>0</y>
      <width>967</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <italic>false</italic>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar {
+background-color: rgba(96, 255, 170, 20);
+border-bottom: 1px solid rgba(0, 0, 0, 50);
+}
+QMenuBar::item {
+background-color: rgba(96, 255, 170, 20);
+padding: 1px 15px;
+}
+QMenuBar::item:selected {
+background-color: rgba(96, 255, 170, 120);
+border-right: 1px solid rgba(0, 0, 0, 50);
+border-left: 1px solid rgba(0, 0, 0, 50);
+}</string>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
+   </property>
    <widget class="QMenu" name="menuHelp">
+    <property name="styleSheet">
+     <string notr="true">QMenu::item {
+background-color: rgba(96, 255, 170, 20);
+}
+QMenu::item:selected {
+background-color: rgba(96, 255, 170, 120);
+color: black;
+}</string>
+    </property>
     <property name="title">
      <string>Help</string>
     </property>
     <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuTestic">
+    <property name="styleSheet">
+     <string notr="true">QMenu::item {
+background-color: rgba(96, 255, 170, 20);
+}
+QMenu::item:selected {
+background-color: rgba(96, 255, 170, 120);
+color: black;
+}</string>
+    </property>
     <property name="title">
      <string>View</string>
     </property>
     <addaction name="actionTestic"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
+    <property name="styleSheet">
+     <string notr="true">QMenu::item {
+background-color: rgba(96, 255, 170, 20);
+}
+QMenu::item:selected {
+background-color: rgba(96, 255, 170, 120);
+color: black;
+}
+QMenu::item:checked {
+background-color: rgba(96, 255, 170, 120);
+color: black;
+}</string>
+    </property>
     <property name="tearOffEnabled">
      <bool>false</bool>
     </property>
@@ -2046,26 +2137,60 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
      <bool>false</bool>
     </property>
     <widget class="QMenu" name="menuShift">
+     <property name="geometry">
+      <rect>
+       <x>365</x>
+       <y>126</y>
+       <width>97</width>
+       <height>286</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="toolTip">
       <string/>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QMenu::item {
+padding: 10px 20px;
+margin-top: 2px;
+}
+QMenu::item:checked {
+border-top: 1px solid rgba(0, 0, 0, 50);
+border-bottom: 1px solid rgba(0, 0, 0, 50);
+}</string>
      </property>
      <property name="title">
       <string>Shift</string>
      </property>
      <addaction name="action06"/>
-     <addaction name="separator"/>
      <addaction name="action14"/>
-     <addaction name="separator"/>
      <addaction name="action15"/>
-     <addaction name="separator"/>
      <addaction name="action16"/>
-     <addaction name="separator"/>
      <addaction name="action18"/>
-     <addaction name="separator"/>
      <addaction name="action22"/>
     </widget>
     <addaction name="menuShift"/>
    </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="styleSheet">
+     <string notr="true">QMenu::item {
+background-color: rgba(96, 255, 170, 20);
+}
+QMenu::item:selected {
+background-color: rgba(96, 255, 170, 120);
+color: black;
+}</string>
+    </property>
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuTestic"/>
    <addaction name="menuHelp"/>
@@ -2114,16 +2239,22 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
    </property>
   </action>
   <action name="action06">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
-    <string>06</string>
+    <string>M06</string>
    </property>
    <property name="softKeyRole">
     <enum>QAction::NoSoftKey</enum>
    </property>
   </action>
   <action name="action14">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
-    <string>14</string>
+    <string>A14</string>
    </property>
   </action>
   <action name="actionAs">
@@ -2132,26 +2263,35 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
    </property>
   </action>
   <action name="action15">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
-    <string>15</string>
+    <string>A15</string>
    </property>
   </action>
   <action name="action16">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
-    <string>16</string>
+    <string>A16</string>
    </property>
   </action>
   <action name="action18">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
-    <string>18</string>
+    <string>N18</string>
    </property>
   </action>
   <action name="action22">
    <property name="checkable">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
-    <string>22</string>
+    <string>N22</string>
    </property>
   </action>
  </widget>

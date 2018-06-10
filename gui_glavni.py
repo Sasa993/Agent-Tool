@@ -25,10 +25,14 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(967, 685)
+        MainWindow.resize(967, 697)
         MainWindow.setMinimumSize(QtCore.QSize(950, 0))
-        MainWindow.setAnimated(True)
-        MainWindow.setTabShape(QtGui.QTabWidget.Rounded)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("images/003-spy.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
+        MainWindow.setIconSize(QtCore.QSize(52, 52))
+        MainWindow.setDocumentMode(False)
+        MainWindow.setTabShape(QtGui.QTabWidget.Triangular)
         MainWindow.setDockOptions(QtGui.QMainWindow.AllowTabbedDocks|QtGui.QMainWindow.AnimatedDocks)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
@@ -132,9 +136,9 @@ class Ui_MainWindow(object):
 "QPushButton:hover {background-color: rgba(96, 255, 170, 120);border-radius: 5px; }\n"
 "QPushButton:pressed {border: 1px solid black;}"))
         self.pushButtonSave.setText(_fromUtf8(""))
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-save.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButtonSave.setIcon(icon)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-save.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButtonSave.setIcon(icon1)
         self.pushButtonSave.setIconSize(QtCore.QSize(44, 44))
         self.pushButtonSave.setAutoDefault(False)
         self.pushButtonSave.setDefault(False)
@@ -243,9 +247,9 @@ class Ui_MainWindow(object):
 "QPushButton { background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(96, 255, 170, 255), stop:0.664773 rgba(255, 255, 255, 255)); border-radius: 20px; }\n"
 "\n"
 ""))
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/002-dustbin.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButtonClearAllFields.setIcon(icon1)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/002-dustbin.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButtonClearAllFields.setIcon(icon2)
         self.pushButtonClearAllFields.setIconSize(QtCore.QSize(32, 32))
         self.pushButtonClearAllFields.setShortcut(_fromUtf8(""))
         self.pushButtonClearAllFields.setCheckable(False)
@@ -276,9 +280,9 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(96, 255, 170, 100), stop:0.664773 rgba(255, 255, 255, 100))}\n"
 "\n"
 ""))
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/005-copy-1.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButtonCopyToClipboard.setIcon(icon2)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/005-copy-1.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButtonCopyToClipboard.setIcon(icon3)
         self.pushButtonCopyToClipboard.setIconSize(QtCore.QSize(32, 32))
         self.pushButtonCopyToClipboard.setShortcut(_fromUtf8(""))
         self.pushButtonCopyToClipboard.setCheckable(False)
@@ -318,10 +322,10 @@ class Ui_MainWindow(object):
 "QPushButton:checked {border: 1px solid black;}\n"
 "QPushButton:pressed {border: 1px solid black;}\n"
 "QPushButton:hover {background-color: rgba(96, 255, 170, 120);}"))
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/002-play-button.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon3.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-pause.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.pushButtonStart.setIcon(icon3)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/002-play-button.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-pause.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.pushButtonStart.setIcon(icon4)
         self.pushButtonStart.setIconSize(QtCore.QSize(32, 32))
         self.pushButtonStart.setCheckable(True)
         self.pushButtonStart.setChecked(False)
@@ -341,9 +345,9 @@ class Ui_MainWindow(object):
         self.pushButtonReset.setStyleSheet(_fromUtf8("QPushButton {background-color: rgba(96, 255, 170, 20); border-radius: 5px}\n"
 "QPushButton:pressed {border: 1px solid black;}\n"
 "QPushButton:hover {background-color: rgba(96, 255, 170, 120);}"))
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-replay.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButtonReset.setIcon(icon4)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-replay.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButtonReset.setIcon(icon5)
         self.pushButtonReset.setIconSize(QtCore.QSize(32, 32))
         self.pushButtonReset.setCheckable(False)
         self.pushButtonReset.setAutoDefault(True)
@@ -840,35 +844,119 @@ class Ui_MainWindow(object):
         self.gridLayout_6.setObjectName(_fromUtf8("gridLayout_6"))
         self.labelShiftEnds = QtGui.QLabel(self.centralwidget)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Segoe Script"))
         font.setPointSize(12)
         self.labelShiftEnds.setFont(font)
+        self.labelShiftEnds.setStyleSheet(_fromUtf8("QLabel{\n"
+"background-color: rgba(96, 255, 170, 20); \n"
+"border-radius: 10px;\n"
+"padding-top: 5px;\n"
+"padding-bottom: 5px;\n"
+"}\n"
+"QLabel:hover {\n"
+"background-color: rgba(96, 255, 170, 120);\n"
+"}"))
         self.labelShiftEnds.setText(_fromUtf8(""))
         self.labelShiftEnds.setAlignment(QtCore.Qt.AlignCenter)
         self.labelShiftEnds.setObjectName(_fromUtf8("labelShiftEnds"))
         self.gridLayout_6.addWidget(self.labelShiftEnds, 1, 0, 1, 1)
         self.label_4 = QtGui.QLabel(self.centralwidget)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setFamily(_fromUtf8("Segoe Script"))
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(75)
         self.label_4.setFont(font)
+        self.label_4.setStyleSheet(_fromUtf8("QLabel {color: rgba(64, 170, 112);}"))
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_4.setObjectName(_fromUtf8("label_4"))
         self.gridLayout_6.addWidget(self.label_4, 0, 0, 1, 1)
         self.gridLayout_4.addLayout(self.gridLayout_6, 2, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 967, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 967, 20))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setItalic(False)
+        self.menubar.setFont(font)
+        self.menubar.setAutoFillBackground(False)
+        self.menubar.setStyleSheet(_fromUtf8("QMenuBar {\n"
+"background-color: rgba(96, 255, 170, 20);\n"
+"border-bottom: 1px solid rgba(0, 0, 0, 50);\n"
+"}\n"
+"QMenuBar::item {\n"
+"background-color: rgba(96, 255, 170, 20);\n"
+"padding: 1px 15px;\n"
+"}\n"
+"QMenuBar::item:selected {\n"
+"background-color: rgba(96, 255, 170, 120);\n"
+"border-right: 1px solid rgba(0, 0, 0, 50);\n"
+"border-left: 1px solid rgba(0, 0, 0, 50);\n"
+"}"))
+        self.menubar.setDefaultUp(False)
+        self.menubar.setNativeMenuBar(True)
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuHelp = QtGui.QMenu(self.menubar)
+        self.menuHelp.setStyleSheet(_fromUtf8("QMenu::item {\n"
+"background-color: rgba(96, 255, 170, 20);\n"
+"}\n"
+"QMenu::item:selected {\n"
+"background-color: rgba(96, 255, 170, 120);\n"
+"color: black;\n"
+"}"))
         self.menuHelp.setObjectName(_fromUtf8("menuHelp"))
         self.menuTestic = QtGui.QMenu(self.menubar)
+        self.menuTestic.setStyleSheet(_fromUtf8("QMenu::item {\n"
+"background-color: rgba(96, 255, 170, 20);\n"
+"}\n"
+"QMenu::item:selected {\n"
+"background-color: rgba(96, 255, 170, 120);\n"
+"color: black;\n"
+"}"))
         self.menuTestic.setObjectName(_fromUtf8("menuTestic"))
         self.menuEdit = QtGui.QMenu(self.menubar)
+        self.menuEdit.setStyleSheet(_fromUtf8("QMenu::item {\n"
+"background-color: rgba(96, 255, 170, 20);\n"
+"}\n"
+"QMenu::item:selected {\n"
+"background-color: rgba(96, 255, 170, 120);\n"
+"color: black;\n"
+"}\n"
+"QMenu::item:checked {\n"
+"background-color: rgba(96, 255, 170, 120);\n"
+"color: black;\n"
+"}"))
         self.menuEdit.setTearOffEnabled(False)
         self.menuEdit.setSeparatorsCollapsible(False)
         self.menuEdit.setObjectName(_fromUtf8("menuEdit"))
         self.menuShift = QtGui.QMenu(self.menuEdit)
+        self.menuShift.setGeometry(QtCore.QRect(365, 126, 97, 286))
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.menuShift.sizePolicy().hasHeightForWidth())
+        self.menuShift.setSizePolicy(sizePolicy)
         self.menuShift.setToolTip(_fromUtf8(""))
+        self.menuShift.setStyleSheet(_fromUtf8("QMenu::item {\n"
+"padding: 10px 20px;\n"
+"margin-top: 2px;\n"
+"}\n"
+"QMenu::item:checked {\n"
+"border-top: 1px solid rgba(0, 0, 0, 50);\n"
+"border-bottom: 1px solid rgba(0, 0, 0, 50);\n"
+"}"))
         self.menuShift.setObjectName(_fromUtf8("menuShift"))
+        self.menuFile = QtGui.QMenu(self.menubar)
+        self.menuFile.setStyleSheet(_fromUtf8("QMenu::item {\n"
+"background-color: rgba(96, 255, 170, 20);\n"
+"}\n"
+"QMenu::item:selected {\n"
+"background-color: rgba(96, 255, 170, 120);\n"
+"color: black;\n"
+"}"))
+        self.menuFile.setObjectName(_fromUtf8("menuFile"))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
@@ -889,36 +977,36 @@ class Ui_MainWindow(object):
         self.actionTestic = QtGui.QAction(MainWindow)
         self.actionTestic.setObjectName(_fromUtf8("actionTestic"))
         self.action06 = QtGui.QAction(MainWindow)
+        self.action06.setCheckable(True)
         self.action06.setSoftKeyRole(QtGui.QAction.NoSoftKey)
         self.action06.setObjectName(_fromUtf8("action06"))
         self.action14 = QtGui.QAction(MainWindow)
+        self.action14.setCheckable(True)
         self.action14.setObjectName(_fromUtf8("action14"))
         self.actionAs = QtGui.QAction(MainWindow)
         self.actionAs.setObjectName(_fromUtf8("actionAs"))
         self.action15 = QtGui.QAction(MainWindow)
+        self.action15.setCheckable(True)
         self.action15.setObjectName(_fromUtf8("action15"))
         self.action16 = QtGui.QAction(MainWindow)
+        self.action16.setCheckable(True)
         self.action16.setObjectName(_fromUtf8("action16"))
         self.action18 = QtGui.QAction(MainWindow)
+        self.action18.setCheckable(True)
         self.action18.setObjectName(_fromUtf8("action18"))
         self.action22 = QtGui.QAction(MainWindow)
-        self.action22.setCheckable(False)
+        self.action22.setCheckable(True)
         self.action22.setObjectName(_fromUtf8("action22"))
         self.menuHelp.addAction(self.actionAbout)
         self.menuTestic.addAction(self.actionTestic)
-        self.menuShift.addSeparator()
         self.menuShift.addAction(self.action06)
-        self.menuShift.addSeparator()
         self.menuShift.addAction(self.action14)
-        self.menuShift.addSeparator()
         self.menuShift.addAction(self.action15)
-        self.menuShift.addSeparator()
         self.menuShift.addAction(self.action16)
-        self.menuShift.addSeparator()
         self.menuShift.addAction(self.action18)
-        self.menuShift.addSeparator()
         self.menuShift.addAction(self.action22)
         self.menuEdit.addAction(self.menuShift.menuAction())
+        self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuEdit.menuAction())
         self.menubar.addAction(self.menuTestic.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
@@ -1024,6 +1112,7 @@ class Ui_MainWindow(object):
         self.menuTestic.setTitle(_translate("MainWindow", "View", None))
         self.menuEdit.setTitle(_translate("MainWindow", "Edit", None))
         self.menuShift.setTitle(_translate("MainWindow", "Shift", None))
+        self.menuFile.setTitle(_translate("MainWindow", "File", None))
         self.actionSdsa.setText(_translate("MainWindow", "sdsa", None))
         self.actionSadas.setText(_translate("MainWindow", "sadas", None))
         self.actionSda.setText(_translate("MainWindow", "sda", None))
@@ -1031,13 +1120,13 @@ class Ui_MainWindow(object):
         self.actionAbout.setText(_translate("MainWindow", "About Lesa", None))
         self.actionAbout.setStatusTip(_translate("MainWindow", "About dude Lesa", None))
         self.actionTestic.setText(_translate("MainWindow", "Tickets", None))
-        self.action06.setText(_translate("MainWindow", "06", None))
-        self.action14.setText(_translate("MainWindow", "14", None))
+        self.action06.setText(_translate("MainWindow", "M06", None))
+        self.action14.setText(_translate("MainWindow", "A14", None))
         self.actionAs.setText(_translate("MainWindow", "as", None))
-        self.action15.setText(_translate("MainWindow", "15", None))
-        self.action16.setText(_translate("MainWindow", "16", None))
-        self.action18.setText(_translate("MainWindow", "18", None))
-        self.action22.setText(_translate("MainWindow", "22", None))
+        self.action15.setText(_translate("MainWindow", "A15", None))
+        self.action16.setText(_translate("MainWindow", "A16", None))
+        self.action18.setText(_translate("MainWindow", "N18", None))
+        self.action22.setText(_translate("MainWindow", "N22", None))
 
 import xx_rc
 

@@ -212,13 +212,15 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.pushButtonSave.clicked.connect(self.click_on_pushButtonSave_btn)
 
 		#shift changes
+		self.testiramokitic()
+
 		self.menuShift.setToolTip("Last changed on {0}".format(menuShiftTip))
-		self.action06.triggered.connect(lambda: self.promjena_smjene("14:00:00"))
-		self.action14.triggered.connect(lambda: self.promjena_smjene("22:00:00"))
-		self.action15.triggered.connect(lambda: self.promjena_smjene("23:00:00"))
-		self.action16.triggered.connect(lambda: self.promjena_smjene("00:00:00"))
-		self.action18.triggered.connect(lambda: self.promjena_smjene("02:00:00"))
-		self.action22.triggered.connect(lambda: self.promjena_smjene("06:00:00"))
+		self.action06.triggered.connect(lambda: self.promjena_smjene("14:00:00", self.action06, "action06"))
+		self.action14.triggered.connect(lambda: self.promjena_smjene("22:00:00", self.action14, "action14"))
+		self.action15.triggered.connect(lambda: self.promjena_smjene("23:00:00", self.action15, "action15"))
+		self.action16.triggered.connect(lambda: self.promjena_smjene("00:00:00", self.action16, "action16"))
+		self.action18.triggered.connect(lambda: self.promjena_smjene("02:00:00", self.action18, "action18"))
+		self.action22.triggered.connect(lambda: self.promjena_smjene("06:00:00", self.action22, "action22"))
 
 		self.actionAbout.triggered.connect(self.actionAbout_triggered)
 		self.popAboutDialog = aboutDialog()
@@ -247,6 +249,28 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.pushButtonNaModelSerial.clicked.connect(lambda: self.dodavanje_na(self.lineEditModelSerial))
 		self.pushButtonNaAlternativeMethod.clicked.connect(lambda: self.dodavanje_na(self.lineEditAlternativeMethod))
 		self.pushButtonNaNextSteps.clicked.connect(lambda: self.plainTextEditNextSteps.setPlainText("N/A"))
+
+	def testiramokitic(self):
+		conn = sqlite3.connect(bazica)
+		c = conn.cursor()
+
+		c.execute("SELECT action_name from shifts")
+		kitic = c.fetchone()[0]
+		conn.commit()
+		if (kitic == "action06"):
+			self.action06.setChecked(True)
+		elif (kitic == "action14"):
+			self.action14.setChecked(True)
+		elif (kitic == "action15"):
+			self.action15.setChecked(True)
+		elif (kitic == "action16"):
+			self.action16.setChecked(True)
+		elif (kitic == "action18"):
+			self.action18.setChecked(True)
+		else:
+			self.action22.setChecked(True)
+
+		conn.close()
 
 	def timer_reset(self):
 		global s, m, h, provjeraButtonStart
@@ -310,14 +334,8 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def countdown(self):
 		trenutnoVrijeme = str(datetime.datetime.now().strftime("%H:%M:%S"))
 		countdownPreostaloVrijeme = datetime.datetime.strptime(countdownKrajSmjene, "%H:%M:%S") - datetime.datetime.strptime(trenutnoVrijeme, "%H:%M:%S")
-
-		self.labelShiftEnds.setText(str(countdownPreostaloVrijeme))
-
-	# def startUi_testWidget(self):
-	# 	self.poptestWidget = Ui_testWidget()
-	# 	self.setWindowTitle("Tickets info")
-	# 	self.setCentralWidget(self.poptestWidget)
-	# 	self.poptestWidget.show()
+		#[-8:] koristimo da uzmemo posljednjih 8 karaktera stringa, da bi izbjegli -1 days (sugavi timedelta)
+		self.labelShiftEnds.setText(str(countdownPreostaloVrijeme)[-8:])
 
 	# built-in event kada se ide na X da se close-a window
 	def closeEvent(self, event):
@@ -330,17 +348,25 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		else:
 			event.ignore()
 
-	def promjena_smjene(self, x):
+	def promjena_smjene(self, x, y, z):
 		global countdownKrajSmjene
 		countdownKrajSmjene = str(datetime.datetime.strptime(x, "%H:%M:%S").time())
-
 		conn = sqlite3.connect(bazica)
 		c = conn.cursor()
 		# mogao sam odraditi sa INSERT ali ovako ne moramo traziti posljednju kolonu tabele i bolja je optimizacija DB-a
-		c.execute("UPDATE shifts set shift_ends = ?, shift_last_changed = ? WHERE id_shifts = 1", (countdownKrajSmjene, self.now))
+		c.execute("UPDATE shifts set shift_ends = ?, shift_last_changed = ?, action_name = ? WHERE id_shifts = 1", (countdownKrajSmjene, str(datetime.date.today().strftime("%m/%d/%Y")), z))
 
 		conn.commit()
 		conn.close()
+
+		self.action06.setChecked(False)
+		self.action14.setChecked(False)
+		self.action15.setChecked(False)
+		self.action16.setChecked(False)
+		self.action18.setChecked(False)
+		self.action22.setChecked(False)
+
+		y.setChecked(True)
 
 	def actionAbout_triggered(self):
 		self.popAboutDialog.show()
