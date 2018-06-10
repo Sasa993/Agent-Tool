@@ -266,7 +266,7 @@ class Ui_testWidget(object):
         QtCore.QMetaObject.connectSlotsByName(testWidget)
 
     def retranslateUi(self, testWidget):
-        testWidget.setWindowTitle(_translate("testWidget", "Form", None))
+        testWidget.setWindowTitle(_translate("testWidget", "Tickets", None))
         self.tableWidgetIspisIzBaze.setSortingEnabled(True)
         item = self.tableWidgetIspisIzBaze.horizontalHeaderItem(0)
         item.setText(_translate("testWidget", "ID", None))

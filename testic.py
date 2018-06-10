@@ -8,13 +8,28 @@ from gui_testic import Ui_testWidget
 from gui_selektovani import Ui_selektovaniId
 import datetime
 
+bazica = "baza_main.db"
+
 s = 0
 m = 0
 h = 0
+
+conn = sqlite3.connect(bazica)
+c = conn.cursor()
+
+c.execute("SELECT shift_ends FROM shifts")
+countdownKrajSmjene = c.fetchone()[0]
+conn.commit()
+
+c.execute("SELECT shift_last_changed from shifts")
+menuShiftTip = c.fetchone()[0]
+conn.commit()
+
+conn.close()
+
 provjeraButtonStart = True
 
 lista = []
-bazica = "baza_main.db"
 
 class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 	def __init__(self, parent = None):
@@ -195,7 +210,15 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.lineEditDatum.setText(self.now)
 		
 		self.pushButtonSave.clicked.connect(self.click_on_pushButtonSave_btn)
-		# self.pushButtonSave.clicked.connect(self.clear_all_fields)
+
+		#shift changes
+		self.menuShift.setToolTip("Last changed on {0}".format(menuShiftTip))
+		self.action06.triggered.connect(lambda: self.promjena_smjene("14:00:00"))
+		self.action14.triggered.connect(lambda: self.promjena_smjene("22:00:00"))
+		self.action15.triggered.connect(lambda: self.promjena_smjene("23:00:00"))
+		self.action16.triggered.connect(lambda: self.promjena_smjene("00:00:00"))
+		self.action18.triggered.connect(lambda: self.promjena_smjene("02:00:00"))
+		self.action22.triggered.connect(lambda: self.promjena_smjene("06:00:00"))
 
 		self.actionAbout.triggered.connect(self.actionAbout_triggered)
 		self.popAboutDialog = aboutDialog()
@@ -208,6 +231,10 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.timer.timeout.connect(self.timer_time)
 		self.pushButtonStart.clicked.connect(self.timer_start)
 		self.pushButtonReset.clicked.connect(self.timer_reset)
+
+		self.timer2 = QtCore.QTimer()
+		self.timer2.timeout.connect(self.countdown)
+		self.timer2.start(1000)
 
 		# N/A
 		self.pushButtonNaDidItEverWork.clicked.connect(lambda: self.dodavanje_na(self.lineEditDidItEverWork))
@@ -280,20 +307,11 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def dodavanje_na(self, imeInputa):
 		imeInputa.setText("N/A")
 
-	# mjerenje vremena (mozda bi mogla biti smjena)
-	# self.count = 15
-	# self.interval = 1200
-	# self.timer = QtCore.QTimer()
-	# self.timer.timeout.connect(self.countdown)
-	# self.timer.start(1000)
+	def countdown(self):
+		trenutnoVrijeme = str(datetime.datetime.now().strftime("%H:%M:%S"))
+		countdownPreostaloVrijeme = datetime.datetime.strptime(countdownKrajSmjene, "%H:%M:%S") - datetime.datetime.strptime(trenutnoVrijeme, "%H:%M:%S")
 
-	# def countdown(self):
-	# 	global count
-	# 	if (self.count < 1):
-	# 		self.count = 15
-	# 	self.now = datetime.datetime.now()
-	# 	self.test_label.setText('Time now: %s. End time: %s. Seconds left: %s'%(self.now.strftime("%H:%M:%S"), (self.now + datetime.timedelta(seconds=self.count)).strftime("%H:%M:%S"), self.count))
-	# 	self.count = self.count - 1
+		self.labelShiftEnds.setText(str(countdownPreostaloVrijeme))
 
 	# def startUi_testWidget(self):
 	# 	self.poptestWidget = Ui_testWidget()
@@ -311,6 +329,18 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 			event.accept()
 		else:
 			event.ignore()
+
+	def promjena_smjene(self, x):
+		global countdownKrajSmjene
+		countdownKrajSmjene = str(datetime.datetime.strptime(x, "%H:%M:%S").time())
+
+		conn = sqlite3.connect(bazica)
+		c = conn.cursor()
+		# mogao sam odraditi sa INSERT ali ovako ne moramo traziti posljednju kolonu tabele i bolja je optimizacija DB-a
+		c.execute("UPDATE shifts set shift_ends = ?, shift_last_changed = ? WHERE id_shifts = 1", (countdownKrajSmjene, self.now))
+
+		conn.commit()
+		conn.close()
 
 	def actionAbout_triggered(self):
 		self.popAboutDialog.show()

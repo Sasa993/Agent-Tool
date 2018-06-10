@@ -835,6 +835,25 @@ class Ui_MainWindow(object):
         self.pushButton_6.setObjectName(_fromUtf8("pushButton_6"))
         self.gridLayout.addWidget(self.pushButton_6, 3, 2, 1, 1)
         self.gridLayout_4.addLayout(self.gridLayout, 1, 0, 1, 1)
+        self.gridLayout_6 = QtGui.QGridLayout()
+        self.gridLayout_6.setContentsMargins(10, -1, 10, -1)
+        self.gridLayout_6.setObjectName(_fromUtf8("gridLayout_6"))
+        self.labelShiftEnds = QtGui.QLabel(self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.labelShiftEnds.setFont(font)
+        self.labelShiftEnds.setText(_fromUtf8(""))
+        self.labelShiftEnds.setAlignment(QtCore.Qt.AlignCenter)
+        self.labelShiftEnds.setObjectName(_fromUtf8("labelShiftEnds"))
+        self.gridLayout_6.addWidget(self.labelShiftEnds, 1, 0, 1, 1)
+        self.label_4 = QtGui.QLabel(self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_4.setFont(font)
+        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_4.setObjectName(_fromUtf8("label_4"))
+        self.gridLayout_6.addWidget(self.label_4, 0, 0, 1, 1)
+        self.gridLayout_4.addLayout(self.gridLayout_6, 2, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 967, 21))
@@ -843,6 +862,13 @@ class Ui_MainWindow(object):
         self.menuHelp.setObjectName(_fromUtf8("menuHelp"))
         self.menuTestic = QtGui.QMenu(self.menubar)
         self.menuTestic.setObjectName(_fromUtf8("menuTestic"))
+        self.menuEdit = QtGui.QMenu(self.menubar)
+        self.menuEdit.setTearOffEnabled(False)
+        self.menuEdit.setSeparatorsCollapsible(False)
+        self.menuEdit.setObjectName(_fromUtf8("menuEdit"))
+        self.menuShift = QtGui.QMenu(self.menuEdit)
+        self.menuShift.setToolTip(_fromUtf8(""))
+        self.menuShift.setObjectName(_fromUtf8("menuShift"))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
@@ -862,10 +888,40 @@ class Ui_MainWindow(object):
         self.actionAbout.setObjectName(_fromUtf8("actionAbout"))
         self.actionTestic = QtGui.QAction(MainWindow)
         self.actionTestic.setObjectName(_fromUtf8("actionTestic"))
+        self.action06 = QtGui.QAction(MainWindow)
+        self.action06.setSoftKeyRole(QtGui.QAction.NoSoftKey)
+        self.action06.setObjectName(_fromUtf8("action06"))
+        self.action14 = QtGui.QAction(MainWindow)
+        self.action14.setObjectName(_fromUtf8("action14"))
+        self.actionAs = QtGui.QAction(MainWindow)
+        self.actionAs.setObjectName(_fromUtf8("actionAs"))
+        self.action15 = QtGui.QAction(MainWindow)
+        self.action15.setObjectName(_fromUtf8("action15"))
+        self.action16 = QtGui.QAction(MainWindow)
+        self.action16.setObjectName(_fromUtf8("action16"))
+        self.action18 = QtGui.QAction(MainWindow)
+        self.action18.setObjectName(_fromUtf8("action18"))
+        self.action22 = QtGui.QAction(MainWindow)
+        self.action22.setCheckable(False)
+        self.action22.setObjectName(_fromUtf8("action22"))
         self.menuHelp.addAction(self.actionAbout)
         self.menuTestic.addAction(self.actionTestic)
-        self.menubar.addAction(self.menuHelp.menuAction())
+        self.menuShift.addSeparator()
+        self.menuShift.addAction(self.action06)
+        self.menuShift.addSeparator()
+        self.menuShift.addAction(self.action14)
+        self.menuShift.addSeparator()
+        self.menuShift.addAction(self.action15)
+        self.menuShift.addSeparator()
+        self.menuShift.addAction(self.action16)
+        self.menuShift.addSeparator()
+        self.menuShift.addAction(self.action18)
+        self.menuShift.addSeparator()
+        self.menuShift.addAction(self.action22)
+        self.menuEdit.addAction(self.menuShift.menuAction())
+        self.menubar.addAction(self.menuEdit.menuAction())
         self.menubar.addAction(self.menuTestic.menuAction())
+        self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -945,37 +1001,6 @@ class Ui_MainWindow(object):
         self.pushButtonNaDidItEverWork.setText(_translate("MainWindow", "N/A", None))
         self.label_22.setText(_translate("MainWindow", "When did it stop working?", None))
         self.pushButtonNaWhenDidItStop.setText(_translate("MainWindow", "N/A", None))
-        self.lineEditWhenDidItStop.setToolTip(_translate("MainWindow", "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-"<ui version=\"4.0\">\n"
-" <widget name=\"__qt_fake_top_level\">\n"
-"  <widget class=\"QLabel\" name=\"label_22\">\n"
-"   <property name=\"geometry\">\n"
-"    <rect>\n"
-"     <x>15</x>\n"
-"     <y>234</y>\n"
-"     <width>414</width>\n"
-"     <height>16</height>\n"
-"    </rect>\n"
-"   </property>\n"
-"   <property name=\"font\">\n"
-"    <font>\n"
-"     <pointsize>10</pointsize>\n"
-"    </font>\n"
-"   </property>\n"
-"   <property name=\"text\">\n"
-"    <string>When did it stop working?</string>\n"
-"   </property>\n"
-"   <property name=\"textFormat\">\n"
-"    <enum>Qt::AutoText</enum>\n"
-"   </property>\n"
-"   <property name=\"alignment\">\n"
-"    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>\n"
-"   </property>\n"
-"  </widget>\n"
-" </widget>\n"
-" <resources/>\n"
-"</ui>\n"
-"", None))
         self.label_29.setText(_translate("MainWindow", "Changes made around that time?", None))
         self.pushButtonNaChangesMade.setText(_translate("MainWindow", "N/A", None))
         self.label_28.setText(_translate("MainWindow", "How many terminals on location?", None))
@@ -994,8 +1019,11 @@ class Ui_MainWindow(object):
         self.pushButtonNaNextSteps.setText(_translate("MainWindow", "N/A", None))
         self.label.setText(_translate("MainWindow", "Description of the problem", None))
         self.label_2.setText(_translate("MainWindow", "Reporoduction and Troubleshooting stepks taken to resolve", None))
+        self.label_4.setText(_translate("MainWindow", "Shift ends in", None))
         self.menuHelp.setTitle(_translate("MainWindow", "Help", None))
         self.menuTestic.setTitle(_translate("MainWindow", "View", None))
+        self.menuEdit.setTitle(_translate("MainWindow", "Edit", None))
+        self.menuShift.setTitle(_translate("MainWindow", "Shift", None))
         self.actionSdsa.setText(_translate("MainWindow", "sdsa", None))
         self.actionSadas.setText(_translate("MainWindow", "sadas", None))
         self.actionSda.setText(_translate("MainWindow", "sda", None))
@@ -1003,6 +1031,13 @@ class Ui_MainWindow(object):
         self.actionAbout.setText(_translate("MainWindow", "About Lesa", None))
         self.actionAbout.setStatusTip(_translate("MainWindow", "About dude Lesa", None))
         self.actionTestic.setText(_translate("MainWindow", "Tickets", None))
+        self.action06.setText(_translate("MainWindow", "06", None))
+        self.action14.setText(_translate("MainWindow", "14", None))
+        self.actionAs.setText(_translate("MainWindow", "as", None))
+        self.action15.setText(_translate("MainWindow", "15", None))
+        self.action16.setText(_translate("MainWindow", "16", None))
+        self.action18.setText(_translate("MainWindow", "18", None))
+        self.action22.setText(_translate("MainWindow", "22", None))
 
 import xx_rc
 

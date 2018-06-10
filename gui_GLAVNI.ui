@@ -1123,39 +1123,6 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
                  <pointsize>10</pointsize>
                 </font>
                </property>
-               <property name="toolTip">
-                <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;ui version=&quot;4.0&quot;&gt;
- &lt;widget name=&quot;__qt_fake_top_level&quot;&gt;
-  &lt;widget class=&quot;QLabel&quot; name=&quot;label_22&quot;&gt;
-   &lt;property name=&quot;geometry&quot;&gt;
-    &lt;rect&gt;
-     &lt;x&gt;15&lt;/x&gt;
-     &lt;y&gt;234&lt;/y&gt;
-     &lt;width&gt;414&lt;/width&gt;
-     &lt;height&gt;16&lt;/height&gt;
-    &lt;/rect&gt;
-   &lt;/property&gt;
-   &lt;property name=&quot;font&quot;&gt;
-    &lt;font&gt;
-     &lt;pointsize&gt;10&lt;/pointsize&gt;
-    &lt;/font&gt;
-   &lt;/property&gt;
-   &lt;property name=&quot;text&quot;&gt;
-    &lt;string&gt;When did it stop working?&lt;/string&gt;
-   &lt;/property&gt;
-   &lt;property name=&quot;textFormat&quot;&gt;
-    &lt;enum&gt;Qt::AutoText&lt;/enum&gt;
-   &lt;/property&gt;
-   &lt;property name=&quot;alignment&quot;&gt;
-    &lt;set&gt;Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter&lt;/set&gt;
-   &lt;/property&gt;
-  &lt;/widget&gt;
- &lt;/widget&gt;
- &lt;resources/&gt;
-&lt;/ui&gt;
-</string>
-               </property>
               </widget>
              </item>
             </layout>
@@ -2005,6 +1972,46 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
       </item>
      </layout>
     </item>
+    <item row="2" column="0">
+     <layout class="QGridLayout" name="gridLayout_6">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <item row="1" column="0">
+       <widget class="QLabel" name="labelShiftEnds">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Shift ends in</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -2028,8 +2035,40 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
     </property>
     <addaction name="actionTestic"/>
    </widget>
-   <addaction name="menuHelp"/>
+   <widget class="QMenu" name="menuEdit">
+    <property name="tearOffEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <property name="separatorsCollapsible">
+     <bool>false</bool>
+    </property>
+    <widget class="QMenu" name="menuShift">
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="title">
+      <string>Shift</string>
+     </property>
+     <addaction name="action06"/>
+     <addaction name="separator"/>
+     <addaction name="action14"/>
+     <addaction name="separator"/>
+     <addaction name="action15"/>
+     <addaction name="separator"/>
+     <addaction name="action16"/>
+     <addaction name="separator"/>
+     <addaction name="action18"/>
+     <addaction name="separator"/>
+     <addaction name="action22"/>
+    </widget>
+    <addaction name="menuShift"/>
+   </widget>
+   <addaction name="menuEdit"/>
    <addaction name="menuTestic"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSdsa">
@@ -2072,6 +2111,47 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
   <action name="actionTestic">
    <property name="text">
     <string>Tickets</string>
+   </property>
+  </action>
+  <action name="action06">
+   <property name="text">
+    <string>06</string>
+   </property>
+   <property name="softKeyRole">
+    <enum>QAction::NoSoftKey</enum>
+   </property>
+  </action>
+  <action name="action14">
+   <property name="text">
+    <string>14</string>
+   </property>
+  </action>
+  <action name="actionAs">
+   <property name="text">
+    <string>as</string>
+   </property>
+  </action>
+  <action name="action15">
+   <property name="text">
+    <string>15</string>
+   </property>
+  </action>
+  <action name="action16">
+   <property name="text">
+    <string>16</string>
+   </property>
+  </action>
+  <action name="action18">
+   <property name="text">
+    <string>18</string>
+   </property>
+  </action>
+  <action name="action22">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>22</string>
    </property>
   </action>
  </widget>
