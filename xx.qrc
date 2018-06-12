@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="prva">
+    <file>images/003-spy.png</file>
     <file>images/001-pause.png</file>
     <file>images/001-eraser.png</file>
     <file>images/002-dustbin.png</file>

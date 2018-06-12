@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(967, 697)
         MainWindow.setMinimumSize(QtCore.QSize(950, 0))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("images/003-spy.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/003-spy.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setIconSize(QtCore.QSize(52, 52))
         MainWindow.setDocumentMode(False)
@@ -761,6 +761,7 @@ class Ui_MainWindow(object):
         self.plainTextEditReporoductionTroubleshooting.setTabChangesFocus(False)
         self.plainTextEditReporoductionTroubleshooting.setDocumentTitle(_fromUtf8(""))
         self.plainTextEditReporoductionTroubleshooting.setLineWrapMode(QtGui.QPlainTextEdit.WidgetWidth)
+        self.plainTextEditReporoductionTroubleshooting.setPlainText(_fromUtf8(""))
         self.plainTextEditReporoductionTroubleshooting.setOverwriteMode(False)
         self.plainTextEditReporoductionTroubleshooting.setTabStopWidth(40)
         self.plainTextEditReporoductionTroubleshooting.setCursorWidth(1)
@@ -887,7 +888,7 @@ class Ui_MainWindow(object):
 "border-bottom: 1px solid rgba(0, 0, 0, 50);\n"
 "}\n"
 "QMenuBar::item {\n"
-"background-color: rgba(96, 255, 170, 20);\n"
+"background-color: rgba(96, 255, 170, 0);\n"
 "padding: 1px 15px;\n"
 "}\n"
 "QMenuBar::item:selected {\n"
@@ -932,7 +933,7 @@ class Ui_MainWindow(object):
         self.menuEdit.setSeparatorsCollapsible(False)
         self.menuEdit.setObjectName(_fromUtf8("menuEdit"))
         self.menuShift = QtGui.QMenu(self.menuEdit)
-        self.menuShift.setGeometry(QtCore.QRect(365, 126, 97, 286))
+        self.menuShift.setGeometry(QtCore.QRect(365, 126, 122, 302))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -978,7 +979,6 @@ class Ui_MainWindow(object):
         self.actionTestic.setObjectName(_fromUtf8("actionTestic"))
         self.action06 = QtGui.QAction(MainWindow)
         self.action06.setCheckable(True)
-        self.action06.setSoftKeyRole(QtGui.QAction.NoSoftKey)
         self.action06.setObjectName(_fromUtf8("action06"))
         self.action14 = QtGui.QAction(MainWindow)
         self.action14.setCheckable(True)

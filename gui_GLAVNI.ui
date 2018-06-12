@@ -20,8 +20,8 @@
    <string>Agent Tool</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>images/003-spy.png</normaloff>images/003-spy.png</iconset>
+   <iconset resource="xx.qrc">
+    <normaloff>:/prva/images/003-spy.png</normaloff>:/prva/images/003-spy.png</iconset>
   </property>
   <property name="iconSize">
    <size>
@@ -1613,7 +1613,16 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
     </item>
     <item row="1" column="1">
      <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="margin">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
        <number>10</number>
       </property>
       <item>
@@ -1740,6 +1749,9 @@ QPushButton:hover {background-color: rgba(96, 255, 170, 120);}</string>
         </property>
         <property name="lineWrapMode">
          <enum>QPlainTextEdit::WidgetWidth</enum>
+        </property>
+        <property name="plainText">
+         <string/>
         </property>
         <property name="overwriteMode">
          <bool>false</bool>
@@ -2068,7 +2080,7 @@ background-color: rgba(96, 255, 170, 20);
 border-bottom: 1px solid rgba(0, 0, 0, 50);
 }
 QMenuBar::item {
-background-color: rgba(96, 255, 170, 20);
+background-color: rgba(96, 255, 170, 0);
 padding: 1px 15px;
 }
 QMenuBar::item:selected {
@@ -2141,8 +2153,8 @@ color: black;
       <rect>
        <x>365</x>
        <y>126</y>
-       <width>97</width>
-       <height>286</height>
+       <width>122</width>
+       <height>302</height>
       </rect>
      </property>
      <property name="sizePolicy">
@@ -2244,9 +2256,6 @@ color: black;
    </property>
    <property name="text">
     <string>M06</string>
-   </property>
-   <property name="softKeyRole">
-    <enum>QAction::NoSoftKey</enum>
    </property>
   </action>
   <action name="action14">
