@@ -215,12 +215,12 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.testiramokitic()
 
 		self.menuShift.setToolTip("Last changed on {0}".format(menuShiftTip))
-		self.action06.triggered.connect(lambda: self.promjena_smjene("14:00:00", self.action06, "action06"))
-		self.action14.triggered.connect(lambda: self.promjena_smjene("22:00:00", self.action14, "action14"))
-		self.action15.triggered.connect(lambda: self.promjena_smjene("23:00:00", self.action15, "action15"))
-		self.action16.triggered.connect(lambda: self.promjena_smjene("00:00:00", self.action16, "action16"))
-		self.action18.triggered.connect(lambda: self.promjena_smjene("02:00:00", self.action18, "action18"))
-		self.action22.triggered.connect(lambda: self.promjena_smjene("06:00:00", self.action22, "action22"))
+		self.action06.triggered.connect(lambda: self.promjena_smjene("08:00:00", self.action06, "action06"))
+		self.action14.triggered.connect(lambda: self.promjena_smjene("16:00:00", self.action14, "action14"))
+		self.action15.triggered.connect(lambda: self.promjena_smjene("17:00:00", self.action15, "action15"))
+		self.action16.triggered.connect(lambda: self.promjena_smjene("18:00:00", self.action16, "action16"))
+		self.action18.triggered.connect(lambda: self.promjena_smjene("20:00:00", self.action18, "action18"))
+		self.action22.triggered.connect(lambda: self.promjena_smjene("00:00:00", self.action22, "action22"))
 
 		self.actionAbout.triggered.connect(self.actionAbout_triggered)
 		self.popAboutDialog = aboutDialog()
