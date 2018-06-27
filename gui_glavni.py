@@ -323,8 +323,8 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {border: 1px solid black;}\n"
 "QPushButton:hover {background-color: rgba(96, 255, 170, 120);}"))
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/002-play-button.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         icon4.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/001-pause.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon4.addPixmap(QtGui.QPixmap(_fromUtf8(":/prva/images/002-play-button.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButtonStart.setIcon(icon4)
         self.pushButtonStart.setIconSize(QtCore.QSize(32, 32))
         self.pushButtonStart.setCheckable(True)

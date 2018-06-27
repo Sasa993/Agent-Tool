@@ -53,6 +53,7 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 
 		self.pushButtonRefresh.clicked.connect(self.click_on_pushButtonRefreh)
 		self.pushButtonSelektovano.clicked.connect(self.selektovano)
+		self.pushButtonSearch.clicked.connect(self.novi_ispis)
 
 		# self.popSelektovaniId = Ui_selektovaniId()
 
@@ -141,6 +142,48 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 
 		conn.commit()
 		self.labelSrednjaVrijednostDuzine.setText(finalnaSrednjaVrijednost)
+
+		conn.close()
+
+	def novi_ispis(self):
+		conn = sqlite3.connect(bazica)
+		c = conn.cursor()
+
+		sandra = self.lineEditSearch.text()
+		sandra = '%' + sandra + '%'
+
+		testni_kveri = c.execute("SELECT * FROM ticket_info WHERE description_problem LIKE ? OR incident_number LIKE ?", (sandra, sandra))
+
+		conn.commit()
+
+		self.tableWidgetIspisIzBaze.clearContents()
+		self.tableWidgetIspisIzBaze.setRowCount(0)
+
+		for x in testni_kveri:
+			# self.toolBox.addItem(QtGui.QPlainTextEdit("{0}h {1}min {2}sec\nZip code: {3}\n\n{4}\nSite/Tree/Key #: {5}\nDate / Time issue occurs: {6}\n\nPoint of Contact (First and Last name): {7}\nSite/Point of Contact Phone#: {8}\nSite/Point of Contact Email: {9}\n\nDescription of the Problem:\n{10}\n\nHas site ever called support for the same issue?: {11}\n\nDid it ever work?: {12}\n\nWhen did it stop working: {13}\nChanges made around that time: {14}\n\nHow many terminals on location: {15}\nHow many terminals are down: {16}\nAre any of the affected terminals specialty terminals?: {17}\n\nReproduction and Troubleshooting steps taken to resolve:\n\n{18}\n\nScreen shots attached (if applicable): {19}\nModel & S/N (if hardware related): {20}\nAlternative method that will be used by the site: {21}\n\n***Next Steps for next contact:\n{22}".format(x[24], x[25], x[26], x[8], x[10], x[5], x[4], x[6], x[7], x[9], x[22], x[11], x[12], x[13], x[14], x[15], x[16], x[17], x[23], x[18], x[19], x[20], x[21])), "{0}. Ticket: #{1}    Severity: {2}    Status:{3}    Date:{4}".format(x[0], x[1], x[2], x[3], x[4]))
+
+			# da bi table funkcionisao, moramo dodavati row za svaki
+			rowPosition = self.tableWidgetIspisIzBaze.rowCount()
+			self.tableWidgetIspisIzBaze.insertRow(rowPosition)
+			
+			item = QtGui.QTableWidgetItem()
+			# da bi ID bio INTEGER da se moze sortirati normalno
+			item.setData(QtCore.Qt.EditRole, x[0])
+			item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item1 = QtGui.QTableWidgetItem("{0}".format(x[1]))
+			item1.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item2 = QtGui.QTableWidgetItem("{0}".format(x[2]))
+			item2.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item3 = QtGui.QTableWidgetItem("{0}".format(x[3]))
+			item3.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item4 = QtGui.QTableWidgetItem("{0}".format(x[4]))
+			item4.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 0, item)
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 1, item1)
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 2, item2)
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 3, item3)
+			self.tableWidgetIspisIzBaze.setItem(rowPosition, 4, item4)
 
 		conn.close()
 

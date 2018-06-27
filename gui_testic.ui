@@ -203,10 +203,10 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_5">
     <item>
-     <widget class="QLineEdit" name="lineEdit"/>
+     <widget class="QLineEdit" name="lineEditSearch"/>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="pushButtonSearch">
       <property name="text">
        <string>Search</string>
       </property>
@@ -278,7 +278,7 @@ border-bottom: 1px solid black
 }</string>
       </property>
       <property name="text">
-       <string>a</string>
+       <string/>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -330,7 +330,7 @@ border-bottom: 1px solid black
 }</string>
       </property>
       <property name="text">
-       <string>a</string>
+       <string/>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -382,7 +382,7 @@ border-bottom: 1px solid black
 }</string>
       </property>
       <property name="text">
-       <string>a</string>
+       <string/>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>

@@ -103,12 +103,12 @@ class Ui_testWidget(object):
         self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
         self.horizontalLayout_5 = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout_5.setObjectName(_fromUtf8("horizontalLayout_5"))
-        self.lineEdit = QtGui.QLineEdit(self.horizontalLayoutWidget)
-        self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
-        self.horizontalLayout_5.addWidget(self.lineEdit)
-        self.pushButton = QtGui.QPushButton(self.horizontalLayoutWidget)
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        self.horizontalLayout_5.addWidget(self.pushButton)
+        self.lineEditSearch = QtGui.QLineEdit(self.horizontalLayoutWidget)
+        self.lineEditSearch.setObjectName(_fromUtf8("lineEditSearch"))
+        self.horizontalLayout_5.addWidget(self.lineEditSearch)
+        self.pushButtonSearch = QtGui.QPushButton(self.horizontalLayoutWidget)
+        self.pushButtonSearch.setObjectName(_fromUtf8("pushButtonSearch"))
+        self.horizontalLayout_5.addWidget(self.pushButtonSearch)
         self.verticalLayoutWidget = QtGui.QWidget(testWidget)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(26, 70, 171, 490))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
@@ -145,6 +145,7 @@ class Ui_testWidget(object):
 "border-left: 1px solid black;\n"
 "border-bottom: 1px solid black\n"
 "}"))
+        self.labelBrojTiketaDanas.setText(_fromUtf8(""))
         self.labelBrojTiketaDanas.setAlignment(QtCore.Qt.AlignCenter)
         self.labelBrojTiketaDanas.setObjectName(_fromUtf8("labelBrojTiketaDanas"))
         self.verticalLayout_3.addWidget(self.labelBrojTiketaDanas)
@@ -177,6 +178,7 @@ class Ui_testWidget(object):
 "border-left: 1px solid black;\n"
 "border-bottom: 1px solid black\n"
 "}"))
+        self.labelBrojTiketaMjesec.setText(_fromUtf8(""))
         self.labelBrojTiketaMjesec.setAlignment(QtCore.Qt.AlignCenter)
         self.labelBrojTiketaMjesec.setObjectName(_fromUtf8("labelBrojTiketaMjesec"))
         self.verticalLayout_3.addWidget(self.labelBrojTiketaMjesec)
@@ -209,6 +211,7 @@ class Ui_testWidget(object):
 "border-left: 1px solid black;\n"
 "border-bottom: 1px solid black\n"
 "}"))
+        self.labelSrednjaVrijednostDuzine.setText(_fromUtf8(""))
         self.labelSrednjaVrijednostDuzine.setAlignment(QtCore.Qt.AlignCenter)
         self.labelSrednjaVrijednostDuzine.setObjectName(_fromUtf8("labelSrednjaVrijednostDuzine"))
         self.verticalLayout_3.addWidget(self.labelSrednjaVrijednostDuzine)
@@ -278,13 +281,10 @@ class Ui_testWidget(object):
         item.setText(_translate("testWidget", "Status", None))
         item = self.tableWidgetIspisIzBaze.horizontalHeaderItem(4)
         item.setText(_translate("testWidget", "Date", None))
-        self.pushButton.setText(_translate("testWidget", "Search", None))
+        self.pushButtonSearch.setText(_translate("testWidget", "Search", None))
         self.labelkita.setText(_translate("testWidget", "Today", None))
-        self.labelBrojTiketaDanas.setText(_translate("testWidget", "a", None))
         self.label_3.setText(_translate("testWidget", "This month", None))
-        self.labelBrojTiketaMjesec.setText(_translate("testWidget", "a", None))
         self.label_2.setText(_translate("testWidget", "Avarage handling time", None))
-        self.labelSrednjaVrijednostDuzine.setText(_translate("testWidget", "a", None))
         self.pushButtonSelektovano.setText(_translate("testWidget", " SELECT", None))
         self.pushButtonRefresh.setText(_translate("testWidget", " REFRESH", None))
 
