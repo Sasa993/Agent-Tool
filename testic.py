@@ -31,6 +31,8 @@ provjeraButtonStart = True
 
 lista = []
 
+enter_brojac = 0
+
 class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 	def __init__(self, parent = None):
 		QtGui.QDialog.__init__(self, parent)
@@ -53,7 +55,7 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 
 		self.pushButtonRefresh.clicked.connect(self.click_on_pushButtonRefreh)
 		self.pushButtonSelektovano.clicked.connect(self.selektovano)
-		self.pushButtonSearch.clicked.connect(self.novi_ispis)
+		self.lineEditSearch.textChanged.connect(self.novi_ispis)
 
 		# self.popSelektovaniId = Ui_selektovaniId()
 
@@ -63,6 +65,7 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 	def click_on_pushButtonRefreh(self):
 		self.tableWidgetIspisIzBaze.clearContents()
 		self.tableWidgetIspisIzBaze.setRowCount(0)
+		self.lineEditSearch.clear()
 		self.ispis_iz_baze()
 
 	def selektovano(self):
@@ -145,6 +148,11 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 
 		conn.close()
 
+	def keyPressEvent(self, event):
+		if (type(event) == QtGui.QKeyEvent):
+			if (event.key() == 16777216):
+				self.lineEditSearch.clear()
+
 	def novi_ispis(self):
 		conn = sqlite3.connect(bazica)
 		c = conn.cursor()
@@ -152,7 +160,7 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 		sandra = self.lineEditSearch.text()
 		sandra = '%' + sandra + '%'
 
-		testni_kveri = c.execute("SELECT * FROM ticket_info WHERE description_problem LIKE ? OR incident_number LIKE ?", (sandra, sandra))
+		testni_kveri = c.execute("SELECT * FROM ticket_info WHERE description_problem LIKE ? OR incident_number LIKE ? OR site_key LIKE ? OR name_last_name LIKE ? OR callback_number LIKE ? OR reporoduction_and_ts LIKE ?", (sandra, sandra, sandra, sandra, sandra, sandra))
 
 		conn.commit()
 
@@ -218,7 +226,7 @@ class Ui_selektovaniId(QtGui.QWidget, Ui_selektovaniId):
 		lista.clear()
 
 class MyApp(QtGui.QMainWindow, Ui_MainWindow):
-	def __init__(self):
+	def __init__(self,):
 		QtGui.QMainWindow.__init__(self)
 		Ui_MainWindow.__init__(self)
 		self.setupUi(self)
@@ -246,6 +254,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.plainTextEditNextSteps.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 		self.plainTextEditDescriptionProblem.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 		self.plainTextEditReporoductionTroubleshooting.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
+		# self.plainTextEditReporoductionTroubleshooting.installEventFilter(self)
 
 		self.pushButtonClearAllFields.clicked.connect(self.clear_all_fields)
 		self.pushButtonCopyToClipboard.clicked.connect(self.click_on_pushButtonCopyToClipboard)
@@ -292,6 +301,13 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.pushButtonNaModelSerial.clicked.connect(lambda: self.dodavanje_na(self.lineEditModelSerial))
 		self.pushButtonNaAlternativeMethod.clicked.connect(lambda: self.dodavanje_na(self.lineEditAlternativeMethod))
 		self.pushButtonNaNextSteps.clicked.connect(lambda: self.plainTextEditNextSteps.setPlainText("N/A"))
+
+	# def eventFilter(self, source, event):
+	# 	global enter_brojac
+	# 	if (event.type() == QtCore.QEvent.KeyPress and source is self.plainTextEditReporoductionTroubleshooting):
+	# 		if (event.key() == 16777220):
+	# 			self.plainTextEditReporoductionTroubleshooting.insertPlainText("*")
+	# 	return super(MyApp, self).eventFilter(source, event)
 
 	def testiramokitic(self):
 		conn = sqlite3.connect(bazica)

@@ -195,20 +195,58 @@
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>200</x>
      <y>9</y>
-     <width>331</width>
-     <height>51</height>
+     <width>531</width>
+     <height>61</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>3</number>
+    </property>
     <item>
-     <widget class="QLineEdit" name="lineEditSearch"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButtonSearch">
+     <widget class="QLineEdit" name="lineEditSearch">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>true</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit {
+	background-color: rgb(196, 255, 218);
+	padding: 5px;
+}
+QLineEdit:hover {
+	border: 1px solid black;
+}
+QLineEdit:focus {
+	border: 1px solid black;
+}</string>
+      </property>
       <property name="text">
-       <string>Search</string>
+       <string/>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Normal</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="placeholderText">
+       <string>Search by INC#, site key, name, phone number, zip code, description or TS steps</string>
+      </property>
+      <property name="cursorMoveStyle">
+       <enum>Qt::LogicalMoveStyle</enum>
       </property>
      </widget>
     </item>

@@ -99,16 +99,35 @@ class Ui_testWidget(object):
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.gridLayout_2.addWidget(self.scrollArea, 0, 0, 1, 1)
         self.horizontalLayoutWidget = QtGui.QWidget(testWidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(400, 9, 331, 51))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(200, 9, 531, 61))
         self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
         self.horizontalLayout_5 = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout_5.setContentsMargins(10, -1, 3, -1)
         self.horizontalLayout_5.setObjectName(_fromUtf8("horizontalLayout_5"))
         self.lineEditSearch = QtGui.QLineEdit(self.horizontalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(True)
+        font.setWeight(50)
+        self.lineEditSearch.setFont(font)
+        self.lineEditSearch.setStyleSheet(_fromUtf8("QLineEdit {\n"
+"    background-color: rgb(196, 255, 218);\n"
+"    padding: 5px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 1px solid black;\n"
+"}"))
+        self.lineEditSearch.setText(_fromUtf8(""))
+        self.lineEditSearch.setFrame(False)
+        self.lineEditSearch.setEchoMode(QtGui.QLineEdit.Normal)
+        self.lineEditSearch.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEditSearch.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
         self.lineEditSearch.setObjectName(_fromUtf8("lineEditSearch"))
         self.horizontalLayout_5.addWidget(self.lineEditSearch)
-        self.pushButtonSearch = QtGui.QPushButton(self.horizontalLayoutWidget)
-        self.pushButtonSearch.setObjectName(_fromUtf8("pushButtonSearch"))
-        self.horizontalLayout_5.addWidget(self.pushButtonSearch)
         self.verticalLayoutWidget = QtGui.QWidget(testWidget)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(26, 70, 171, 490))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
@@ -281,7 +300,7 @@ class Ui_testWidget(object):
         item.setText(_translate("testWidget", "Status", None))
         item = self.tableWidgetIspisIzBaze.horizontalHeaderItem(4)
         item.setText(_translate("testWidget", "Date", None))
-        self.pushButtonSearch.setText(_translate("testWidget", "Search", None))
+        self.lineEditSearch.setPlaceholderText(_translate("testWidget", "Search by INC#, site key, name, phone number, zip code, description or TS steps", None))
         self.labelkita.setText(_translate("testWidget", "Today", None))
         self.label_3.setText(_translate("testWidget", "This month", None))
         self.label_2.setText(_translate("testWidget", "Avarage handling time", None))
