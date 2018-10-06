@@ -468,12 +468,32 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 			return 1
 		elif (" red " in glavniString) or (" redundancy" in glavniString) or ("looking for file server" in glavniString) or ("looking for fs" in glavniString)  or ("looking for fileserver" in glavniString) or ("looking for master" in glavniString) or ("find master" in glavniString) or ("find fileserver" in glavniString) or ("find fs" in glavniString):
 			return 2
-		elif (" edc" in glavniString) or ("authorize" in glavniString) or ("credit card" in glavniString) or (" cc " in glavniString) or ("spooldown" in glavniString) or ("refund" in glavniString) or (" tip " in glavniString):
+		elif (" edc" in glavniString) or ("authorize" in glavniString) or ("credit card" in glavniString) or (" cc " in glavniString) or ("spooldown" in glavniString) or ("refund" in glavniString) or (" tip " in glavniString) or ("batch " in glavniString):
 			return 3
-		elif ("install"):
+		elif ("install" in glavniString):
 			return 4
-		else:
+		elif ("printer" in glavniString) or ("com port" in glavniString):
 			return 5
+		elif ("reoccurring" in glavniString):
+			return 6
+		elif ("cash drawer" in glavniString) or (" cd " in glavniString) or ("cash register" in glavniString):
+			return 7
+		elif ("end of day" in glavniString) or (" eod " in glavniString):
+			return 8
+		elif ("aloha manager" in glavniString) or (" am " in glavniString) or (" cfc " in glavniString) or ("configuration center" in glavniString):
+			return 9
+		elif ("cable" in glavniString) or ("hardware" in glavniString) or ("damaged"):
+			return 10
+		elif (" date " in glavniString) or ("incorrect time" in glavniString) or ("different time" in glavniString):
+			return 11
+		elif ("windows" in glavniString) or ("operating system" in glavniString):
+			return 12
+		elif (" ato " in glavniString) or ("takeout" in glavniString) or ("online order" in glavniString):
+			return 13
+		elif ("orderman" in glavniString) or ("aloha mobile" in glavniString):
+			return 14
+		else:
+			return 15
 
 	def click_on_pushButtonCopyToClipboard(self):
 		sadrzajZaCb = "{0}\nSite/Tree/Key #: {1}\nDate / Time issue occurs: {2}\n\nPoint of Contact (First and Last name): {3}\nSite/Point of Contact Phone#: {4}\nSite/Point of Contact Email: {5}\n\nDescription of the Problem:\n{6}\n\nHas site ever called support for the same issue?: {7}\n\nDid it ever work?: {8}\n\nWhen did it stop working: {9}\nChanges made around that time: {10}\n\nHow many terminals on location: {11}\nHow many terminals are down: {12}\nAre any of the affected terminals specialty terminals?: {13}\n\nReproduction and Troubleshooting steps taken to resolve:\n\n{14}\n\nScreen shots attached (if applicable): {15}\nModel & S/N (if hardware related): {16}\nAlternative method that will be used by the site: {17}\n\n***Next Steps for next contact:\n{18}".format(self.plainTextEditVersions.toPlainText() ,self.lineEditSiteKey.text(), self.lineEditDatum.text(), self.lineEditImePrezime.text(), self.lineEditBrojTelefona.text(), self.lineEditEmail.text(), self.plainTextEditDescriptionProblem.toPlainText(), self.lineEditHasSiteEverCalled.text(), self.lineEditDidItEverWork.text(), self.lineEditWhenDidItStop.text(), self.lineEditChangesMade.text(), self.lineEditHowManyTermLocation.text(), self.lineEditHowManyTermDown.text(), self.lineEditAnyAffected.text(), self.plainTextEditReporoductionTroubleshooting.toPlainText(), self.lineEditScreenshotsAttached.text(), self.lineEditModelSerial.text(), self.lineEditAlternativeMethod.text(), self.plainTextEditNextSteps.toPlainText())
