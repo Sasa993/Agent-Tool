@@ -148,6 +148,7 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 
 		conn.close()
 
+# na button Escape da se izbrise iz search input-a
 	def keyPressEvent(self, event):
 		if (type(event) == QtGui.QKeyEvent):
 			if (event.key() == 16777216):
@@ -157,17 +158,17 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 		conn = sqlite3.connect(bazica)
 		c = conn.cursor()
 
-		sandra = self.lineEditSearch.text()
-		sandra = '%' + sandra + '%'
+		search_unos = self.lineEditSearch.text()
+		search_unos = '%' + search_unos + '%'
 
-		testni_kveri = c.execute("SELECT * FROM ticket_info WHERE description_problem LIKE ? OR incident_number LIKE ? OR site_key LIKE ? OR name_last_name LIKE ? OR callback_number LIKE ? OR reporoduction_and_ts LIKE ?", (sandra, sandra, sandra, sandra, sandra, sandra))
+		search_kveri = c.execute("SELECT * FROM ticket_info WHERE description_problem LIKE ? OR incident_number LIKE ? OR site_key LIKE ? OR name_last_name LIKE ? OR callback_number LIKE ? OR reporoduction_and_ts LIKE ?", (search_unos, search_unos, search_unos, search_unos, search_unos, search_unos))
 
 		conn.commit()
 
 		self.tableWidgetIspisIzBaze.clearContents()
 		self.tableWidgetIspisIzBaze.setRowCount(0)
 
-		for x in testni_kveri:
+		for x in search_kveri:
 			# self.toolBox.addItem(QtGui.QPlainTextEdit("{0}h {1}min {2}sec\nZip code: {3}\n\n{4}\nSite/Tree/Key #: {5}\nDate / Time issue occurs: {6}\n\nPoint of Contact (First and Last name): {7}\nSite/Point of Contact Phone#: {8}\nSite/Point of Contact Email: {9}\n\nDescription of the Problem:\n{10}\n\nHas site ever called support for the same issue?: {11}\n\nDid it ever work?: {12}\n\nWhen did it stop working: {13}\nChanges made around that time: {14}\n\nHow many terminals on location: {15}\nHow many terminals are down: {16}\nAre any of the affected terminals specialty terminals?: {17}\n\nReproduction and Troubleshooting steps taken to resolve:\n\n{18}\n\nScreen shots attached (if applicable): {19}\nModel & S/N (if hardware related): {20}\nAlternative method that will be used by the site: {21}\n\n***Next Steps for next contact:\n{22}".format(x[24], x[25], x[26], x[8], x[10], x[5], x[4], x[6], x[7], x[9], x[22], x[11], x[12], x[13], x[14], x[15], x[16], x[17], x[23], x[18], x[19], x[20], x[21])), "{0}. Ticket: #{1}    Severity: {2}    Status:{3}    Date:{4}".format(x[0], x[1], x[2], x[3], x[4]))
 
 			# da bi table funkcionisao, moramo dodavati row za svaki
