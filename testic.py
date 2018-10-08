@@ -31,8 +31,6 @@ provjeraButtonStart = True
 
 lista = []
 
-enter_brojac = 0
-
 class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 	def __init__(self, parent = None):
 		QtGui.QDialog.__init__(self, parent)
@@ -59,7 +57,6 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 
 		# self.popSelektovaniId = Ui_selektovaniId()
 
-		# self.kurcina()
 		self.ispis_iz_baze()
 	# refresh ispisa nakon novog unosa
 	def click_on_pushButtonRefreh(self):
@@ -73,8 +70,6 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 
 		for x in self.tableWidgetIspisIzBaze.selectedItems():
 			lista.append(x.text())
-
-		#print(lista[0])
 
 		self.popSelektovaniId = Ui_selektovaniId()
 		self.popSelektovaniId.show()
@@ -112,39 +107,39 @@ class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
 			self.tableWidgetIspisIzBaze.setItem(rowPosition, 3, item3)
 			self.tableWidgetIspisIzBaze.setItem(rowPosition, 4, item4)
 
-		# datumSada = str(datetime.date.today().strftime("%m/%d/%Y"))
+		datumSada = str(datetime.date.today().strftime("%m/%d/%Y"))
 
-		# # kveri za ispis broja tiketa za danas
-		# hihi=c.execute("SELECT COUNT(*) FROM ticket_info WHERE datum = '{0}'".format(str(datetime.date.today().strftime("%m/%d/%Y"))))
-		# conn.commit()
-		# self.labelBrojTiketaDanas.setText("{0} ticket(s)".format(str(c.fetchone()[0])))
+		# kveri za ispis broja tiketa za danas
+		hihi=c.execute("SELECT COUNT(*) FROM ticket_info WHERE datum = '{0}'".format(str(datetime.date.today().strftime("%m/%d/%Y"))))
+		conn.commit()
+		self.labelBrojTiketaDanas.setText("{0} ticket(s)".format(str(c.fetchone()[0])))
 
-		# # kveri za ispis broja tiketa za trenutni mjesec
-		# c.execute("SELECT COUNT(*) FROM ticket_info WHERE month = '{0}'".format(datetime.datetime.strptime(datumSada, "%m/%d/%Y").month))
-		# conn.commit()
-		# self.labelBrojTiketaMjesec.setText("{0} ticket(s)".format(str(c.fetchone()[0])))
+		# kveri za ispis broja tiketa za trenutni mjesec
+		c.execute("SELECT COUNT(*) FROM ticket_info WHERE month = '{0}'".format(datetime.datetime.strptime(datumSada, "%m/%d/%Y").month))
+		conn.commit()
+		self.labelBrojTiketaMjesec.setText("{0} ticket(s)".format(str(c.fetchone()[0])))
 
-		# # kveriji za srednju vrijednost trajanja svih poziva
-		# brojTiketa = c.execute("SELECT COUNT(*) FROM ticket_info")
-		# brojTiketa = brojTiketa.fetchone()[0]
-		# trajanjePozivaS = c.execute("SELECT SUM(vrijeme_trajanja_poziva_s) FROM ticket_info")
-		# trajanjePozivaS = trajanjePozivaS.fetchone()[0]
-		# trajanjePozivaM = c.execute("SELECT SUM(vrijeme_trajanja_poziva_m) FROM ticket_info")
-		# trajanjePozivaM = trajanjePozivaM.fetchone()[0] * 60
-		# trajanjePozivaH = c.execute("SELECT SUM(vrijeme_trajanja_poziva_h) FROM ticket_info")
-		# trajanjePozivaH = trajanjePozivaH.fetchone()[0] * 60 * 60
+		# kveriji za srednju vrijednost trajanja svih poziva
+		brojTiketa = c.execute("SELECT COUNT(*) FROM ticket_info")
+		brojTiketa = brojTiketa.fetchone()[0]
+		trajanjePozivaS = c.execute("SELECT SUM(vrijeme_trajanja_poziva_s) FROM ticket_info")
+		trajanjePozivaS = trajanjePozivaS.fetchone()[0]
+		trajanjePozivaM = c.execute("SELECT SUM(vrijeme_trajanja_poziva_m) FROM ticket_info")
+		trajanjePozivaM = trajanjePozivaM.fetchone()[0] * 60
+		trajanjePozivaH = c.execute("SELECT SUM(vrijeme_trajanja_poziva_h) FROM ticket_info")
+		trajanjePozivaH = trajanjePozivaH.fetchone()[0] * 60 * 60
 
-		# trajanjeUkupno = trajanjePozivaS + trajanjePozivaM + trajanjePozivaH
+		trajanjeUkupno = trajanjePozivaS + trajanjePozivaM + trajanjePozivaH
 
-		# finalni = trajanjeUkupno / brojTiketa
-		# finalniSatic = int(finalni / 60 / 60)
-		# finalniMinutic = int(finalni / 60)
-		# finalniSekundic = finalni % 60
+		finalni = trajanjeUkupno / brojTiketa
+		finalniSatic = int(finalni / 60 / 60)
+		finalniMinutic = int(finalni / 60)
+		finalniSekundic = finalni % 60
 
-		# finalnaSrednjaVrijednost = "{0:02d}:{1:02d}:{2:02d}".format(finalniSatic, finalniMinutic, int(finalniSekundic))
+		finalnaSrednjaVrijednost = "{0:02d}:{1:02d}:{2:02d}".format(finalniSatic, finalniMinutic, int(finalniSekundic))
 
-		# conn.commit()
-		# self.labelSrednjaVrijednostDuzine.setText(finalnaSrednjaVrijednost)
+		conn.commit()
+		self.labelSrednjaVrijednostDuzine.setText(finalnaSrednjaVrijednost)
 
 		conn.close()
 
@@ -255,7 +250,6 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.plainTextEditNextSteps.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 		self.plainTextEditDescriptionProblem.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
 		self.plainTextEditReporoductionTroubleshooting.textChanged.connect(self.enable_pushButtonCopyToClipboard_btn)
-		# self.plainTextEditReporoductionTroubleshooting.installEventFilter(self)
 
 		self.pushButtonClearAllFields.clicked.connect(self.clear_all_fields)
 		self.pushButtonCopyToClipboard.clicked.connect(self.click_on_pushButtonCopyToClipboard)
@@ -265,7 +259,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.pushButtonSave.clicked.connect(self.click_on_pushButtonSave_btn)
 
 		#shift changes
-		self.testiramokitic()
+		self.cekiraj_promjenu_smjene()
 
 		self.menuShift.setToolTip("Last changed on {0}".format(menuShiftTip))
 		self.action06.triggered.connect(lambda: self.promjena_smjene("08:00:00", self.action06, "action06"))
@@ -303,14 +297,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.pushButtonNaAlternativeMethod.clicked.connect(lambda: self.dodavanje_na(self.lineEditAlternativeMethod))
 		self.pushButtonNaNextSteps.clicked.connect(lambda: self.plainTextEditNextSteps.setPlainText("N/A"))
 
-	# def eventFilter(self, source, event):
-	# 	global enter_brojac
-	# 	if (event.type() == QtCore.QEvent.KeyPress and source is self.plainTextEditReporoductionTroubleshooting):
-	# 		if (event.key() == 16777220):
-	# 			self.plainTextEditReporoductionTroubleshooting.insertPlainText("*")
-	# 	return super(MyApp, self).eventFilter(source, event)
-
-	def testiramokitic(self):
+	def cekiraj_promjenu_smjene(self):
 		conn = sqlite3.connect(bazica)
 		c = conn.cursor()
 
@@ -454,46 +441,51 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 			connection.commit()
 			connection.close()
 
-			# self.odredi_kategoriju(self.plainTextEditDescriptionProblem)
 			self.clear_all_fields()
 		else:
 			pass
 
 	def odredi_kategoriju(self, x):
 		glavniString = x.toPlainText()
-		#stavljamo citav string da je lowercase, da nam je lakse vrsiti provjeru (da nemoramo pisati if Network in glavniString or network in glavniString)
+		#stavljamo citav string da je lowercase, da nam je lakse vrsiti provjeru (da ne moramo pisati if Network in glavniString or network in glavniString)
 		glavniString = glavniString.lower()
 		
 		if (" network" in glavniString) or (" isp" in glavniString) or ("router" in glavniString) or ("firewall" in glavniString) or ("modem" in glavniString) or ("ip address" in glavniString):
 			return 1
-		elif (" red " in glavniString) or (" redundancy" in glavniString) or ("looking for file server" in glavniString) or ("looking for fs" in glavniString)  or ("looking for fileserver" in glavniString) or ("looking for master" in glavniString) or ("find master" in glavniString) or ("find fileserver" in glavniString) or ("find fs" in glavniString):
+		elif (" red " in glavniString) or ("in red" in glavniString) or ("redundancy" in glavniString) or ("looking for file server" in glavniString) or ("looking for fs" in glavniString)  or ("looking for fileserver" in glavniString) or ("looking for master" in glavniString) or ("find master" in glavniString) or ("find fileserver" in glavniString) or ("find fs" in glavniString) or ("determining fs" in glavniString) or ("determining file server" in glavniString) or ("make fs" in glavniString) or ("make file server" in glavniString) or ("locate fs" in glavniString) or ("locate file server" in glavniString) or ("locate master" in glavniString):
 			return 2
-		elif (" edc" in glavniString) or ("authorize" in glavniString) or ("credit card" in glavniString) or (" cc " in glavniString) or ("spooldown" in glavniString) or ("refund" in glavniString) or (" tip " in glavniString) or ("batch " in glavniString):
+		elif ("edc" in glavniString) or ("authorize" in glavniString) or ("authorizing" in glavniString) or ("credit card" in glavniString) or (" cc " in glavniString) or ("spooldown" in glavniString) or ("refund" in glavniString) or (" tip " in glavniString) or ("batch " in glavniString) or ("process cc" in glavniString) or ("process ccs" in glavniString) or ("ccs process" in glavniString) or ("cc process" in glavniString) or ("cc stuck" in glavniString) or ("ccs stuck" in glavniString):
 			return 3
 		elif ("install" in glavniString):
 			return 4
-		elif ("printer" in glavniString) or ("com port" in glavniString):
+		elif ("printer" in glavniString) or ("com port" in glavniString) or ("printing" in glavniString):
 			return 5
 		elif ("reoccurring" in glavniString):
 			return 6
 		elif ("cash drawer" in glavniString) or (" cd " in glavniString) or ("cash register" in glavniString):
 			return 7
-		elif ("end of day" in glavniString) or (" eod " in glavniString):
+		elif ("end of day" in glavniString) or (" eod " in glavniString) or ("waiting for permission to resume" in glavniString):
 			return 8
-		elif ("aloha manager" in glavniString) or (" am " in glavniString) or (" cfc " in glavniString) or ("configuration center" in glavniString):
+		elif ("aloha manager" in glavniString) or (" am " in glavniString) or ("cfc " in glavniString) or ("configuration center" in glavniString) or ("am password reset" in glavniString) or ("login to am" in glavniString) or ("login to aloha manager" in glavniString) or ("login to cfc" in glavniString) or ("adding an item" in glavniString) or ("adding item" in glavniString) or ("add an item" in glavniString) or ("add item" in glavniString) or ("happy hour" in glavniString) or ("in am" in glavniString) or ("on am" in glavniString):
 			return 9
-		elif ("cable" in glavniString) or ("hardware" in glavniString) or ("damaged"):
+		elif ("cable" in glavniString) or ("hardware" in glavniString) or ("damaged" in glavniString):
 			return 10
-		elif (" date " in glavniString) or ("incorrect time" in glavniString) or ("different time" in glavniString):
+		elif (" date " in glavniString) or ("incorrect time" in glavniString) or ("different time" in glavniString) or ("time correction" in glavniString):
 			return 11
 		elif ("windows" in glavniString) or ("operating system" in glavniString):
 			return 12
-		elif (" ato " in glavniString) or ("takeout" in glavniString) or ("online order" in glavniString):
+		elif ("ato " in glavniString) or ("takeout" in glavniString) or ("online order" in glavniString) or ("online ordering" in glavniString):
 			return 13
-		elif ("orderman" in glavniString) or ("aloha mobile" in glavniString):
+		elif ("loyalty" in glavniString) or ("gift card" in glavniString) or (" gc " in glavniString):
 			return 14
-		else:
+		elif ("orderman" in glavniString) or ("aloha mobile" in glavniString):
 			return 15
+		elif ("discrepancy" in glavniString) or ("different amount" in glavniString) or ("missing $" in glavniString) or ("missing money" in glavniString) or ("discrepancies" in glavniString):
+			return 16
+		elif ("aloha kitchen" in glavniString) or ("kitchen screen" in glavniString) or (" ak " in glavniString):
+			return 17
+		else:
+			return 18
 
 	def click_on_pushButtonCopyToClipboard(self):
 		sadrzajZaCb = "{0}\nSite/Tree/Key #: {1}\nDate / Time issue occurs: {2}\n\nPoint of Contact (First and Last name): {3}\nSite/Point of Contact Phone#: {4}\nSite/Point of Contact Email: {5}\n\nDescription of the Problem:\n{6}\n\nHas site ever called support for the same issue?: {7}\n\nDid it ever work?: {8}\n\nWhen did it stop working: {9}\nChanges made around that time: {10}\n\nHow many terminals on location: {11}\nHow many terminals are down: {12}\nAre any of the affected terminals specialty terminals?: {13}\n\nReproduction and Troubleshooting steps taken to resolve:\n\n{14}\n\nScreen shots attached (if applicable): {15}\nModel & S/N (if hardware related): {16}\nAlternative method that will be used by the site: {17}\n\n***Next Steps for next contact:\n{18}".format(self.plainTextEditVersions.toPlainText() ,self.lineEditSiteKey.text(), self.lineEditDatum.text(), self.lineEditImePrezime.text(), self.lineEditBrojTelefona.text(), self.lineEditEmail.text(), self.plainTextEditDescriptionProblem.toPlainText(), self.lineEditHasSiteEverCalled.text(), self.lineEditDidItEverWork.text(), self.lineEditWhenDidItStop.text(), self.lineEditChangesMade.text(), self.lineEditHowManyTermLocation.text(), self.lineEditHowManyTermDown.text(), self.lineEditAnyAffected.text(), self.plainTextEditReporoductionTroubleshooting.toPlainText(), self.lineEditScreenshotsAttached.text(), self.lineEditModelSerial.text(), self.lineEditAlternativeMethod.text(), self.plainTextEditNextSteps.toPlainText())
