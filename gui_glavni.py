@@ -997,8 +997,11 @@ class Ui_MainWindow(object):
         self.action22 = QtGui.QAction(MainWindow)
         self.action22.setCheckable(True)
         self.action22.setObjectName(_fromUtf8("action22"))
+        self.actionCharts = QtGui.QAction(MainWindow)
+        self.actionCharts.setObjectName(_fromUtf8("actionCharts"))
         self.menuHelp.addAction(self.actionAbout)
         self.menuTestic.addAction(self.actionTestic)
+        self.menuTestic.addAction(self.actionCharts)
         self.menuShift.addAction(self.action06)
         self.menuShift.addAction(self.action14)
         self.menuShift.addAction(self.action15)
@@ -1127,6 +1130,7 @@ class Ui_MainWindow(object):
         self.action16.setText(_translate("MainWindow", "A16", None))
         self.action18.setText(_translate("MainWindow", "N18", None))
         self.action22.setText(_translate("MainWindow", "N22", None))
+        self.actionCharts.setText(_translate("MainWindow", "Charts", None))
 
 import xx_rc
 

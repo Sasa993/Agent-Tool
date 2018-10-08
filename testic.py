@@ -5,6 +5,7 @@ from PyQt4.QtGui import QLineEdit
 from gui_glavni import Ui_MainWindow
 from gui_about import Ui_aboutDialog
 from gui_testic import Ui_testWidget
+from gui_charts import Ui_Charts
 from gui_selektovani import Ui_selektovaniId
 import datetime
 
@@ -41,6 +42,14 @@ class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 
 	def click_on_about_btn(self):
 		self.close()
+
+# widget za charts
+class Ui_Charts(QtGui.QWidget, Ui_Charts):
+	def __init__(self, parent = None):
+		QtGui.QWidget.__init__(self, parent)
+		flags = QtCore.Qt.Drawer | QtCore.Qt.WindowStaysOnTopHint
+		self.setWindowFlags(flags)
+		self.setupUi(self)
 
 # widget za ispis iz baze (Table)
 class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
@@ -275,6 +284,9 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.actionTestic.triggered.connect(self.actionTestic_triggered)
 		self.popTestic = Ui_testWidget()
 
+		self.actionCharts.triggered.connect(self.actionCharts_triggered)
+		self.popCharts = Ui_Charts()
+
 		# timer
 		self.timer = QtCore.QTimer(self)
 		self.timer.timeout.connect(self.timer_time)
@@ -420,6 +432,9 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 	def actionTestic_triggered(self):
 		self.popTestic.show()
+
+	def actionCharts_triggered(self):
+		self.popCharts.show()
 
 	# unos u bazu
 	def click_on_pushButtonSave_btn(self):

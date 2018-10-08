@@ -1,0 +1,6 @@
+PyQt4
+sys
+sqlite3
+datetime
+matplotlib
+numpy
