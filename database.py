@@ -18,55 +18,55 @@ def testic():
 	# c.execute("INSERT INTO ticket_info (id_ticket_info, incident_number, severity, status, datum, site_key, name_last_name, callback_number, zip_code, email, versions, has_site_ever_called, did_it_work, when_did_it_stop, changes_made, how_many_term_location, how_many_term_down, any_spec_term, screenshots_attached, model_serial_number, alternative_method, next_steps, description_problem, reporoduction_and_ts, vrijeme_trajanja_poziva_h, vrijeme_trajanja_poziva_m, vrijeme_trajanja_poziva_s) SELECT id_ticket_info, incident_number, severity, status, datum, site_key, name_last_name, callback_number, zip_code, email, versions, has_site_ever_called, did_it_work, when_did_it_stop, changes_made, how_many_term_location, how_many_term_down, any_spec_term, screenshots_attached, model_serial_number, alternative_method, next_steps, description_problem, reporoduction_and_ts, vrijeme_trajanja_poziva_h, vrijeme_trajanja_poziva_m, vrijeme_trajanja_poziva_s FROM TempOldTable")
 
 	# UPDATE-OVANJE TICKET_INFO TABELE SA KATEGORIJOM
-	kveri = c.execute("SELECT description_problem FROM ticket_info")
-	conn.commit()
-	brojac = 1
+	# kveri = c.execute("SELECT description_problem FROM ticket_info")
+	# conn.commit()
+	# brojac = 1
 
-	kveri = kveri.fetchall()
-	for x in kveri:
-		for y in x:
-			glavniString = y.lower()
-			if (" network" in glavniString) or (" isp" in glavniString) or ("router" in glavniString) or ("firewall" in glavniString) or ("modem" in glavniString) or ("ip address" in glavniString):
-				rezultat = 1
-			elif (" red " in glavniString) or ("in red" in glavniString) or ("redundancy" in glavniString) or ("looking for file server" in glavniString) or ("looking for fs" in glavniString)  or ("looking for fileserver" in glavniString) or ("looking for master" in glavniString) or ("find master" in glavniString) or ("find fileserver" in glavniString) or ("find fs" in glavniString) or ("determining fs" in glavniString) or ("determining file server" in glavniString) or ("make fs" in glavniString) or ("make file server" in glavniString) or ("locate fs" in glavniString) or ("locate file server" in glavniString) or ("locate master" in glavniString):
-				rezultat = 2
-			elif ("edc" in glavniString) or ("authorize" in glavniString) or ("authorizing" in glavniString) or ("credit card" in glavniString) or (" cc " in glavniString) or ("spooldown" in glavniString) or ("refund" in glavniString) or (" tip " in glavniString) or ("batch " in glavniString) or ("process cc" in glavniString) or ("process ccs" in glavniString) or ("ccs process" in glavniString) or ("cc process" in glavniString) or ("cc stuck" in glavniString) or ("ccs stuck" in glavniString):
-				rezultat = 3
-			elif ("install" in glavniString):
-				rezultat = 4
-			elif ("printer" in glavniString) or ("com port" in glavniString) or ("printing" in glavniString):
-				rezultat = 5
-			elif ("reoccurring" in glavniString):
-				rezultat = 6
-			elif ("cash drawer" in glavniString) or (" cd " in glavniString) or ("cash register" in glavniString):
-				rezultat = 7
-			elif ("end of day" in glavniString) or (" eod " in glavniString) or ("waiting for permission to resume" in glavniString):
-				rezultat = 8
-			elif ("aloha manager" in glavniString) or (" am " in glavniString) or ("cfc " in glavniString) or ("configuration center" in glavniString) or ("am password reset" in glavniString) or ("login to am" in glavniString) or ("login to aloha manager" in glavniString) or ("login to cfc" in glavniString) or ("adding an item" in glavniString) or ("adding item" in glavniString) or ("add an item" in glavniString) or ("add item" in glavniString) or ("happy hour" in glavniString) or ("in am" in glavniString) or ("on am" in glavniString):
-				rezultat = 9
-			elif ("cable" in glavniString) or ("hardware" in glavniString) or ("damaged" in glavniString):
-				rezultat = 10
-			elif (" date " in glavniString) or ("incorrect time" in glavniString) or ("different time" in glavniString) or ("time correction" in glavniString):
-				rezultat = 11
-			elif ("windows" in glavniString) or ("operating system" in glavniString):
-				rezultat = 12
-			elif ("ato " in glavniString) or ("takeout" in glavniString) or ("online order" in glavniString) or ("online ordering" in glavniString):
-				rezultat = 13
-			elif ("loyalty" in glavniString) or ("gift card" in glavniString) or (" gc " in glavniString):
-				rezultat = 14
-			elif ("orderman" in glavniString) or ("aloha mobile" in glavniString):
-				rezultat = 15
-			elif ("discrepancy" in glavniString) or ("different amount" in glavniString) or ("missing $" in glavniString) or ("missing money" in glavniString) or ("discrepancies" in glavniString):
-				rezultat = 16
-			elif ("aloha kitchen" in glavniString) or ("kitchen screen" in glavniString) or (" ak " in glavniString):
-				rezultat = 17
-			else:
-				rezultat = 18
+	# kveri = kveri.fetchall()
+	# for x in kveri:
+	# 	for y in x:
+	# 		glavniString = y.lower()
+	# 		if (" network" in glavniString) or (" isp" in glavniString) or ("router" in glavniString) or ("firewall" in glavniString) or ("modem" in glavniString) or ("ip address" in glavniString):
+	# 			rezultat = 1
+	# 		elif (" red " in glavniString) or ("in red" in glavniString) or ("redundancy" in glavniString) or ("looking for file server" in glavniString) or ("looking for fs" in glavniString)  or ("looking for fileserver" in glavniString) or ("looking for master" in glavniString) or ("find master" in glavniString) or ("find fileserver" in glavniString) or ("find fs" in glavniString) or ("determining fs" in glavniString) or ("determining file server" in glavniString) or ("make fs" in glavniString) or ("make file server" in glavniString) or ("locate fs" in glavniString) or ("locate file server" in glavniString) or ("locate master" in glavniString):
+	# 			rezultat = 2
+	# 		elif ("edc" in glavniString) or ("authorize" in glavniString) or ("authorizing" in glavniString) or ("credit card" in glavniString) or (" cc " in glavniString) or ("spooldown" in glavniString) or ("refund" in glavniString) or (" tip " in glavniString) or ("batch " in glavniString) or ("process cc" in glavniString) or ("process ccs" in glavniString) or ("ccs process" in glavniString) or ("cc process" in glavniString) or ("cc stuck" in glavniString) or ("ccs stuck" in glavniString):
+	# 			rezultat = 3
+	# 		elif ("install" in glavniString):
+	# 			rezultat = 4
+	# 		elif ("printer" in glavniString) or ("com port" in glavniString) or ("printing" in glavniString):
+	# 			rezultat = 5
+	# 		elif ("reoccurring" in glavniString):
+	# 			rezultat = 6
+	# 		elif ("cash drawer" in glavniString) or (" cd " in glavniString) or ("cash register" in glavniString):
+	# 			rezultat = 7
+	# 		elif ("end of day" in glavniString) or (" eod " in glavniString) or ("waiting for permission to resume" in glavniString):
+	# 			rezultat = 8
+	# 		elif ("aloha manager" in glavniString) or (" am " in glavniString) or ("cfc " in glavniString) or ("configuration center" in glavniString) or ("am password reset" in glavniString) or ("login to am" in glavniString) or ("login to aloha manager" in glavniString) or ("login to cfc" in glavniString) or ("adding an item" in glavniString) or ("adding item" in glavniString) or ("add an item" in glavniString) or ("add item" in glavniString) or ("happy hour" in glavniString) or ("in am" in glavniString) or ("on am" in glavniString):
+	# 			rezultat = 9
+	# 		elif ("cable" in glavniString) or ("hardware" in glavniString) or ("damaged" in glavniString):
+	# 			rezultat = 10
+	# 		elif (" date " in glavniString) or ("incorrect time" in glavniString) or ("different time" in glavniString) or ("time correction" in glavniString):
+	# 			rezultat = 11
+	# 		elif ("windows" in glavniString) or ("operating system" in glavniString):
+	# 			rezultat = 12
+	# 		elif ("ato " in glavniString) or ("takeout" in glavniString) or ("online order" in glavniString) or ("online ordering" in glavniString):
+	# 			rezultat = 13
+	# 		elif ("loyalty" in glavniString) or ("gift card" in glavniString) or (" gc " in glavniString):
+	# 			rezultat = 14
+	# 		elif ("orderman" in glavniString) or ("aloha mobile" in glavniString):
+	# 			rezultat = 15
+	# 		elif ("discrepancy" in glavniString) or ("different amount" in glavniString) or ("missing $" in glavniString) or ("missing money" in glavniString) or ("discrepancies" in glavniString):
+	# 			rezultat = 16
+	# 		elif ("aloha kitchen" in glavniString) or ("kitchen screen" in glavniString) or (" ak " in glavniString):
+	# 			rezultat = 17
+	# 		else:
+	# 			rezultat = 18
 
-			c.execute("UPDATE ticket_info SET kategorija=? WHERE id_ticket_info=?", (rezultat, brojac))
-			print("{0}.Rezultat je {1}".format(brojac, rezultat))
-			conn.commit()
-			brojac += 1
+	# 		c.execute("UPDATE ticket_info SET kategorija=? WHERE id_ticket_info=?", (rezultat, brojac))
+	# 		print("{0}.Rezultat je {1}".format(brojac, rezultat))
+	# 		conn.commit()
+	# 		brojac += 1
 	# UPDATE-OVANJE TICKET_INFO TABELE SA KATEGORIJOM END
 	
 	# c.execute("CREATE TABLE shifts (id_shifts INTEGER PRIMARY KEY, shift_ends TEXT, shift_last_changed DATE, action_name TEXT)")
