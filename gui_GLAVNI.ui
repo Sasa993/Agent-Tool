@@ -2123,8 +2123,89 @@ color: black;
     <property name="title">
      <string>View</string>
     </property>
+    <widget class="QMenu" name="menuStatistics">
+     <property name="title">
+      <string>Statistics</string>
+     </property>
+     <widget class="QMenu" name="menuStatus">
+      <property name="title">
+       <string>Status</string>
+      </property>
+      <widget class="QMenu" name="menuSpecific">
+       <property name="title">
+        <string>Specific</string>
+       </property>
+       <addaction name="StatusActionYear"/>
+       <addaction name="StatusActionMonth"/>
+       <addaction name="StatusActionDate"/>
+      </widget>
+      <addaction name="StatusActionAll"/>
+      <addaction name="separator"/>
+      <addaction name="menuSpecific"/>
+     </widget>
+     <widget class="QMenu" name="menuSeverity">
+      <property name="title">
+       <string>Severity</string>
+      </property>
+      <widget class="QMenu" name="menuSpecific_2">
+       <property name="title">
+        <string>Specific</string>
+       </property>
+       <addaction name="SeverityActionYear"/>
+       <addaction name="SeverityActionMonth"/>
+       <addaction name="SeverityActionDate"/>
+      </widget>
+      <addaction name="SeverityActionAll"/>
+      <addaction name="separator"/>
+      <addaction name="menuSpecific_2"/>
+     </widget>
+     <widget class="QMenu" name="menuCategory">
+      <property name="title">
+       <string>Category</string>
+      </property>
+      <widget class="QMenu" name="menuSpecific_3">
+       <property name="title">
+        <string>Specific</string>
+       </property>
+       <addaction name="CategoryActionYear"/>
+       <addaction name="CategoryActionMonth"/>
+       <addaction name="CategoryActionDate"/>
+      </widget>
+      <addaction name="CategoryActionAll"/>
+      <addaction name="separator"/>
+      <addaction name="menuSpecific_3"/>
+     </widget>
+     <widget class="QMenu" name="menuCall_Duration">
+      <property name="title">
+       <string>Call Duration</string>
+      </property>
+      <widget class="QMenu" name="menuSpecific_4">
+       <property name="title">
+        <string>Specific</string>
+       </property>
+       <addaction name="DurationActionYear"/>
+       <addaction name="DurationActionMonth"/>
+       <addaction name="DurationActionDate"/>
+      </widget>
+      <addaction name="DurationActionAll"/>
+      <addaction name="separator"/>
+      <addaction name="menuSpecific_4"/>
+     </widget>
+     <widget class="QMenu" name="menuTop_10">
+      <property name="title">
+       <string>Top 10</string>
+      </property>
+      <addaction name="actionLongest_Calls"/>
+      <addaction name="actionQuickest_Calls"/>
+     </widget>
+     <addaction name="menuStatus"/>
+     <addaction name="menuSeverity"/>
+     <addaction name="menuCategory"/>
+     <addaction name="menuCall_Duration"/>
+     <addaction name="menuTop_10"/>
+    </widget>
     <addaction name="actionTestic"/>
-    <addaction name="actionCharts"/>
+    <addaction name="menuStatistics"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="styleSheet">
@@ -2152,8 +2233,8 @@ color: black;
     <widget class="QMenu" name="menuShift">
      <property name="geometry">
       <rect>
-       <x>365</x>
-       <y>126</y>
+       <x>421</x>
+       <y>125</y>
        <width>122</width>
        <height>302</height>
       </rect>
@@ -2307,6 +2388,96 @@ color: black;
   <action name="actionCharts">
    <property name="text">
     <string>Charts</string>
+   </property>
+  </action>
+  <action name="StatusActionAll">
+   <property name="text">
+    <string>All</string>
+   </property>
+  </action>
+  <action name="StatusActionYear">
+   <property name="text">
+    <string>Year</string>
+   </property>
+  </action>
+  <action name="StatusActionMonth">
+   <property name="text">
+    <string>Month</string>
+   </property>
+  </action>
+  <action name="StatusActionDate">
+   <property name="text">
+    <string>Date</string>
+   </property>
+  </action>
+  <action name="SeverityActionAll">
+   <property name="text">
+    <string>All</string>
+   </property>
+  </action>
+  <action name="SeverityActionYear">
+   <property name="text">
+    <string>Year</string>
+   </property>
+  </action>
+  <action name="SeverityActionMonth">
+   <property name="text">
+    <string>Month</string>
+   </property>
+  </action>
+  <action name="SeverityActionDate">
+   <property name="text">
+    <string>Date</string>
+   </property>
+  </action>
+  <action name="CategoryActionAll">
+   <property name="text">
+    <string>All</string>
+   </property>
+  </action>
+  <action name="CategoryActionYear">
+   <property name="text">
+    <string>Year</string>
+   </property>
+  </action>
+  <action name="CategoryActionMonth">
+   <property name="text">
+    <string>Month</string>
+   </property>
+  </action>
+  <action name="CategoryActionDate">
+   <property name="text">
+    <string>Date</string>
+   </property>
+  </action>
+  <action name="DurationActionAll">
+   <property name="text">
+    <string>All</string>
+   </property>
+  </action>
+  <action name="DurationActionYear">
+   <property name="text">
+    <string>Year</string>
+   </property>
+  </action>
+  <action name="DurationActionMonth">
+   <property name="text">
+    <string>Month</string>
+   </property>
+  </action>
+  <action name="DurationActionDate">
+   <property name="text">
+    <string>Date</string>
+   </property>
+  </action>
+  <action name="actionLongest_Calls">
+   <property name="text">
+    <string>Longest Calls</string>
+   </property>
+  </action>
+  <action name="actionQuickest_Calls">
+   <property name="text">
+    <string>Quickest Calls</string>
    </property>
   </action>
  </widget>

@@ -277,7 +277,26 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.actionTestic.triggered.connect(self.actionTestic_triggered)
 		self.popTestic = Ui_testWidget()
 
-		self.actionCharts.triggered.connect(self.actionCharts_triggered)
+		# statistics
+		self.StatusActionAll.triggered.connect(self.StatusActionAll_triggered)
+		self.StatusActionYear.triggered.connect(self.StatusActionYear_triggered)
+		self.StatusActionMonth.triggered.connect(self.StatusActionMonth_triggered)
+		self.StatusActionDate.triggered.connect(self.StatusActionDate_triggered)
+
+		self.SeverityActionAll.triggered.connect(self.SeverityActionAll_triggered)
+		self.SeverityActionYear.triggered.connect(self.SeverityActionYear_triggered)
+		self.SeverityActionMonth.triggered.connect(self.SeverityActionMonth_triggered)
+		self.SeverityActionDate.triggered.connect(self.SeverityActionDate_triggered)
+
+		self.CategoryActionAll.triggered.connect(self.CategoryActionAll_triggered)
+		self.CategoryActionYear.triggered.connect(self.CategoryActionYear_triggered)
+		self.CategoryActionMonth.triggered.connect(self.CategoryActionMonth_triggered)
+		self.CategoryActionDate.triggered.connect(self.CategoryActionDate_triggered)
+
+		self.DurationActionAll.triggered.connect(self.DurationActionAll_triggered)
+		self.DurationActionYear.triggered.connect(self.DurationActionYear_triggered)
+		self.DurationActionMonth.triggered.connect(self.DurationActionMonth_triggered)
+		self.DurationActionDate.triggered.connect(self.DurationActionDate_triggered)
 
 		# timer
 		self.timer = QtCore.QTimer(self)
@@ -425,7 +444,8 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def actionTestic_triggered(self):
 		self.popTestic.show()
 
-	def actionCharts_triggered(self):
+	#statistics funkcije
+	def StatusActionAll_triggered(self):
 		conn = sqlite3.connect(bazica)
 		c = conn.cursor()
 
@@ -474,6 +494,51 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 		plt.show()
 		conn.close()
+
+	def StatusActionYear_triggered(self):
+		pass
+
+	def StatusActionMonth_triggered(self):
+		pass
+
+	def StatusActionDate_triggered(self):
+		pass
+
+	def SeverityActionAll_triggered(self):
+		pass
+
+	def SeverityActionYear_triggered(self):
+		pass
+
+	def SeverityActionMonth_triggered(self):
+		pass
+
+	def SeverityActionDate_triggered(self):
+		pass
+
+	def CategoryActionAll_triggered(self):
+		pass
+
+	def CategoryActionYear_triggered(self):
+		pass
+
+	def CategoryActionMonth_triggered(self):
+		pass
+
+	def CategoryActionDate_triggered(self):
+		pass
+
+	def DurationActionAll_triggered(self):
+		pass
+
+	def DurationActionYear_triggered(self):
+		pass
+
+	def DurationActionMonth_triggered(self):
+		pass
+
+	def DurationActionDate_triggered(self):
+		pass
 
 	# unos u bazu
 	def click_on_pushButtonSave_btn(self):

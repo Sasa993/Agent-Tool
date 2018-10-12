@@ -1,11 +1,25 @@
 import sqlite3
 import datetime
+import time
 
 vrijeme = datetime.date.today().strftime("%m/%d/%Y")
 
 def testic():
 	conn = sqlite3.connect("baza_main.db")
 	c = conn.cursor()
+
+	# UPDATEVANJE DAY, MONTH I YEAR
+	# testic2 = c.execute("SELECT datum FROM ticket_info")
+	# conn.commit()
+
+	# testic2 = testic2.fetchall()
+	# for x in testic2:
+	# 	lala = datetime.datetime.strptime(x[0], '%m/%d/%Y')
+	# 	lala2 = lala.strftime('%d')
+
+	# 	c.execute("UPDATE ticket_info SET day = ? WHERE datum = ?", (lala2, x[0]))
+		
+	# 	conn.commit()
 
 	# KATEGORIJA
 	# c.execute("CREATE TABLE kategorija (id_kategorije INTEGER PRIMARY KEY AUTOINCREMENT, naziv_kategorije TEXT NOT NULL)")
