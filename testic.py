@@ -5,9 +5,9 @@ from PyQt4.QtGui import QLineEdit
 from gui_glavni import Ui_MainWindow
 from gui_about import Ui_aboutDialog
 from gui_testic import Ui_testWidget
-from gui_charts import Ui_Charts
 from gui_selektovani import Ui_selektovaniId
 import datetime
+import matplotlib.pyplot as plt
 
 bazica = "baza_main.db"
 
@@ -44,12 +44,67 @@ class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 		self.close()
 
 # widget za charts
-class Ui_Charts(QtGui.QWidget, Ui_Charts):
-	def __init__(self, parent = None):
-		QtGui.QWidget.__init__(self, parent)
-		flags = QtCore.Qt.Drawer | QtCore.Qt.WindowStaysOnTopHint
-		self.setWindowFlags(flags)
-		self.setupUi(self)
+# class Ui_Charts(QtGui.QWidget, Ui_Charts):
+# 	def __init__(self, parent = None):
+# 		QtGui.QWidget.__init__(self, parent)
+# 		flags = QtCore.Qt.Drawer | QtCore.Qt.WindowStaysOnTopHint
+# 		self.setWindowFlags(flags)
+# 		self.setupUi(self)
+
+# class Charts(QtGui.QDialog):
+# 	def __init__(self, parent=None):
+# 		super(Charts, self).__init__(parent)
+
+#         # a figure instance to plot on
+# 		self.figure = Figure()
+
+#         # this is the Canvas Widget that displays the `figure`
+#         # it takes the `figure` instance as a parameter to __init__
+# 		self.canvas = FigureCanvas(self.figure)
+
+#         # this is the Navigation widget
+#         # it takes the Canvas widget and a parent
+# 		self.toolbar = NavigationToolbar(self.canvas, self)
+
+#         # Just some button connected to `plot` method
+# 		self.button = QtGui.QPushButton('Plot')
+# 		self.button.clicked.connect(self.plot)
+
+#         # set the layout
+# 		layout = QtGui.QVBoxLayout()
+# 		layout.addWidget(self.toolbar)
+# 		layout.addWidget(self.canvas)
+# 		layout.addWidget(self.button)
+# 		self.setLayout(layout)
+
+# 	def plot(self):
+#         # ''' plot some random stuff '''
+#         # # random data
+#         # data = [random.random() for i in range(10)]
+
+#         # # create an axis
+#         # ax = self.figure.add_subplot(111)
+
+#         # # discards the old graph
+#         # ax.clear()
+
+#         # # plot data
+#         # ax.plot(data, '*-')
+
+#         # # refresh canvas
+#         # self.canvas.draw()
+
+# 		labels = 'Python', 'C++', 'Ruby', 'Java'
+# 		sizes = [215, 130, 245, 210]
+# 		colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
+# 		explode = (0.1, 0, 0, 0)  # explode 1st slice
+
+# 		# Plot
+# 		plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+# 		autopct='%1.1f%%', shadow=True, startangle=140)
+		
+# 		plt.axis('equal')
+# 		plt.show()
 
 # widget za ispis iz baze (Table)
 class Ui_testWidget(QtGui.QWidget, Ui_testWidget):
@@ -285,7 +340,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.popTestic = Ui_testWidget()
 
 		self.actionCharts.triggered.connect(self.actionCharts_triggered)
-		self.popCharts = Ui_Charts()
+		# self.popCharts = Charts()
 
 		# timer
 		self.timer = QtCore.QTimer(self)
@@ -434,7 +489,17 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.popTestic.show()
 
 	def actionCharts_triggered(self):
-		self.popCharts.show()
+		labels = 'Python', 'C++', 'Ruby', 'Java'
+		sizes = [215, 130, 245, 210]
+		colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
+		explode = (0.1, 0, 0, 0)  # explode 1st slice
+
+		# Plot
+		plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+		autopct='%1.1f%%', shadow=True, startangle=140)
+		
+		plt.axis('equal')
+		plt.show()
 
 	# unos u bazu
 	def click_on_pushButtonSave_btn(self):
