@@ -25,7 +25,7 @@ def testic():
 	# c.execute("CREATE TABLE kategorija (id_kategorije INTEGER PRIMARY KEY AUTOINCREMENT, naziv_kategorije TEXT NOT NULL)")
 	# c.execute("DROP TABLE kategorija")
 	# c.execute("INSERT INTO kategorija VALUES(NULL, 'Other')")
-	# c.execute("UPDATE kategorija SET naziv_kategorije='End Of Day' WHERE id_kategorije=8")
+	# c.execute("UPDATE kategorija SET naziv_kategorije='Aloha Kitchen' WHERE id_kategorije=17")
 	
 	# c.execute("CREATE TABLE ticket_info (id_ticket_info INTEGER PRIMARY KEY AUTOINCREMENT, incident_number INTEGER NOT NULL, severity TEXT NOT NULL, status TEXT NOT NULL, datum DATE NOT NULL, day INT, month INT, year INT, site_key TEXT NOT NULL, name_last_name TEXT NOT NULL, callback_number TEXT NOT NULL, zip_code TEXT NOT NULL, email TEXT NOT NULL, versions TEXT NOT NULL, has_site_ever_called TEXT NOT NULL, did_it_work TEXT NOT NULL, when_did_it_stop TEXT NOT NULL, changes_made TEXT NOT NULL, how_many_term_location TEXT NOT NULL, how_many_term_down TEXT NOT NULL, any_spec_term TEXT NOT NULL, screenshots_attached TEXT NOT NULL, model_serial_number TEXT NOT NULL, alternative_method TEXT NOT NULL, next_steps TEXT NOT NULL, description_problem TEXT NOT NULL, reporoduction_and_ts TEXT NOT NULL, vrijeme_trajanja_poziva_h INTEGER NOT NULL, vrijeme_trajanja_poziva_m INTEGER NOT NULL, vrijeme_trajanja_poziva_s INTEGER NOT NULL, kategorija INTEGER NULL, FOREIGN KEY(kategorija) REFERENCES kategorija(id_kategorije))")
 	# c.execute("DROP TABLE ticket_info")

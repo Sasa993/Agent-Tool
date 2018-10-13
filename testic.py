@@ -9,6 +9,7 @@ from gui_selektovani import Ui_selektovaniId
 import datetime
 import numpy as np
 import matplotlib.pyplot as plt
+import statistics_functions
 
 bazica = "baza_main.db"
 
@@ -278,22 +279,22 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.popTestic = Ui_testWidget()
 
 		# statistics
-		self.StatusActionAll.triggered.connect(self.StatusActionAll_triggered)
+		self.StatusActionAll.triggered.connect(self.pozoviStatusActionAll)
 		self.StatusActionYear.triggered.connect(self.StatusActionYear_triggered)
 		self.StatusActionMonth.triggered.connect(self.StatusActionMonth_triggered)
 		self.StatusActionDate.triggered.connect(self.StatusActionDate_triggered)
 
-		self.SeverityActionAll.triggered.connect(self.SeverityActionAll_triggered)
+		self.SeverityActionAll.triggered.connect(self.pozoviSeverityActionAll)
 		self.SeverityActionYear.triggered.connect(self.SeverityActionYear_triggered)
 		self.SeverityActionMonth.triggered.connect(self.SeverityActionMonth_triggered)
 		self.SeverityActionDate.triggered.connect(self.SeverityActionDate_triggered)
 
-		self.CategoryActionAll.triggered.connect(self.CategoryActionAll_triggered)
+		self.CategoryActionAll.triggered.connect(self.pozoviCategoryActionAll)
 		self.CategoryActionYear.triggered.connect(self.CategoryActionYear_triggered)
 		self.CategoryActionMonth.triggered.connect(self.CategoryActionMonth_triggered)
 		self.CategoryActionDate.triggered.connect(self.CategoryActionDate_triggered)
 
-		self.DurationActionAll.triggered.connect(self.DurationActionAll_triggered)
+		self.DurationActionAll.triggered.connect(self.pozoviDurationActionAll)
 		self.DurationActionYear.triggered.connect(self.DurationActionYear_triggered)
 		self.DurationActionMonth.triggered.connect(self.DurationActionMonth_triggered)
 		self.DurationActionDate.triggered.connect(self.DurationActionDate_triggered)
@@ -444,56 +445,9 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def actionTestic_triggered(self):
 		self.popTestic.show()
 
-	#statistics funkcije
-	def StatusActionAll_triggered(self):
-		conn = sqlite3.connect(bazica)
-		c = conn.cursor()
-
-		c.execute("SELECT COUNT(*) FROM ticket_info WHERE status = 'WFC'")
-		brojWFC = c.fetchone()[0]
-		conn.commit()
-		
-		c.execute("SELECT COUNT(*) FROM ticket_info WHERE status = 'Transferred' OR status = 'Tranferred'")
-		brojTransferred = c.fetchone()[0]
-		conn.commit()
-
-		c.execute("SELECT COUNT(*) FROM ticket_info WHERE status = 'Escalated'")
-		brojEscalated = c.fetchone()[0]
-		conn.commit()
-
-		c.execute("SELECT COUNT(*) FROM ticket_info WHERE status = 'Closed'")
-		brojClosed = c.fetchone()[0]
-		conn.commit()
-
-		c.execute("SELECT COUNT(*) FROM ticket_info WHERE status = 'Active' OR status = 'Open'")
-		brojActive = c.fetchone()[0]
-		conn.commit()
-
-		fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
-
-		data = [brojWFC, brojTransferred, brojEscalated, brojClosed, brojActive]
-		ingredients = ['WFC', 'Transferred', 'Escalated', 'Closed', 'Active']
-
-
-		def func(pct, allvals):
-			absolute = int(pct/100.*np.sum(allvals))
-			return "{:.1f}%\n({:d})".format(pct, absolute)
-
-
-		wedges, texts, autotexts = ax.pie(data, autopct=lambda pct: func(pct, data),
-			textprops=dict(color="w"))
-
-		ax.legend(wedges, ingredients,
-			title="Opet naslov",
-			loc="center left",
-			bbox_to_anchor=(1, 0, 0.5, 1))
-
-		plt.setp(autotexts, size=8, weight="bold")
-
-		ax.set_title("Naslov druze")
-
-		plt.show()
-		conn.close()
+	#statistics funkcije koje pozivaju glavne funkcije iz statistics_functions modula
+	def pozoviStatusActionAll(self):
+		statistics_functions.StatusActionAll_triggered()
 
 	def StatusActionYear_triggered(self):
 		pass
@@ -504,8 +458,8 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def StatusActionDate_triggered(self):
 		pass
 
-	def SeverityActionAll_triggered(self):
-		pass
+	def pozoviSeverityActionAll(self):
+		statistics_functions.SeverityActionAll_triggered()
 
 	def SeverityActionYear_triggered(self):
 		pass
@@ -516,8 +470,8 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def SeverityActionDate_triggered(self):
 		pass
 
-	def CategoryActionAll_triggered(self):
-		pass
+	def pozoviCategoryActionAll(self):
+		statistics_functions.CategoryActionAll_triggered()
 
 	def CategoryActionYear_triggered(self):
 		pass
@@ -528,8 +482,8 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 	def CategoryActionDate_triggered(self):
 		pass
 
-	def DurationActionAll_triggered(self):
-		pass
+	def pozoviDurationActionAll(self):
+		statistics_functions.DurationActionAll_triggered()
 
 	def DurationActionYear_triggered(self):
 		pass
