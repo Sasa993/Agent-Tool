@@ -108,7 +108,7 @@ def StatusActionMonth_triggered(godina, mjesec):
 	conn = sqlite3.connect(bazica)
 	c = conn.cursor()
 
-	c.execute("SELECT COUNT(*) FROM ticket_info WHERE status = ? AND year = ? AND month = ?", ('WFC' ,godina, mjesec))
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE status = ? AND year = ? AND month = ?", ('WFC', godina, mjesec))
 	brojWFC = c.fetchone()[0]
 	conn.commit()
 	
@@ -123,8 +123,8 @@ def StatusActionMonth_triggered(godina, mjesec):
 	c.execute("SELECT COUNT(*) FROM ticket_info WHERE status = ? AND year = ? AND month = ?", ('Closed', godina, mjesec))
 	brojClosed = c.fetchone()[0]
 	conn.commit()
-	#BUG - prikazuje 4 active/open tiketa a u bazi imas 5!!!
-	c.execute("SELECT COUNT(*) FROM ticket_info WHERE (status = ? OR status = ?) AND year = ? AND month = ?", ('Active', 'Open', godina, mjesec))
+	
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE (status = ? OR status = ?) AND (year = ? AND month = ?)", ('Active', 'Open', godina, mjesec))
 	brojActive = c.fetchone()[0]
 	conn.commit()
 
@@ -150,6 +150,56 @@ def StatusActionMonth_triggered(godina, mjesec):
 	plt.setp(autotexts, size=8, weight="bold")
 
 	ax.set_title("Status ({0}/{1})".format(mjesec, godina))
+
+	plt.show()
+	conn.close()
+
+def StatusActionDate_triggered(datum):
+	conn = sqlite3.connect(bazica)
+	c = conn.cursor()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE status = ? AND datum = ?", ('WFC', datum))
+	brojWFC = c.fetchone()[0]
+	conn.commit()
+	
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE (status = ? OR status = 'Tranferred') AND datum = ?", ('Transferred', datum))
+	brojTransferred = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE status = ? AND datum = ?", ('Escalated', datum))
+	brojEscalated = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE status = ? AND datum = ?", ('Closed', datum))
+	brojClosed = c.fetchone()[0]
+	conn.commit()
+	
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE (status = ? OR status = ?) AND datum = ?", ('Active', 'Open', datum))
+	brojActive = c.fetchone()[0]
+	conn.commit()
+
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+
+	data = [brojWFC, brojTransferred, brojEscalated, brojClosed, brojActive]
+	ingredients = ['WFC', 'Transferred', 'Escalated', 'Closed', 'Active']
+
+
+	def func(pct, allvals):
+		absolute = int(pct/100.*np.sum(allvals))
+		return "{:.1f}%\n({:d})".format(pct, absolute)
+
+
+	wedges, texts, autotexts = ax.pie(data, autopct=lambda pct: func(pct, data),
+		textprops=dict(color="w"))
+
+	ax.legend(wedges, ingredients,
+		title="Status({0})".format(datum),
+		loc="center left",
+		bbox_to_anchor=(1, 0, 0.5, 1))
+
+	plt.setp(autotexts, size=8, weight="bold")
+
+	ax.set_title("Status ({0})".format(datum))
 
 	plt.show()
 	conn.close()
@@ -274,6 +324,47 @@ def SeverityActionMonth_triggered(godina, mjesec):
 	plt.setp(autotexts, size=8, weight="bold")
 
 	ax.set_title("Severity ({0}/{1})".format(mjesec, godina))
+
+	plt.show()
+	conn.close()
+
+def SeverityActionDate_triggered(datum):
+	conn = sqlite3.connect(bazica)
+	c = conn.cursor()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE severity = ? AND datum = ?", ('Sev 1', datum))
+	brojSev1 = c.fetchone()[0]
+	conn.commit()
+		
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE severity = ? AND datum = ?", ('Sev 2', datum))
+	brojSev2 = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE severity = ? AND datum = ?", ('Sev 3', datum))
+	brojSev3 = c.fetchone()[0]
+	conn.commit()
+
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+
+	data = [brojSev1, brojSev2, brojSev3]
+	ingredients = ['Sev 1', 'Sev 2', 'Sev 3']
+
+
+	def func(pct, allvals):
+		absolute = int(pct/100.*np.sum(allvals))
+		return "{:.1f}%\n({:d})".format(pct, absolute)
+
+	wedges, texts, autotexts = ax.pie(data, autopct=lambda pct: func(pct, data),
+		textprops=dict(color="w"))
+
+	ax.legend(wedges, ingredients,
+		title="Severity ({0})".format(datum),
+		loc="center left",
+		bbox_to_anchor=(1, 0, 0.5, 1))
+
+	plt.setp(autotexts, size=8, weight="bold")
+
+	ax.set_title("Severity ({0})".format(datum))
 
 	plt.show()
 	conn.close()
@@ -581,6 +672,107 @@ def CategoryActionMonth_triggered(godina, mjesec):
 	plt.show()
 	conn.close()
 
+def CategoryActionDate_triggered(datum):
+	conn = sqlite3.connect(bazica)
+	c = conn.cursor()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (1, datum))
+	brojNetwork = c.fetchone()[0]
+	conn.commit()
+	
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (2, datum))
+	brojRedundancy = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (3, datum))
+	brojEdc = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (4, datum))
+	brojInstallation = c.fetchone()[0]
+	conn.commit()
+	
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (5, datum))
+	brojPrinters = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (6, datum))
+	brojReoccurring = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (7, datum))
+	brojCashDrawers = c.fetchone()[0]
+	conn.commit()
+	
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (8, datum))
+	brojEndOfDay = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (9, datum))
+	brojAlohaManager = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (10, datum))
+	brojHardware = c.fetchone()[0]
+	conn.commit()
+	
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (11, datum))
+	brojDateTime = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (12, datum))
+	brojWindows = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (13, datum))
+	brojAlohaTakeOut = c.fetchone()[0]
+	conn.commit()
+	
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (14, datum))
+	brojLoyalty = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (15, datum))
+	brojOrderman = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (16, datum))
+	brojDiscrepancy = c.fetchone()[0]
+	conn.commit()
+	
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (17, datum))
+	brojAlohaKitchen = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE kategorija = ? AND datum = ?", (18, datum))
+	brojOther = c.fetchone()[0]
+	conn.commit()
+
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+
+	ingredients = ['Network', 'Redundancy', 'EDC', 'Installation', 'Printers', 'Reoccurring', 'Cash Drawers', 'End Of Day', 'Aloha Manager', 'Hardware', 'Date/Time', 'Windows', 'Aloha Takeout', 'Loyalty', 'Orderman', 'Discrepancy', 'Aloha Kitchen', 'Other']
+
+	data = [brojNetwork, brojRedundancy, brojEdc, brojInstallation, brojPrinters, brojReoccurring, brojCashDrawers, brojEndOfDay, brojAlohaManager, brojHardware, brojDateTime, brojWindows, brojAlohaTakeOut, brojLoyalty, brojOrderman, brojDiscrepancy, brojAlohaKitchen, brojOther]
+
+	wedges, texts = ax.pie(data, wedgeprops=dict(width=0.5), startangle=-40)
+
+	bbox_props = dict(boxstyle="square,pad=0.3", fc="w", ec="k", lw=0.72)
+	kw = dict(xycoords='data', textcoords='data', arrowprops=dict(arrowstyle="-"),
+		bbox=bbox_props, zorder=0, va="center")
+
+	for i, p in enumerate(wedges):
+		ang = (p.theta2 - p.theta1)/2. + p.theta1
+		y = np.sin(np.deg2rad(ang))
+		x = np.cos(np.deg2rad(ang))
+		horizontalalignment = {-1: "right", 1: "left"}[int(np.sign(x))]
+		connectionstyle = "angle,angleA=0,angleB={}".format(ang)
+		kw["arrowprops"].update({"connectionstyle": connectionstyle})
+		ax.annotate('{0} ({1})'.format(ingredients[i], data[i]), xy=(x, y), xytext=(1.35*np.sign(x), 1.4*y),
+			horizontalalignment=horizontalalignment, **kw)
+
+	plt.show()
+	conn.close()
+
 def DurationActionAll_triggered():
 	conn = sqlite3.connect(bazica)
 	c = conn.cursor()
@@ -744,6 +936,62 @@ def DurationActionMonth_triggered(godina, mjesec):
 	plt.setp(autotexts, size=8, weight="bold")
 
 	ax.set_title("Call Duration (Year {0})".format(godina))
+
+	plt.show()
+
+	conn.close()
+
+def DurationActionDate_triggered(datum):
+	conn = sqlite3.connect(bazica)
+	c = conn.cursor()
+
+	# 0-15min,  15min-45min, 45min-1h, 1h-1h30min, 1h30min-2h, 2h-
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE (vrijeme_trajanja_poziva_m < ? AND vrijeme_trajanja_poziva_h = ?) AND datum = ?", (15, 0, datum))
+	brojDo15 = c.fetchone()[0]
+	conn.commit()
+		
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE (vrijeme_trajanja_poziva_m < ? AND vrijeme_trajanja_poziva_m >= ? AND vrijeme_trajanja_poziva_h = ?) AND datum = ?", (45, 15, 0, datum))
+	brojDo45 = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE (vrijeme_trajanja_poziva_m >= ? AND vrijeme_trajanja_poziva_m <= ? AND vrijeme_trajanja_poziva_h = ?) AND datum = ?", (45, 59, 0, datum))
+	brojDoSat = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE (vrijeme_trajanja_poziva_m >= ? AND vrijeme_trajanja_poziva_m <= ? AND vrijeme_trajanja_poziva_h = ?) AND datum = ?", (0, 30, 1, datum))
+	brojDoSatipo = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE (vrijeme_trajanja_poziva_m >= ? AND vrijeme_trajanja_poziva_m <= ? AND vrijeme_trajanja_poziva_h = ?) AND datum = ?", (30, 59, 1, datum))
+	brojDo2Sata = c.fetchone()[0]
+	conn.commit()
+
+	c.execute("SELECT COUNT(*) FROM ticket_info WHERE vrijeme_trajanja_poziva_h >= ? AND datum = ?", (2, datum))
+	preko2Sata = c.fetchone()[0]
+	conn.commit()
+
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+
+	data = [brojDo15, brojDo45, brojDoSat, brojDoSatipo, brojDo2Sata, preko2Sata]
+	ingredients = ['0 - 15min', '15 - 45min', '45min - 1h', '1h - 1h30min', '1h30min - 2h', '2h - ']
+
+
+	def func(pct, allvals):
+		absolute = int(pct/100.*np.sum(allvals))
+		return "{:.1f}%".format(pct, absolute)
+
+
+	wedges, texts, autotexts = ax.pie(data, autopct=lambda pct: func(pct, data),
+		textprops=dict(color="w"))
+
+	ax.legend(wedges, ingredients,
+		title="Call Duration ({0})".format(datum),
+		loc="center left",
+		bbox_to_anchor=(1, 0, 0.5, 1))
+
+	plt.setp(autotexts, size=8, weight="bold")
+
+	ax.set_title("Call Duration ({0})".format(datum))
 
 	plt.show()
 
