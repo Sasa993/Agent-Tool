@@ -7,6 +7,7 @@ from gui_about import Ui_aboutDialog
 from gui_testic import Ui_testWidget
 from gui_selektovani import Ui_selektovaniId
 from gui_year import Ui_YearDialog
+from gui_month import Ui_MonthDialog
 import datetime
 import numpy as np
 import matplotlib.pyplot as plt
@@ -34,7 +35,8 @@ conn.close()
 provjeraButtonStart = True
 
 lista = []
-prepoznavanjeStatisticsFunkcije = 0
+prepoznavanjeStatisticsFunkcijeYear = 0
+prepoznavanjeStatisticsFunkcijeMonth = 0
 
 class yearDialog(QtGui.QDialog, Ui_YearDialog):
 	def __init__(self, parent = None):
@@ -42,7 +44,7 @@ class yearDialog(QtGui.QDialog, Ui_YearDialog):
 		flags = QtCore.Qt.Drawer | QtCore.Qt.WindowStaysOnTopHint
 		self.setWindowFlags(flags)
 		self.setupUi(self)
-		self.pushButtonContinueYear.clicked.connect(lambda: self.click_on_pushButtonContinueYear(prepoznavanjeStatisticsFunkcije))
+		self.pushButtonContinueYear.clicked.connect(lambda: self.click_on_pushButtonContinueYear(prepoznavanjeStatisticsFunkcijeYear))
 
 	def click_on_pushButtonContinueYear(self, prepoznavanje):
 		yearGodina = self.dateEditYear.date()
@@ -59,6 +61,34 @@ class yearDialog(QtGui.QDialog, Ui_YearDialog):
 			statistics_functions.CategoryActionYear_triggered(yearGodinaZavrsna)
 		else:
 			statistics_functions.DurationActionYear_triggered(yearGodinaZavrsna)
+
+class monthDialog(QtGui.QDialog, Ui_MonthDialog):
+	def __init__(self, parent = None):
+		QtGui.QDialog.__init__(self, parent)
+		flags = QtCore.Qt.Drawer | QtCore.Qt.WindowStaysOnTopHint
+		self.setWindowFlags(flags)
+		self.setupUi(self)
+		self.pushButtonContinueMonth.clicked.connect(lambda: self.click_on_pushButtonContinueMonth(prepoznavanjeStatisticsFunkcijeMonth))
+
+	def click_on_pushButtonContinueMonth(self, prepoznavanje):
+		yearGodina = self.dateEditMonth.date()
+		yearGodina = yearGodina.toPyDate() #da dobijemo normalno formatiranje datuma - "%m/%d/%Y"
+		yearGodinaZavrsna = yearGodina.strftime('%Y') #uzimamo samo godinu iz prethodnog formata datuma
+
+		monthGodina = self.dateEditMonth.date()
+		monthGodina = monthGodina.toPyDate() 
+		monthGodinaZavrsna = monthGodina.strftime('%m') #uzimamo samo mjesec iz prethodnog formata datuma
+		# print(prepoznavanje)
+		self.close()
+
+		if(prepoznavanje == 0):
+			statistics_functions.StatusActionMonth_triggered(yearGodinaZavrsna, monthGodinaZavrsna)
+		elif(prepoznavanje == 1):
+			statistics_functions.SeverityActionMonth_triggered(yearGodinaZavrsna, monthGodinaZavrsna)
+		elif(prepoznavanje == 2):
+			statistics_functions.CategoryActionMonth_triggered(yearGodinaZavrsna, monthGodinaZavrsna)
+		else:
+			statistics_functions.DurationActionMonth_triggered(yearGodinaZavrsna, monthGodinaZavrsna)
 
 class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
 	def __init__(self, parent = None):
@@ -306,6 +336,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 		# statistics
 		self.popYearDialog = yearDialog()
+		self.popMonthDialog = monthDialog()
 
 		self.StatusActionAll.triggered.connect(self.pozoviStatusActionAll)
 		self.StatusActionYear.triggered.connect(self.StatusActionYear_triggered)
@@ -478,15 +509,14 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		statistics_functions.StatusActionAll_triggered()
 
 	def StatusActionYear_triggered(self):
-		global prepoznavanjeStatisticsFunkcije
-		prepoznavanjeStatisticsFunkcije = 0
+		global prepoznavanjeStatisticsFunkcijeYear
+		prepoznavanjeStatisticsFunkcijeYear = 0
 		self.popYearDialog.show()
 
-	def pozoviStatusActionYear(self):
-		pass
-
 	def StatusActionMonth_triggered(self):
-		pass
+		global prepoznavanjeStatisticsFunkcijeMonth
+		prepoznavanjeStatisticsFunkcijeMonth = 0
+		self.popMonthDialog.show()
 
 	def StatusActionDate_triggered(self):
 		pass
@@ -495,12 +525,14 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		statistics_functions.SeverityActionAll_triggered()
 
 	def SeverityActionYear_triggered(self):
-		global prepoznavanjeStatisticsFunkcije
-		prepoznavanjeStatisticsFunkcije = 1
+		global prepoznavanjeStatisticsFunkcijeYear
+		prepoznavanjeStatisticsFunkcijeYear = 1
 		self.popYearDialog.show()
 
 	def SeverityActionMonth_triggered(self):
-		pass
+		global prepoznavanjeStatisticsFunkcijeMonth
+		prepoznavanjeStatisticsFunkcijeMonth = 1
+		self.popMonthDialog.show()
 
 	def SeverityActionDate_triggered(self):
 		pass
@@ -509,12 +541,14 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		statistics_functions.CategoryActionAll_triggered()
 
 	def CategoryActionYear_triggered(self):
-		global prepoznavanjeStatisticsFunkcije
-		prepoznavanjeStatisticsFunkcije = 2
+		global prepoznavanjeStatisticsFunkcijeYear
+		prepoznavanjeStatisticsFunkcijeYear = 2
 		self.popYearDialog.show()
 
 	def CategoryActionMonth_triggered(self):
-		pass
+		global prepoznavanjeStatisticsFunkcijeMonth
+		prepoznavanjeStatisticsFunkcijeMonth = 2
+		self.popMonthDialog.show()
 
 	def CategoryActionDate_triggered(self):
 		pass
@@ -523,12 +557,14 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		statistics_functions.DurationActionAll_triggered()
 
 	def DurationActionYear_triggered(self):
-		global prepoznavanjeStatisticsFunkcije
-		prepoznavanjeStatisticsFunkcije = 3
+		global prepoznavanjeStatisticsFunkcijeYear
+		prepoznavanjeStatisticsFunkcijeYear = 3
 		self.popYearDialog.show()
 
 	def DurationActionMonth_triggered(self):
-		pass
+		global prepoznavanjeStatisticsFunkcijeMonth
+		prepoznavanjeStatisticsFunkcijeMonth = 3
+		self.popMonthDialog.show()
 
 	def DurationActionDate_triggered(self):
 		pass

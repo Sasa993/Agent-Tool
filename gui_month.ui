@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MonthDialog</class>
+ <widget class="QDialog" name="MonthDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>80</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Chose month and year</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonContinueMonth">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>200</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Continue</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="dateEditMonth">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>110</y>
+     <width>110</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="wrapping">
+    <bool>false</bool>
+   </property>
+   <property name="frame">
+    <bool>true</bool>
+   </property>
+   <property name="accelerated">
+    <bool>false</bool>
+   </property>
+   <property name="correctionMode">
+    <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+   </property>
+   <property name="keyboardTracking">
+    <bool>true</bool>
+   </property>
+   <property name="showGroupSeparator" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="minimumDate">
+    <date>
+     <year>2018</year>
+     <month>1</month>
+     <day>1</day>
+    </date>
+   </property>
+   <property name="currentSection">
+    <enum>QDateTimeEdit::MonthSection</enum>
+   </property>
+   <property name="displayFormat">
+    <string>M/yyyy</string>
+   </property>
+   <property name="calendarPopup">
+    <bool>false</bool>
+   </property>
+   <property name="timeSpec">
+    <enum>Qt::LocalTime</enum>
+   </property>
+   <property name="date">
+    <date>
+     <year>2018</year>
+     <month>1</month>
+     <day>1</day>
+    </date>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
