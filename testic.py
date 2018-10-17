@@ -10,6 +10,7 @@ from gui_year import Ui_YearDialog
 from gui_month import Ui_MonthDialog
 from gui_date import Ui_DateDialog
 from gui_top10_longest_calls import Ui_Top10LongestCallsDialog
+from gui_top10_quickest_calls import Ui_Top10QuickestCallsDialog
 import datetime
 import numpy as np
 import matplotlib.pyplot as plt
@@ -41,6 +42,59 @@ lista = []
 prepoznavanjeStatisticsFunkcijeYear = 0
 prepoznavanjeStatisticsFunkcijeMonth = 0
 prepoznavanjeStatisticsFunkcijeDate = 0
+
+class quickestCallsDialog(QtGui.QDialog, Ui_Top10QuickestCallsDialog):
+	def __init__(self, parent = None):
+		QtGui.QDialog.__init__(self, parent)
+		flags = QtCore.Qt.Drawer | QtCore.Qt.WindowStaysOnTopHint
+		self.setWindowFlags(flags)
+		self.setupUi(self)
+
+		self.pushButtonSelektovano.clicked.connect(self.selektovano)
+		self.ispis_quickest_calls()
+
+	def ispis_quickest_calls(self):
+		conn = sqlite3.connect(bazica)
+		c = conn.cursor()
+
+		top10_kveri = c.execute('SELECT * FROM ticket_info ORDER BY vrijeme_trajanja_poziva_h ASC, vrijeme_trajanja_poziva_m ASC, vrijeme_trajanja_poziva_s ASC LIMIT 10')
+		conn.commit()
+
+		for x in top10_kveri:
+			# da bi table funkcionisao, moramo dodavati row za svaki
+			rowPosition = self.tableWidgetTop10QuickestCalls.rowCount()
+			self.tableWidgetTop10QuickestCalls.insertRow(rowPosition)
+			
+			item = QtGui.QTableWidgetItem()
+			# da bi ID bio INTEGER da se moze sortirati normalno
+			item.setData(QtCore.Qt.EditRole, x[0])
+			item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item1 = QtGui.QTableWidgetItem("{0}".format(x[1]))
+			item1.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item2 = QtGui.QTableWidgetItem("{0}".format(x[2]))
+			item2.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item3 = QtGui.QTableWidgetItem("{0}".format(x[3]))
+			item3.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item4 = QtGui.QTableWidgetItem("{0}".format(x[4]))
+			item4.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+			item5 = QtGui.QTableWidgetItem("{0:02d}:{1:02d}:{2:02d}".format(x[27], x[28], x[29]))
+			item5.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+
+			self.tableWidgetTop10QuickestCalls.setItem(rowPosition, 0, item)
+			self.tableWidgetTop10QuickestCalls.setItem(rowPosition, 1, item1)
+			self.tableWidgetTop10QuickestCalls.setItem(rowPosition, 2, item2)
+			self.tableWidgetTop10QuickestCalls.setItem(rowPosition, 3, item3)
+			self.tableWidgetTop10QuickestCalls.setItem(rowPosition, 4, item4)
+			self.tableWidgetTop10QuickestCalls.setItem(rowPosition, 5, item5)
+
+	def selektovano(self):
+		global lista
+
+		for x in self.tableWidgetTop10QuickestCalls.selectedItems():
+			lista.append(x.text())
+
+		self.popSelektovaniId = Ui_selektovaniId()
+		self.popSelektovaniId.show()
 
 class longestCallsDialog(QtGui.QDialog, Ui_Top10LongestCallsDialog):
 	def __init__(self, parent = None):
@@ -419,6 +473,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.popMonthDialog = monthDialog()
 		self.popDateDialog = dateDialog()
 		self.popLongestCallsDialog = longestCallsDialog()
+		self.popQuickestCallsDialog = quickestCallsDialog()
 
 		self.StatusActionAll.triggered.connect(self.pozoviStatusActionAll)
 		self.StatusActionYear.triggered.connect(self.StatusActionYear_triggered)
@@ -441,6 +496,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.DurationActionDate.triggered.connect(self.DurationActionDate_triggered)
 
 		self.actionLongest_Calls.triggered.connect(self.LongestCalls_triggered)
+		self.actionQuickest_Calls.triggered.connect(self.QuickestCalls_triggered)
 
 		# timer
 		self.timer = QtCore.QTimer(self)
@@ -663,6 +719,9 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 
 	def LongestCalls_triggered(self):
 		self.popLongestCallsDialog.show()
+
+	def QuickestCalls_triggered(self):
+		self.popQuickestCallsDialog.show()
 
 	# unos u bazu
 	def click_on_pushButtonSave_btn(self):
