@@ -28,7 +28,7 @@ class Ui_selektovaniId(object):
         selektovaniId.resize(600, 615)
         selektovaniId.setMinimumSize(QtCore.QSize(600, 563))
         selektovaniId.setMaximumSize(QtCore.QSize(1080, 700))
-        selektovaniId.setInputMethodHints(QtCore.Qt.ImhMultiLine)
+        # selektovaniId.setInputMethodHints(QtCore.Qt.ImhMultiLine)
         self.gridLayout_3 = QtGui.QGridLayout(selektovaniId)
         self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
         spacerItem = QtGui.QSpacerItem(20, 30, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)

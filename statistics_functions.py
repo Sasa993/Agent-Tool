@@ -93,7 +93,7 @@ def StatusActionYear_triggered(godina):
 		textprops=dict(color="w"))
 
 	ax.legend(wedges, ingredients,
-		title="Status (Year {0})".format(godina),
+		title="Status",
 		loc="center left",
 		bbox_to_anchor=(1, 0, 0.5, 1))
 
@@ -128,6 +128,8 @@ def StatusActionMonth_triggered(godina, mjesec):
 	brojActive = c.fetchone()[0]
 	conn.commit()
 
+	inTotal = brojWFC + brojTransferred + brojEscalated + brojClosed + brojActive
+
 	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
 
 	data = [brojWFC, brojTransferred, brojEscalated, brojClosed, brojActive]
@@ -143,13 +145,13 @@ def StatusActionMonth_triggered(godina, mjesec):
 		textprops=dict(color="w"))
 
 	ax.legend(wedges, ingredients,
-		title="Month / Year\n{0} / {1}".format(mjesec, godina),
+		title="Status",
 		loc="center left",
 		bbox_to_anchor=(1, 0, 0.5, 1))
 
 	plt.setp(autotexts, size=8, weight="bold")
 
-	ax.set_title("Status ({0}/{1})".format(mjesec, godina))
+	ax.set_title("Status ({0}/{1})\nIn total: {2} tickets".format(mjesec, godina, inTotal))
 
 	plt.show()
 	conn.close()
@@ -178,6 +180,8 @@ def StatusActionDate_triggered(datum):
 	brojActive = c.fetchone()[0]
 	conn.commit()
 
+	inTotal = brojWFC + brojTransferred + brojEscalated + brojClosed + brojActive
+
 	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
 
 	data = [brojWFC, brojTransferred, brojEscalated, brojClosed, brojActive]
@@ -193,13 +197,13 @@ def StatusActionDate_triggered(datum):
 		textprops=dict(color="w"))
 
 	ax.legend(wedges, ingredients,
-		title="Status({0})".format(datum),
+		title="Status",
 		loc="center left",
 		bbox_to_anchor=(1, 0, 0.5, 1))
 
 	plt.setp(autotexts, size=8, weight="bold")
 
-	ax.set_title("Status ({0})".format(datum))
+	ax.set_title("Status ({0})\nIn total: {1} tickets".format(datum, inTotal))
 
 	plt.show()
 	conn.close()
@@ -235,7 +239,7 @@ def SeverityActionAll_triggered():
 			textprops=dict(color="w"))
 
 		ax.legend(wedges, ingredients,
-			title="Severity (All)",
+			title="Severity",
 			loc="center left",
 			bbox_to_anchor=(1, 0, 0.5, 1))
 
@@ -276,7 +280,7 @@ def SeverityActionYear_triggered(godina):
 		textprops=dict(color="w"))
 
 	ax.legend(wedges, ingredients,
-		title="Severity (Year {0})".format(godina),
+		title="Severity",
 		loc="center left",
 		bbox_to_anchor=(1, 0, 0.5, 1))
 
@@ -303,6 +307,8 @@ def SeverityActionMonth_triggered(godina, mjesec):
 	brojSev3 = c.fetchone()[0]
 	conn.commit()
 
+	inTotal = brojSev1 + brojSev2 + brojSev3
+
 	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
 
 	data = [brojSev1, brojSev2, brojSev3]
@@ -317,13 +323,13 @@ def SeverityActionMonth_triggered(godina, mjesec):
 		textprops=dict(color="w"))
 
 	ax.legend(wedges, ingredients,
-		title="Severity (Year {0})".format(godina),
+		title="Severity",
 		loc="center left",
 		bbox_to_anchor=(1, 0, 0.5, 1))
 
 	plt.setp(autotexts, size=8, weight="bold")
 
-	ax.set_title("Severity ({0}/{1})".format(mjesec, godina))
+	ax.set_title("Severity ({0}/{1})\nIn total: {2} tickets".format(mjesec, godina, inTotal))
 
 	plt.show()
 	conn.close()
@@ -344,6 +350,8 @@ def SeverityActionDate_triggered(datum):
 	brojSev3 = c.fetchone()[0]
 	conn.commit()
 
+	inTotal = brojSev1 + brojSev2 + brojSev3
+
 	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
 
 	data = [brojSev1, brojSev2, brojSev3]
@@ -358,13 +366,13 @@ def SeverityActionDate_triggered(datum):
 		textprops=dict(color="w"))
 
 	ax.legend(wedges, ingredients,
-		title="Severity ({0})".format(datum),
+		title="Severity",
 		loc="center left",
 		bbox_to_anchor=(1, 0, 0.5, 1))
 
 	plt.setp(autotexts, size=8, weight="bold")
 
-	ax.set_title("Severity ({0})".format(datum))
+	ax.set_title("Severity ({0})\nIn total: {1} tickets".format(datum, inTotal))
 
 	plt.show()
 	conn.close()
@@ -817,7 +825,7 @@ def DurationActionAll_triggered():
 		textprops=dict(color="w"))
 
 	ax.legend(wedges, ingredients,
-		title="Call Duration (All)",
+		title="Call Duration",
 		loc="center left",
 		bbox_to_anchor=(1, 0, 0.5, 1))
 
@@ -873,7 +881,7 @@ def DurationActionYear_triggered(godina):
 		textprops=dict(color="w"))
 
 	ax.legend(wedges, ingredients,
-		title="Call Duration (Year {0})".format(godina),
+		title="Call Duration",
 		loc="center left",
 		bbox_to_anchor=(1, 0, 0.5, 1))
 
@@ -914,6 +922,8 @@ def DurationActionMonth_triggered(godina, mjesec):
 	preko2Sata = c.fetchone()[0]
 	conn.commit()
 
+	inTotal = brojDo15 + brojDo45 + brojDoSat + brojDoSatipo + brojDo2Sata + preko2Sata
+
 	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
 
 	data = [brojDo15, brojDo45, brojDoSat, brojDoSatipo, brojDo2Sata, preko2Sata]
@@ -929,13 +939,13 @@ def DurationActionMonth_triggered(godina, mjesec):
 		textprops=dict(color="w"))
 
 	ax.legend(wedges, ingredients,
-		title="Call Duration ({0}/{1})".format(mjesec, godina),
+		title="Call Duration",
 		loc="center left",
 		bbox_to_anchor=(1, 0, 0.5, 1))
 
 	plt.setp(autotexts, size=8, weight="bold")
 
-	ax.set_title("Call Duration (Year {0})".format(godina))
+	ax.set_title("Call Duration ({0}/{1})\nIn total: {2} tickets".format(mjesec, godina, inTotal))
 
 	plt.show()
 
@@ -970,6 +980,8 @@ def DurationActionDate_triggered(datum):
 	preko2Sata = c.fetchone()[0]
 	conn.commit()
 
+	inTotal = brojDo15 + brojDo45 + brojDoSat + brojDoSatipo + brojDo2Sata + preko2Sata
+
 	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
 
 	data = [brojDo15, brojDo45, brojDoSat, brojDoSatipo, brojDo2Sata, preko2Sata]
@@ -985,13 +997,13 @@ def DurationActionDate_triggered(datum):
 		textprops=dict(color="w"))
 
 	ax.legend(wedges, ingredients,
-		title="Call Duration ({0})".format(datum),
+		title="Call Duration",
 		loc="center left",
 		bbox_to_anchor=(1, 0, 0.5, 1))
 
 	plt.setp(autotexts, size=8, weight="bold")
 
-	ax.set_title("Call Duration ({0})".format(datum))
+	ax.set_title("Call Duration ({0})\nIn total: {1} tickets".format(datum, inTotal))
 
 	plt.show()
 

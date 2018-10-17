@@ -7,4 +7,5 @@ call pyuic4 -x gui_selektovani.ui -o gui_selektovani.py
 call pyuic4 -x gui_year.ui -o gui_year.py
 call pyuic4 -x gui_month.ui -o gui_month.py
 call pyuic4 -x gui_date.ui -o gui_date.py
+call pyuic4 -x gui_top10_longest_calls.ui -o gui_top10_longest_calls.py
 call pyrcc4 -py3 xx.qrc -o xx_rc.py

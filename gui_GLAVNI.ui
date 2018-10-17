@@ -2315,7 +2315,7 @@ color: black;
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>About Lesa</string>
+    <string>About Agent Tool</string>
    </property>
    <property name="statusTip">
     <string>About dude Lesa</string>
