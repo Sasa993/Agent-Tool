@@ -1,6 +1,3 @@
-PyQt4
-sys
-sqlite3
-datetime
-matplotlib
-numpy
+matplotlib==2.2.3
+numpy==1.15.2
+pyqt4==4.11.4
