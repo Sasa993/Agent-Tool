@@ -28,7 +28,7 @@ def StatusActionAll_triggered():
 		brojActive = c.fetchone()[0]
 		conn.commit()
 
-		fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+		fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Status(All)")
 
 		data = [brojWFC, brojTransferred, brojEscalated, brojClosed, brojActive]
 		ingredients = ['WFC', 'Transferred', 'Escalated', 'Closed', 'Active']
@@ -78,7 +78,7 @@ def StatusActionYear_triggered(godina):
 	brojActive = c.fetchone()[0]
 	conn.commit()
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Status(Year - {0})".format(godina))
 
 	data = [brojWFC, brojTransferred, brojEscalated, brojClosed, brojActive]
 	ingredients = ['WFC', 'Transferred', 'Escalated', 'Closed', 'Active']
@@ -130,7 +130,7 @@ def StatusActionMonth_triggered(godina, mjesec):
 
 	inTotal = brojWFC + brojTransferred + brojEscalated + brojClosed + brojActive
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Status(Month/Year - {0}/{1})".format(mjesec, godina))
 
 	data = [brojWFC, brojTransferred, brojEscalated, brojClosed, brojActive]
 	ingredients = ['WFC', 'Transferred', 'Escalated', 'Closed', 'Active']
@@ -182,7 +182,7 @@ def StatusActionDate_triggered(datum):
 
 	inTotal = brojWFC + brojTransferred + brojEscalated + brojClosed + brojActive
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Status(Date - {0})".format(datum))
 
 	data = [brojWFC, brojTransferred, brojEscalated, brojClosed, brojActive]
 	ingredients = ['WFC', 'Transferred', 'Escalated', 'Closed', 'Active']
@@ -224,7 +224,7 @@ def SeverityActionAll_triggered():
 		brojSev3 = c.fetchone()[0]
 		conn.commit()
 
-		fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+		fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Severity(All)")
 
 		data = [brojSev1, brojSev2, brojSev3]
 		ingredients = ['Sev 1', 'Sev 2', 'Sev 3']
@@ -266,7 +266,7 @@ def SeverityActionYear_triggered(godina):
 	brojSev3 = c.fetchone()[0]
 	conn.commit()
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Severity(Year - {0})".format(godina))
 
 	data = [brojSev1, brojSev2, brojSev3]
 	ingredients = ['Sev 1', 'Sev 2', 'Sev 3']
@@ -309,7 +309,7 @@ def SeverityActionMonth_triggered(godina, mjesec):
 
 	inTotal = brojSev1 + brojSev2 + brojSev3
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Severity(Month/Year - {0}/{1})".format(mjesec, godina))
 
 	data = [brojSev1, brojSev2, brojSev3]
 	ingredients = ['Sev 1', 'Sev 2', 'Sev 3']
@@ -352,7 +352,7 @@ def SeverityActionDate_triggered(datum):
 
 	inTotal = brojSev1 + brojSev2 + brojSev3
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Severity(Date - {0})".format(datum))
 
 	data = [brojSev1, brojSev2, brojSev3]
 	ingredients = ['Sev 1', 'Sev 2', 'Sev 3']
@@ -453,7 +453,7 @@ def CategoryActionAll_triggered():
 		brojOther = c.fetchone()[0]
 		conn.commit()
 
-		fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+		fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Category(All)")
 
 		ingredients = ['Network', 'Redundancy', 'EDC', 'Installation', 'Printers', 'Reoccurring', 'Cash Drawers', 'End Of Day', 'Aloha Manager', 'Hardware', 'Date/Time', 'Windows', 'Aloha Takeout', 'Loyalty', 'Orderman', 'Discrepancy', 'Aloha Kitchen', 'Other']
 
@@ -554,7 +554,7 @@ def CategoryActionYear_triggered(godina):
 	brojOther = c.fetchone()[0]
 	conn.commit()
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Category(Year - {0})".format(godina))
 
 	ingredients = ['Network', 'Redundancy', 'EDC', 'Installation', 'Printers', 'Reoccurring', 'Cash Drawers', 'End Of Day', 'Aloha Manager', 'Hardware', 'Date/Time', 'Windows', 'Aloha Takeout', 'Loyalty', 'Orderman', 'Discrepancy', 'Aloha Kitchen', 'Other']
 
@@ -655,7 +655,7 @@ def CategoryActionMonth_triggered(godina, mjesec):
 	brojOther = c.fetchone()[0]
 	conn.commit()
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Category(Month/Year - {0}/{1})".format(mjesec, godina))
 
 	ingredients = ['Network', 'Redundancy', 'EDC', 'Installation', 'Printers', 'Reoccurring', 'Cash Drawers', 'End Of Day', 'Aloha Manager', 'Hardware', 'Date/Time', 'Windows', 'Aloha Takeout', 'Loyalty', 'Orderman', 'Discrepancy', 'Aloha Kitchen', 'Other']
 
@@ -756,7 +756,7 @@ def CategoryActionDate_triggered(datum):
 	brojOther = c.fetchone()[0]
 	conn.commit()
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Category(Date - {0})".format(datum))
 
 	ingredients = ['Network', 'Redundancy', 'EDC', 'Installation', 'Printers', 'Reoccurring', 'Cash Drawers', 'End Of Day', 'Aloha Manager', 'Hardware', 'Date/Time', 'Windows', 'Aloha Takeout', 'Loyalty', 'Orderman', 'Discrepancy', 'Aloha Kitchen', 'Other']
 
@@ -810,7 +810,7 @@ def DurationActionAll_triggered():
 	preko2Sata = c.fetchone()[0]
 	conn.commit()
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Duration(All)")
 
 	data = [brojDo15, brojDo45, brojDoSat, brojDoSatipo, brojDo2Sata, preko2Sata]
 	ingredients = ['0 - 15min', '15 - 45min', '45min - 1h', '1h - 1h30min', '1h30min - 2h', '2h - ']
@@ -866,7 +866,7 @@ def DurationActionYear_triggered(godina):
 	preko2Sata = c.fetchone()[0]
 	conn.commit()
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Duration(Year - {0})".format(godina))
 
 	data = [brojDo15, brojDo45, brojDoSat, brojDoSatipo, brojDo2Sata, preko2Sata]
 	ingredients = ['0 - 15min', '15 - 45min', '45min - 1h', '1h - 1h30min', '1h30min - 2h', '2h - ']
@@ -924,7 +924,7 @@ def DurationActionMonth_triggered(godina, mjesec):
 
 	inTotal = brojDo15 + brojDo45 + brojDoSat + brojDoSatipo + brojDo2Sata + preko2Sata
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Duration(Month/Year - {0}/{1})".format(mjesec, godina))
 
 	data = [brojDo15, brojDo45, brojDoSat, brojDoSatipo, brojDo2Sata, preko2Sata]
 	ingredients = ['0 - 15min', '15 - 45min', '45min - 1h', '1h - 1h30min', '1h30min - 2h', '2h - ']
@@ -982,7 +982,7 @@ def DurationActionDate_triggered(datum):
 
 	inTotal = brojDo15 + brojDo45 + brojDoSat + brojDoSatipo + brojDo2Sata + preko2Sata
 
-	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+	fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"), num="Agent Tool - Duration(Date - {0})".format(datum))
 
 	data = [brojDo15, brojDo45, brojDoSat, brojDoSatipo, brojDo2Sata, preko2Sata]
 	ingredients = ['0 - 15min', '15 - 45min', '45min - 1h', '1h - 1h30min', '1h30min - 2h', '2h - ']
